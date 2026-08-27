@@ -1,0 +1,878 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IN7 INVICTUS | Oficial</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+
+        body {
+            background-color: #0b0b0b;
+            color: #f5f5f5;
+            font-family: 'Rajdhani', sans-serif;
+            overflow-x: hidden;
+            position: relative;
+        }
+
+        .bg-video {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            z-index: -2;
+            opacity: 0.7; 
+        }
+
+        .overlay {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background: rgba(11, 11, 11, 0.45);
+            z-index: -1;
+        }
+
+        /* Sistema de Telas - Ocultas por padrão */
+        .screen {
+            display: none;
+            position: relative;
+            z-index: 2;
+            min-height: 100vh;
+        }
+
+        .screen.active {
+            display: block;
+        }
+
+        #payment-screen.active {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-between;
+        }
+
+        /* Telas secundárias com a imagem 85760.png de fundo */
+        #recrutamento-screen, #eventos-screen, #payment-screen {
+            background: url('85760.png') no-repeat center center fixed;
+            background-size: cover;
+            min-height: 100vh;
+        }
+
+        header {
+            text-align: center;
+            padding: 40px 20px;
+            background: linear-gradient(180deg, rgba(22,22,22,0.85) 0%, rgba(11,11,11,0.85) 100%);
+            border-bottom: 2px solid #c5a059;
+            position: relative;
+            z-index: 1;
+        }
+
+        .logo-img {
+            width: 130px;
+            height: 130px;
+            border-radius: 50%;
+            border: 2px solid #d4af37;
+            margin-bottom: 15px;
+            object-fit: cover;
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
+        }
+
+        h1 {
+            font-family: 'Cinzel', serif;
+            font-size: 2.8rem;
+            color: #ffffff;
+            letter-spacing: 2px;
+            text-transform: uppercase;
+        }
+
+        h1 span {
+            color: #d4af37;
+        }
+
+        .motto {
+            font-style: italic;
+            color: #d0d0d0;
+            margin-top: 5px;
+            letter-spacing: 4px;
+            font-size: 1.1rem;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
+        }
+
+        .container {
+            max-width: 900px;
+            margin: 40px auto;
+            padding: 0 20px;
+            position: relative;
+            z-index: 1;
+        }
+
+        .card {
+            background: rgba(15, 15, 15, 0.88);
+            backdrop-filter: blur(5px);
+            border: 1px solid #333;
+            border-left: 4px solid #d4af37;
+            padding: 30px;
+            margin-bottom: 30px;
+            border-radius: 8px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
+        }
+
+        h2 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            margin-bottom: 15px;
+            font-size: 1.5rem;
+        }
+
+        p {
+            line-height: 1.6;
+            color: #e0e0e0;
+            font-size: 1.1rem;
+            margin-bottom: 15px;
+        }
+
+        /* Botões de Acesso Contextuais */
+        .section-action-container {
+            margin-top: 20px;
+            text-align: center;
+        }
+
+        .action-btn {
+            background: linear-gradient(135deg, #d4af37 0%, #aa8228 100%);
+            color: #0b0b0b;
+            padding: 16px 24px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            text-align: center;
+            text-decoration: none;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            gap: 10px;
+            box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
+            transition: transform 0.2s ease, opacity 0.2s ease;
+            width: 100%;
+        }
+
+        .action-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.9;
+        }
+
+        .action-btn.secondary {
+            background: rgba(20, 20, 20, 0.9);
+            color: #d4af37;
+            border: 2px solid #d4af37;
+        }
+
+        .action-btn.secondary:hover {
+            background: rgba(212, 175, 55, 0.1);
+        }
+
+        .guild-gallery {
+            display: flex;
+            gap: 15px;
+            margin-top: 20px;
+            margin-bottom: 20px;
+            overflow-x: auto;
+            scroll-snap-type: x mandatory;
+            padding-bottom: 5px;
+        }
+
+        .guild-gallery::-webkit-scrollbar {
+            height: 6px;
+        }
+
+        .guild-gallery::-webkit-scrollbar-thumb {
+            background: #d4af37;
+            border-radius: 3px;
+        }
+
+        .guild-gallery img {
+            flex: 1;
+            min-width: 140px;
+            height: 200px;
+            object-fit: cover;
+            border-radius: 6px;
+            border: 1px solid #444;
+            scroll-snap-align: start;
+        }
+
+        .honra-single-container {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .honra-img-single {
+            width: 100%;
+            max-width: 320px;
+            height: 420px;
+            object-fit: cover;
+            border-radius: 8px;
+            border: 2px solid #d4af37;
+            box-shadow: 0 5px 25px rgba(212, 175, 55, 0.4);
+        }
+
+        .staff-item {
+            flex: 1;
+            min-width: 160px;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid #444;
+            border-radius: 6px;
+            padding: 10px;
+        }
+
+        .staff-item img {
+            width: 100%;
+            height: 160px;
+            object-fit: cover;
+            border-radius: 4px;
+            margin-bottom: 10px;
+        }
+
+        .staff-name {
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+
+        .shop-price {
+            color: #d4af37;
+            font-size: 1.4rem;
+            font-weight: 700;
+            margin: 10px 0;
+        }
+
+        .guild-id-box {
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px dashed #d4af37;
+            padding: 15px;
+            text-align: center;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        .guild-id-box span {
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 1.4rem;
+            letter-spacing: 2px;
+        }
+
+        ul {
+            list-style: none;
+            margin-top: 15px;
+        }
+
+        ul li {
+            padding: 8px 0;
+            border-bottom: 1px solid #333;
+            display: flex;
+            justify-content: space-between;
+            font-size: 1.1rem;
+        }
+
+        ul li span:last-child {
+            color: #d4af37;
+            font-weight: 700;
+        }
+
+        .social-container {
+            display: flex;
+            justify-content: center;
+            gap: 15px;
+            margin-top: 20px;
+            flex-wrap: wrap;
+        }
+
+        .social-btn {
+            background: rgba(31, 31, 31, 0.9);
+            color: #f5f5f5;
+            padding: 10px 22px;
+            border-radius: 4px;
+            text-decoration: none;
+            font-weight: 700;
+            border: 1px solid #444;
+            display: flex;
+            align-items: center;
+            gap: 10px;
+        }
+
+        .social-btn svg {
+            width: 20px;
+            height: 20px;
+            fill: #d4af37;
+        }
+
+        .social-btn img {
+            width: 22px;
+            height: 22px;
+            border-radius: 50%;
+            object-fit: cover;
+        }
+
+        /* Formulário de Recrutamento */
+        .form-group {
+            margin-bottom: 15px;
+        }
+
+        .form-group label {
+            display: block;
+            color: #d4af37;
+            margin-bottom: 5px;
+            font-weight: 700;
+        }
+
+        .form-control {
+            width: 100%;
+            padding: 12px;
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid #444;
+            border-radius: 4px;
+            color: #fff;
+            font-family: 'Rajdhani', sans-serif;
+            font-size: 1rem;
+        }
+
+        .form-control:focus {
+            border-color: #d4af37;
+            outline: none;
+        }
+
+        .recrutamento-btn {
+            background: linear-gradient(135deg, #d4af37 0%, #aa8228 100%);
+            color: #0b0b0b;
+            padding: 14px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1.1rem;
+            letter-spacing: 1px;
+            margin-top: 10px;
+        }
+
+        #resultado-recrutamento {
+            margin-top: 20px;
+            padding: 15px;
+            border-radius: 6px;
+            display: none;
+            font-size: 1.05rem;
+            line-height: 1.5;
+        }
+
+        .resultado-sucesso {
+            background: rgba(37, 211, 102, 0.15);
+            border: 1px solid #25d366;
+            color: #e2fbe8;
+        }
+
+        .resultado-erro {
+            background: rgba(255, 75, 75, 0.15);
+            border: 1px solid #ff4b4b;
+            color: #fbe2e2;
+        }
+
+        .whatsapp-envio-btn {
+            background: #25d366;
+            color: #fff;
+            padding: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 15px;
+            text-decoration: none;
+            display: inline-block;
+            text-align: center;
+        }
+
+        /* Área de Eventos & Chaveamentos */
+        .event-banner-box {
+            background: rgba(20, 20, 20, 0.9);
+            border: 1px solid #d4af37;
+            border-radius: 8px;
+            padding: 20px;
+            margin-bottom: 20px;
+        }
+
+        .rules-sublist {
+            margin-top: 8px;
+            padding-left: 15px;
+            list-style: disc;
+        }
+
+        .rules-sublist li {
+            font-size: 1rem;
+            border-bottom: none;
+            padding: 3px 0;
+            color: #ccc;
+            display: list-item;
+            text-align: left;
+            justify-content: normal;
+        }
+
+        .bracket-box {
+            background: rgba(12, 12, 12, 0.95);
+            border: 1px dashed #d4af37;
+            padding: 20px;
+            border-radius: 6px;
+            margin-top: 20px;
+        }
+
+        /* Checkout PagBank */
+        .checkout-box {
+            background: rgba(15, 15, 15, 0.92);
+            backdrop-filter: blur(10px);
+            border: 1px solid #d4af37;
+            padding: 30px;
+            border-radius: 10px;
+            max-width: 500px;
+            width: 100%;
+            text-align: center;
+            box-shadow: 0 10px 40px rgba(0,0,0,0.8);
+            margin: auto;
+        }
+
+        .pagbank-link-btn, .whatsapp-confirm-btn {
+            background: #d4af37;
+            color: #0b0b0b;
+            padding: 14px 20px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 4px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            font-size: 1rem;
+            margin-top: 15px;
+            text-decoration: none;
+            display: inline-block;
+        }
+
+        .whatsapp-confirm-btn {
+            background: #25d366;
+            color: #fff;
+        }
+
+        .back-link {
+            display: inline-block;
+            margin-top: 20px;
+            color: #aaa;
+            text-decoration: none;
+            font-size: 0.95rem;
+            cursor: pointer;
+        }
+
+        .back-link:hover {
+            color: #d4af37;
+        }
+
+        footer {
+            text-align: center;
+            padding: 30px;
+            background: rgba(8, 8, 8, 0.9);
+            color: #888;
+            font-size: 0.9rem;
+            border-top: 1px solid #222;
+            position: relative;
+            z-index: 1;
+        }
+    </style>
+</head>
+<body>
+
+    <video autoplay muted loop class="bg-video">
+        <source src="80646.mp4" type="video/mp4">
+    </video>
+    <div class="overlay"></div>
+
+    <!-- ================= TELA 1: HOME (PRINCIPAL) ================= -->
+    <div id="main-screen" class="screen active">
+        <header>
+            <img src="82605_2.jpg" alt="IN7 INVICTUS Logo" class="logo-img">
+            <h1>IN7 <span>INVICTUS</span></h1>
+            <div class="motto">Jamais Conquistados</div>
+            
+            <div class="social-container">
+                <a href="https://www.instagram.com/in7_invictus?igsh=M3Rxc3hrcTI3cmZ6" target="_blank" class="social-btn">
+                    <svg viewBox="0 0 24 24"><path d="M12 2.163c3.204 0 3.584.012 4.85.07 3.252.148 4.771 1.691 4.919 4.919.058 1.265.069 1.645.069 4.849 0 3.205-.012 3.584-.069 4.849-.149 3.225-1.664 4.771-4.919 4.919-1.266.058-1.644.07-4.85.07-3.204 0-3.584-.012-4.849-.07-3.26-.149-4.771-1.699-4.919-4.92-.058-1.265-.07-1.644-.07-4.849 0-3.204.013-3.583.07-4.849.149-3.227 1.664-4.771 4.919-4.919 1.266-.057 1.645-.069 4.849-.069zm0-2.163c-3.259 0-3.667.014-4.947.072-4.358.2-6.78 2.618-6.98 6.98-.059 1.281-.073 1.689-.073 4.948 0 3.259.014 3.668.072 4.948.2 4.358 2.618 6.78 6.98 6.98 1.281.058 1.689.072 4.948.072 3.259 0 3.668-.014 4.948-.072 4.354-.2 6.782-2.618 6.979-6.98.059-1.28.073-1.689.073-4.948 0-3.259-.014-3.667-.072-4.947-.196-4.354-2.617-6.78-6.979-6.98-1.281-.059-1.69-.073-4.949-.073zm0 5.838c-3.403 0-6.162 2.759-6.162 6.162s2.759 6.163 6.162 6.163 6.162-2.759 6.162-6.163c0-3.403-2.759-6.162-6.162-6.162zm0 10.162c-2.209 0-4-1.79-4-4 0-2.209 1.791-4 4-4s4 1.791 4 4c0 2.21-1.791 4-4 4zm6.406-11.845c-.796 0-1.441.645-1.441 1.44s.645 1.44 1.441 1.44c.795 0 1.439-.645 1.439-1.44s-.644-1.44-1.439-1.44z"/></svg> Instagram
+                </a>
+                <a href="https://www.tiktok.com/@in7_invictus?_r=1&_t=ZS-999mudkCwhV" target="_blank" class="social-btn">
+                    <svg viewBox="0 0 24 24"><path d="M19.59 6.69a4.83 4.83 0 0 1-3.77-4.25V2h-3.45v13.67a2.89 2.89 0 0 1-5.2 1.74 2.89 2.89 0 0 1 2.31-4.64 2.93 2.93 0 0 1 .88.13V9.4a6.84 6.84 0 0 0-1-.05A6.33 6.33 0 0 0 5 20.1a6.34 6.34 0 0 0 10.86-4.43v-7a8.16 8.16 0 0 0 4.77 1.52v-3.4a4.85 4.85 0 0 1-1-.1z"/></svg> TikTok
+                </a>
+                <a href="https://discord.gg/cadv2E4eKe" target="_blank" class="social-btn">
+                    <img src="82631.jpg" alt="Discord Icon"> Discord
+                </a>
+            </div>
+        </header>
+
+        <div class="container">
+            <!-- Bloco: Sobre a Guilda -->
+            <div class="card">
+                <h2>Sobre a Guilda</h2>
+                <p>A <strong>IN7 INVICTUS</strong> é uma guilda de elite focada em alta performance, organização competitiva e lealdade absoluta. Nascida para dominar o cenário, nossa tropa valoriza o trabalho em equipe, o rush inteligente e o respeito dentro e fora do mapa.</p>
+                
+                <div class="guild-gallery">
+                    <img src="82496.jpg" alt="Leão IN7">
+                    <img src="82679.jpg" alt="Logo Central IN7 INVICTUS">
+                    <img src="82498.jpg" alt="Guerreiro Espartano IN7">
+                </div>
+
+                <div class="guild-id-box">
+                    <p style="margin-bottom: 5px; font-size: 0.9rem; color: #aaa;">ID DA GUILDA NO FF:</p>
+                    <span>2064438275</span>
+                </div>
+
+                <div class="section-action-container">
+                    <button onclick="goToScreen('eventos-screen')" class="action-btn secondary">
+                        🏆 Ver Eventos & Campeonatos
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card: Top Honra Semanal -->
+            <div class="card">
+                <h2>Top Honra Semanal</h2>
+                <p>O destaque da tropa que carregou a guilda nesta semana!</p>
+                <div class="honra-single-container">
+                    <img src="82885.jpg" alt="Top Honra Semanal" class="honra-img-single">
+                </div>
+            </div>
+
+            <!-- Card: Nossa Staff -->
+            <div class="card">
+                <h2>Nossa Staff</h2>
+                <p>O comando oficial da IN7 INVICTUS:</p>
+                <div class="guild-gallery">
+                    <div class="staff-item">
+                        <img src="82953.jpg" alt="Perfil Bea">
+                        <span class="staff-name">Bea</span>
+                    </div>
+                    <div class="staff-item">
+                        <img src="82945.jpg" alt="Perfil Kong">
+                        <span class="staff-name">KONG</span>
+                    </div>
+                    <div class="staff-item">
+                        <img src="82951.jpg" alt="Perfil Nosdnail">
+                        <span class="staff-name">NOSDNAIL</span>
+                    </div>
+                    <div class="staff-item">
+                        <img src="82950.jpg" alt="Perfil Mia">
+                        <span class="staff-name">Mia</span>
+                    </div>
+                    <div class="staff-item">
+                        <img src="82952.jpg" alt="Perfil Dama">
+                        <span class="staff-name">Dama</span>
+                    </div>
+                </div>
+            </div>
+
+            <!-- Card: Requisitos Oficiais -->
+            <div class="card">
+                <h2>Requisitos Oficiais</h2>
+                <p>Para fazer parte da nossa tropa, o candidato precisa cumprir com os padrões mínimos da guilda:</p>
+                
+                <ul>
+                    <li><span>Patente Mínima</span> <span>Mestre 15 🌟 / Mestre de Honra</span></li>
+                    <li><span>Level Mínimo</span> <span>Level 50+</span></li>
+                    <li><span>Idade Mínima</span> <span>16 Anos</span></li>
+                    <li><span>Obrigatório</span> <span>Troca Nick com a Tag</span></li>
+                </ul>
+
+                <div class="section-action-container">
+                    <button onclick="goToScreen('recrutamento-screen')" class="action-btn">
+                        🎯 Quero Fazer Parte / Recrutamento
+                    </button>
+                </div>
+            </div>
+
+            <!-- Card: Loja Oficial IN7 -->
+            <div class="card">
+                <h2>Loja Oficial IN7</h2>
+                <p>Garanta seu Passe de Elite com segurança e ótimo preço:</p>
+                
+                <div style="margin: 15px 0;">
+                    <span style="font-size: 1rem; color: #ccc;">Passe de Elite</span>
+                    <div class="shop-price">R$ 5,50</div>
+                </div>
+
+                <div class="section-action-container">
+                    <button onclick="goToScreen('payment-screen')" class="action-btn">
+                        💳 Comprar Passe de Elite
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TELA 2: RECRUTAMENTO ================= -->
+    <div id="recrutamento-screen" class="screen">
+        <header>
+            <h1>Recrutamento <span>IN7</span></h1>
+            <div class="motto">Mostre seu valor na tropa</div>
+        </header>
+
+        <div class="container">
+            <div class="card">
+                <h2>Formulário de Recrutamento</h2>
+                <p>Preencha os dados abaixo para validar sua inscrição na IN7 INVICTUS:</p>
+                
+                <div class="form-group">
+                    <label for="nome">Seu Nome:</label>
+                    <input type="text" id="nome" class="form-control" placeholder="Digite seu nome completo">
+                </div>
+
+                <div class="form-group">
+                    <label for="email">Seu E-mail:</label>
+                    <input type="email" id="email" class="form-control" placeholder="seuemail@gmail.com">
+                </div>
+
+                <div class="form-group">
+                    <label for="whatsapp">Seu WhatsApp (com DDD):</label>
+                    <input type="text" id="whatsapp" class="form-control" placeholder="Ex: 859880169373">
+                </div>
+
+                <div class="form-group">
+                    <label for="idade">Idade:</label>
+                    <input type="number" id="idade" class="form-control" placeholder="Ex: 17">
+                </div>
+
+                <div class="form-group">
+                    <label for="ffid">ID do Free Fire:</label>
+                    <input type="text" id="ffid" class="form-control" placeholder="Ex: 250219877">
+                </div>
+
+                <div class="form-group">
+                    <label for="level">Level Atual:</label>
+                    <input type="number" id="level" class="form-control" placeholder="Ex: 77">
+                </div>
+
+                <div class="form-group">
+                    <label for="patente">Patente Atual (Contra Squad):</label>
+                    <input type="text" id="patente" class="form-control" placeholder="Ex: Mestre de honra">
+                </div>
+
+                <div class="form-group">
+                    <label for="nickatual">Nick Atual:</label>
+                    <input type="text" id="nickatual" class="form-control" placeholder="Ex: NX DEA7H">
+                </div>
+
+                <div class="form-group">
+                    <label for="nickpretendido">Nick Pretendido com a Tag:</label>
+                    <input type="text" id="nickpretendido" class="form-control" placeholder="Ex: IN7 DEA7H">
+                </div>
+
+                <div class="form-group">
+                    <label for="trocanick">Aceita Trocar o Nick?</label>
+                    <select id="trocanick" class="form-control">
+                        <option value="Sim">Sim</option>
+                        <option value="Nao">Não</option>
+                    </select>
+                </div>
+
+                <button onclick="verificarRequisitos()" class="recrutamento-btn">VERIFICAR REQUISITOS</button>
+
+                <div id="resultado-recrutamento"></div>
+
+                <a onclick="goToScreen('main-screen')" class="back-link">← Voltar para o início</a>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TELA 3: EVENTOS & CAMPEONATOS ================= -->
+    <div id="eventos-screen" class="screen">
+        <header>
+            <h1>Arena de Eventos & <span>Campeonatos</span></h1>
+            <div class="motto">Competitividade em Alta</div>
+        </header>
+
+        <div class="container">
+            <div class="card">
+                <p>Fique por dentro dos corujões, campeonatos internos, regras oficiais e chaveamentos atualizados da IN7 INVICTUS!</p>
+                
+                <div class="event-banner-box">
+                    <h3 style="color: #d4af37; font-family: 'Cinzel', serif; margin-bottom: 5px;">📢 2x2 INTERNO - IN7 (REGRAS OFICIAIS)</h3>
+                    <p style="font-size: 0.95rem; margin-bottom: 15px; color: #ccc;">A ideia da salinha é simples: treinar, evoluir e se divertir com responsabilidade!</p>
+                    
+                    <p style="color: #d4af37; font-weight: 700; margin-top: 10px;">👤 Personagens e Pets:</p>
+                    <ul class="rules-sublist">
+                        <li>🎧 <strong>Ativa:</strong> Só Alok.</li>
+                        <li>🏃‍♂️ ➡️ <strong>Passivas:</strong> Só Kelly, Moco e Maxim.</li>
+                        <li>🐶 🗣️ <strong>Pet:</strong> Só Dom Pisante.</li>
+                    </ul>
+
+                    <p style="color: #d4af37; font-weight: 700; margin-top: 15px;">🔫 Armas e Itens:</p>
+                    <ul class="rules-sublist">
+                        <li>🟢 ➡️ <strong>Permitidos:</strong> UMP, XM8, M1014 (máx. 1) e Desert Eagle (somente no 1º round).</li>
+                        <li>🚫 🛑 <strong>Banidos:</strong> Itens de carregamento (fogueira, katana, martelinho, robô) e armas fora da lista.</li>
+                    </ul>
+
+                    <p style="color: #d4af37; font-weight: 700; margin-top: 15px;">🏃‍♂️ Movimentação e Mapa:</p>
+                    <ul class="rules-sublist">
+                        <li>❌ <strong>Proibido</strong> subir em casas de dois andares, galpões ou plataformas altas (ex: Observatory, Shipyard).</li>
+                        <li>⬜ 🚪 <strong>Escadas:</strong> Permitido subir apenas até a metade. Containers liberados! Peak liberado por estrutura.</li>
+                    </ul>
+
+                    <p style="color: #d4af37; font-weight: 700; margin-top: 15px;">🏆 Regulamento de Pontuação:</p>
+                    <ul class="rules-sublist">
+                        <li>• <strong>Vitória / Avançar de fase:</strong> +15 pts | <strong>Título de Campeão:</strong> +25 pts</li>
+                        <li>• <strong>Abates (Kill):</strong> +1 pt por kill | <strong>Saldo de Rounds:</strong> +2 pts por round de vantagem.</li>
+                        <li>• <strong>Meta de Honra (5k+):</strong> +5 pts (+1 pt a cada 1k extra). <strong>Recrutamento ativo:</strong> +5 pts.</li>
+                        <li>• <strong>Bônus Tático (MVP 10+ kills):</strong> +10 pts | <strong>Punições:</strong> -2 pts por quebra de regra.</li>
+                    </ul>
+                </div>
+
+                <div class="bracket-box">
+                    <h3 style="color: #d4af37; font-family: 'Cinzel', serif; margin-bottom: 10px;">⚔️ Chaveamentos & Resultados</h3>
+                    <p style="color: #ccc; font-size: 0.95rem; margin-bottom: 10px;">Acompanhe quem jogou contra quem, os vencedores da noite e as premiações das últimas edições:</p>
+                    <div style="background: rgba(20,20,20,0.8); padding: 15px; border-radius: 6px; border-left: 3px solid #d4af37;">
+                        <p style="color: #d4af37; font-weight: 700; margin-bottom: 5px;">🔥 Edição Atual: Mata-Mata 2x2</p>
+                        <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 3px;">Status: Em Andamento / Chaveamento Divulgado no Grupo Oficial</p>
+                        <p style="color: #aaa; font-size: 0.9rem;">Os confrontos e placares parciais são atualizados após o término de cada rodada pela Staff.</p>
+                    </div>
+                </div>
+
+                <div class="section-action-container">
+                    <button onclick="goToScreen('main-screen')" class="action-btn secondary">
+                        ← Voltar para o Início
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= TELA 4: PAGAMENTO / PASSE ================= -->
+    <div id="payment-screen" class="screen">
+        <header>
+            <h1>Passe <span>IN7</span></h1>
+            <div class="motto">Apoie a Guilda</div>
+        </header>
+
+        <div class="container" style="display: flex; justify-content: center; align-items: center; flex: 1;">
+            <div class="checkout-box">
+                <h2>Passe de Elite IN7</h2>
+                <p>Garanta seu Passe de Elite com segurança e ótimo preço:</p>
+                
+                <div class="shop-price">R$ 5,50</div>
+                <p style="font-size: 0.9rem; color: #ccc;">Pagamento processado com segurança.</p>
+
+                <a href="https://pag.ae/7_ExemploLink" target="_blank" class="pagbank-link-btn">
+                    Pagar com PagBank 💳
+                </a>
+
+                <a href="https://wa.me/5585999999999?text=Opa%20Staff,%20terminei%20o%20pagamento%20do%20passe%20IN7!" target="_blank" class="whatsapp-confirm-btn">
+                    Confirmar no WhatsApp 💬
+                </a>
+
+                <a onclick="goToScreen('main-screen')" class="back-link">← Voltar para o Início</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 IN7 INVICTUS. Todos os direitos reservados.</p>
+        </footer>
+    </div>
+
+    <!-- SCRIPTS DE NAVEGAÇÃO E VALIDAÇÃO DE REQUISITOS -->
+    <script>
+        function goToScreen(screenId) {
+            document.querySelectorAll('.screen').forEach(screen => {
+                screen.classList.remove('active');
+            });
+            document.getElementById(screenId).classList.add('active');
+            window.scrollTo(0, 0);
+        }
+
+        function verificarRequisitos() {
+            const nome = document.getElementById('nome').value.trim();
+            const email = document.getElementById('email').value.trim();
+            const whatsapp = document.getElementById('whatsapp').value.trim();
+            const idade = parseInt(document.getElementById('idade').value);
+            const ffid = document.getElementById('ffid').value.trim();
+            const level = parseInt(document.getElementById('level').value);
+            const patente = document.getElementById('patente').value.trim().toLowerCase();
+            const nickatual = document.getElementById('nickatual').value.trim();
+            const nickpretendido = document.getElementById('nickpretendido').value.trim();
+            const trocanick = document.getElementById('trocanick').value;
+            const resultado = document.getElementById('resultado-recrutamento');
+
+            if (!nome || !email || !whatsapp || !idade || !ffid || !level || !patente || !nickatual || !nickpretendido) {
+                resultado.style.display = 'block';
+                resultado.className = 'resultado-erro';
+                resultado.innerHTML = '⚠️ Por favor, preencha todos os campos do formulário!';
+                return;
+            }
+
+            // Validação dos requisitos da Guilda
+            let erros = [];
+
+            if (idade < 16) {
+                erros.push(`• Idade mínima exigida: 16 anos (Você informou: ${idade})`);
+            }
+
+            if (level < 50) {
+                erros.push(`• Level mínimo exigido: Level 50+ (Você informou: Level ${level})`);
+            }
+
+            // Verifica patente (Mestre 15 / Mestre de Honra ou superior)
+            const temPatenteValida = patente.includes('mestre') || patente.includes('desafiante') || patente.includes('honra');
+            if (!temPatenteValida) {
+                erros.push(`• Patente mínima exigida: Mestre 15 / Mestre de Honra (Você informou: ${document.getElementById('patente').value})`);
+            }
+
+            if (trocanick === 'Nao') {
+                erros.push('• É obrigatório aceitar a troca de nick com a tag da guilda (IN7)');
+            }
+
+            resultado.style.display = 'block';
+
+            if (erros.length > 0) {
+                resultado.className = 'resultado-erro';
+                resultado.innerHTML = `
+                    ❌ <strong>Infelizmente você não atendeu aos requisitos mínimos:</strong><br><br>
+                    ${erros.join('<br>')}<br><br>
+                    <em>Tente novamente quando atingir os padrões da tropa!</em>
+                `;
+            } else {
+                resultado.className = 'resultado-sucesso';
+                resultado.innerHTML = `
+                    ✅ <strong>Parabéns, ${nome}! Você passou em todos os requisitos da IN7!</strong><br><br>
+                    Clique no botão abaixo para enviar sua ficha aprovada direto para a staff no WhatsApp:
+                    <a href="https://wa.me/5585999999999?text=Opa%20Staff,%20passei%20nos%20requisitos!%20Meu%20nome%20é%20${encodeURIComponent(nome)},%20ID:%20${encodeURIComponent(ffid)},%20Level:%20${level},%20Patente:%20${encodeURIComponent(document.getElementById('patente').value)}.%20Nick%20pretendido:%20${encodeURIComponent(nickpretendido)}" target="_blank" class="whatsapp-envio-btn">
+                        Enviar Inscrição Aprovada no WhatsApp 📲
+                    </a>
+                `;
+            }
+        }
+    </script>
+
+    <footer>
+        <p>&copy; 2026 IN7 INVICTUS. Todos os direitos reservados. Staff: Bea, KONG, NOSDNAIL, Mia e DAMA.</p>
+    </footer>
+
+</body>
+</html>
