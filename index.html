@@ -1048,6 +1048,41 @@
             transform: translateY(-2px);
             opacity: 0.95;
         }
+        .links-section {
+            margin-top: 25px;
+            display: flex;
+            flex-direction: column;
+            gap: 10px;
+            border-top: 1px solid #333;
+            padding-top: 20px;
+        }
+        .group-btn {
+            background: rgba(37, 211, 102, 0.15);
+            color: #25d366;
+            border: 1px solid #25d366;
+            padding: 12px;
+            font-weight: 700;
+            text-transform: uppercase;
+            border-radius: 6px;
+            text-align: center;
+            text-decoration: none;
+            display: block;
+            font-size: 0.95rem;
+            transition: 0.2s;
+        }
+        .group-btn:hover {
+            background: #25d366;
+            color: #0b0b0b;
+        }
+        .group-btn.secondary-link {
+            background: rgba(212, 175, 55, 0.1);
+            color: #d4af37;
+            border-color: #d4af37;
+        }
+        .group-btn.secondary-link:hover {
+            background: #d4af37;
+            color: #0b0b0b;
+        }
     </style>
 </head>
 <body>
@@ -1107,6 +1142,16 @@
         <a href="${linkZap}" target="_blank" class="btn-whatsapp-final">
             📲 Enviar Ficha Oficial no WhatsApp
         </a>
+
+        <div class="links-section">
+            <p style="text-align: center; color: #d4af37; font-family: 'Cinzel', serif; font-size: 1rem; margin-bottom: 5px;">💬 GRUPOS OFICIAIS DO WHATSAPP</p>
+            <a href="https://chat.whatsapp.com/F2ao0vRS0bM75VCBilVmVT" target="_blank" class="group-btn">
+                💬 Grupo Oficial / Geral
+            </a>
+            <a href="https://chat.whatsapp.com/HTAjpWCRzfs2gDhdQeViT1" target="_blank" class="group-btn secondary-link">
+                📢 Grupo de Avisos IN7
+            </a>
+        </div>
     </div>
 
     <script>
