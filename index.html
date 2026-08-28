@@ -843,7 +843,7 @@
                 resultado.className = 'resultado-sucesso';
                 resultado.innerHTML = `
                     ✅ <strong>Parabéns, ${nome}! Você foi APROVADO nos requisitos da IN7!</strong><br><br>
-                    A sua ficha e a tela de finalização com upload de print foram abertas em uma <strong>nova aba</strong>.
+                    A sua ficha e a tela de finalização foram abertas em uma <strong>nova aba</strong>.
                 `;
 
                 abrirAbaAprovacao({
@@ -899,31 +899,33 @@
             background-size: cover;
             color: #f5f5f5;
             font-family: 'Rajdhani', sans-serif;
-            padding: 30px 15px;
+            padding: 20px 10px;
             display: flex;
             justify-content: center;
+            align-items: flex-start;
             min-height: 100vh;
         }
         .approval-container {
-            max-width: 650px;
             width: 100%;
-            background: rgba(18, 18, 18, 0.92);
+            max-width: 600px;
+            background: rgba(18, 18, 18, 0.95);
             backdrop-filter: blur(5px);
             border: 2px solid #d4af37;
             border-radius: 10px;
-            padding: 30px 25px;
+            padding: 25px 15px;
             box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
+            margin: auto;
         }
         .header-title {
             text-align: center;
             border-bottom: 2px solid #d4af37;
             padding-bottom: 15px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         h1 {
             font-family: 'Cinzel', serif;
             color: #fff;
-            font-size: 2rem;
+            font-size: 1.8rem;
             letter-spacing: 1px;
         }
         h1 span { color: #d4af37; }
@@ -935,18 +937,19 @@
             padding: 6px 16px;
             border-radius: 4px;
             margin-top: 10px;
-            font-size: 1.1rem;
+            font-size: 1rem;
             text-transform: uppercase;
         }
         .ficha-box {
             background: rgba(18, 18, 18, 0.9);
             border: 1px solid #333;
             border-left: 4px solid #25d366;
-            padding: 20px;
+            padding: 15px;
             border-radius: 6px;
-            margin-bottom: 25px;
-            line-height: 1.8;
-            font-size: 1.15rem;
+            margin-bottom: 20px;
+            line-height: 1.6;
+            font-size: 1.05rem;
+            word-break: break-word;
         }
         .ficha-box p { margin-bottom: 4px; color: #ddd; }
         .ficha-box strong { color: #d4af37; }
@@ -954,22 +957,22 @@
         .instrucoes-box {
             background: rgba(212, 175, 55, 0.08);
             border: 1px dashed #d4af37;
-            padding: 20px;
+            padding: 15px;
             border-radius: 6px;
-            margin-bottom: 25px;
+            margin-bottom: 20px;
         }
         .instrucoes-box h2 {
             font-family: 'Cinzel', serif;
             color: #d4af37;
-            font-size: 1.3rem;
-            margin-bottom: 12px;
+            font-size: 1.2rem;
+            margin-bottom: 10px;
         }
         .step {
             margin-bottom: 10px;
             display: flex;
             align-items: flex-start;
             gap: 10px;
-            font-size: 1.05rem;
+            font-size: 1rem;
             line-height: 1.4;
         }
         .step-num {
@@ -977,30 +980,27 @@
             color: #0b0b0b;
             font-weight: 700;
             border-radius: 50%;
-            width: 24px;
-            height: 24px;
+            width: 22px;
+            height: 22px;
             display: inline-flex;
             align-items: center;
             justify-content: center;
-            font-size: 0.9rem;
+            font-size: 0.85rem;
             flex-shrink: 0;
         }
         .upload-area {
             border: 2px dashed #444;
-            padding: 25px;
+            padding: 20px 10px;
             text-align: center;
             border-radius: 6px;
             margin-top: 15px;
             background: rgba(22, 22, 22, 0.9);
-            transition: 0.3s;
         }
-        .upload-area:hover { border-color: #d4af37; }
         .upload-label {
             display: block;
             color: #d4af37;
             font-weight: 700;
-            font-size: 1.1rem;
-            cursor: pointer;
+            font-size: 1rem;
             margin-bottom: 10px;
         }
         input[type="file"] { display: none; }
@@ -1008,18 +1008,18 @@
             background: #222;
             color: #fff;
             border: 1px solid #d4af37;
-            padding: 10px 20px;
+            padding: 10px 18px;
             border-radius: 4px;
             cursor: pointer;
             display: inline-block;
             font-weight: 700;
             text-transform: uppercase;
-            font-size: 0.95rem;
+            font-size: 0.9rem;
         }
         .custom-file-btn:hover { background: #d4af37; color: #0b0b0b; }
         #preview-img {
             max-width: 100%;
-            max-height: 260px;
+            max-height: 240px;
             margin-top: 15px;
             border-radius: 6px;
             border: 1px solid #d4af37;
@@ -1030,9 +1030,9 @@
             color: #ffffff;
             font-family: 'Cinzel', serif;
             font-weight: 700;
-            font-size: 1.15rem;
+            font-size: 1.05rem;
             text-transform: uppercase;
-            padding: 16px;
+            padding: 15px;
             border-radius: 6px;
             border: none;
             cursor: pointer;
@@ -1041,7 +1041,7 @@
             text-align: center;
             text-decoration: none;
             box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            margin-top: 25px;
+            margin-top: 20px;
             transition: transform 0.2s;
         }
         .btn-whatsapp-final:hover {
@@ -1091,11 +1091,16 @@
             </div>
 
             <div class="upload-area">
-                <label for="comprovante" class="upload-label">Selecione o Print do Jogo</label>
+                <label class="upload-label">Selecione o Print do Jogo</label>
                 <label for="comprovante" class="custom-file-btn">📁 Escolher Arquivo</label>
                 <input type="file" id="comprovante" accept="image/*" onchange="mostrarPreview(event)">
                 <br>
                 <img id="preview-img" alt="Prévia do Comprovante">
+            </div>
+
+            <div class="step" style="margin-top: 15px;">
+                <span class="step-num">4</span>
+                <div>Clique no botão abaixo para enviar os dados da ficha no WhatsApp da staff <strong>e envie também o print da tela acima no chat para a conferência!</strong></div>
             </div>
         </div>
 
