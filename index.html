@@ -59,7 +59,7 @@
             justify-content: space-between;
         }
 
-        /* Telas secundárias com a imagem 85760.png de fundo */
+        /* Telas secundárias unificadas com a imagem 85760.png de fundo */
         #recrutamento-screen, #eventos-screen, #payment-screen {
             background: url('85760.png') no-repeat center center fixed;
             background-size: cover;
@@ -139,7 +139,6 @@
             margin-bottom: 15px;
         }
 
-        /* Botões de Acesso Contextuais */
         .section-action-container {
             margin-top: 20px;
             text-align: center;
@@ -393,23 +392,6 @@
             color: #fbe2e2;
         }
 
-        .whatsapp-envio-btn {
-            background: #25d366;
-            color: #fff;
-            padding: 12px;
-            font-weight: 700;
-            text-transform: uppercase;
-            border-radius: 4px;
-            border: none;
-            cursor: pointer;
-            width: 100%;
-            font-size: 1rem;
-            margin-top: 15px;
-            text-decoration: none;
-            display: inline-block;
-            text-align: center;
-        }
-
         /* Área de Eventos & Chaveamentos */
         .event-banner-box {
             background: rgba(20, 20, 20, 0.9);
@@ -531,7 +513,6 @@
         </header>
 
         <div class="container">
-            <!-- Bloco: Sobre a Guilda -->
             <div class="card">
                 <h2>Sobre a Guilda</h2>
                 <p>A <strong>IN7 INVICTUS</strong> é uma guilda de elite focada em alta performance, organização competitiva e lealdade absoluta. Nascida para dominar o cenário, nossa tropa valoriza o trabalho em equipe, o rush inteligente e o respeito dentro e fora do mapa.</p>
@@ -554,7 +535,6 @@
                 </div>
             </div>
 
-            <!-- Card: Top Honra Semanal -->
             <div class="card">
                 <h2>Top Honra Semanal</h2>
                 <p>O destaque da tropa que carregou a guilda nesta semana!</p>
@@ -563,7 +543,6 @@
                 </div>
             </div>
 
-            <!-- Card: Nossa Staff -->
             <div class="card">
                 <h2>Nossa Staff</h2>
                 <p>O comando oficial da IN7 INVICTUS:</p>
@@ -591,7 +570,6 @@
                 </div>
             </div>
 
-            <!-- Card: Requisitos Oficiais -->
             <div class="card">
                 <h2>Requisitos Oficiais</h2>
                 <p>Para fazer parte da nossa tropa, o candidato precisa cumprir com os padrões mínimos da guilda:</p>
@@ -600,7 +578,7 @@
                     <li><span>Patente Mínima</span> <span>Mestre 15 🌟 / Mestre de Honra</span></li>
                     <li><span>Level Mínimo</span> <span>Level 50+</span></li>
                     <li><span>Idade Mínima</span> <span>16 Anos</span></li>
-                    <li><span>Obrigatório</span> <span>Troca Nick com a Tag</span></li>
+                    <li><span>Obrigatório</span> <span>Troca Nick com a Tag (IN7ㅤ)</span></li>
                 </ul>
 
                 <div class="section-action-container">
@@ -610,7 +588,6 @@
                 </div>
             </div>
 
-            <!-- Card: Loja Oficial IN7 -->
             <div class="card">
                 <h2>Loja Oficial IN7</h2>
                 <p>Garanta seu Passe de Elite com segurança e ótimo preço:</p>
@@ -653,7 +630,7 @@
 
                 <div class="form-group">
                     <label for="whatsapp">Seu WhatsApp (com DDD):</label>
-                    <input type="text" id="whatsapp" class="form-control" placeholder="Ex: 859880169373">
+                    <input type="text" id="whatsapp" class="form-control" placeholder="Ex: 85988016937">
                 </div>
 
                 <div class="form-group">
@@ -673,7 +650,7 @@
 
                 <div class="form-group">
                     <label for="patente">Patente Atual (Contra Squad):</label>
-                    <input type="text" id="patente" class="form-control" placeholder="Ex: Mestre de honra">
+                    <input type="text" id="patente" class="form-control" placeholder="Ex: Mestre de honra / Desafiante">
                 </div>
 
                 <div class="form-group">
@@ -682,8 +659,8 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="nickpretendido">Nick Pretendido com a Tag:</label>
-                    <input type="text" id="nickpretendido" class="form-control" placeholder="Ex: IN7 DEA7H">
+                    <label for="nickpretendido">Nick Pretendido (Obrigatório iniciar com "IN7ㅤ"):</label>
+                    <input type="text" id="nickpretendido" class="form-control" placeholder="Ex: IN7ㅤDEA7H">
                 </div>
 
                 <div class="form-group">
@@ -784,7 +761,7 @@
                     Pagar com PagBank 💳
                 </a>
 
-                <a href="https://wa.me/5585999999999?text=Opa%20Staff,%20terminei%20o%20pagamento%20do%20passe%20IN7!" target="_blank" class="whatsapp-confirm-btn">
+                <a href="https://wa.me/5585988640850?text=Opa%20Staff,%20terminei%20o%20pagamento%20do%20passe%20IN7!" target="_blank" class="whatsapp-confirm-btn">
                     Confirmar no WhatsApp 💬
                 </a>
 
@@ -814,20 +791,19 @@
             const idade = parseInt(document.getElementById('idade').value);
             const ffid = document.getElementById('ffid').value.trim();
             const level = parseInt(document.getElementById('level').value);
-            const patente = document.getElementById('patente').value.trim().toLowerCase();
+            const patente = document.getElementById('patente').value.trim();
             const nickatual = document.getElementById('nickatual').value.trim();
-            const nickpretendido = document.getElementById('nickpretendido').value.trim();
+            const nickpretendido = document.getElementById('nickpretendido').value;
             const trocanick = document.getElementById('trocanick').value;
             const resultado = document.getElementById('resultado-recrutamento');
 
-            if (!nome || !email || !whatsapp || !idade || !ffid || !level || !patente || !nickatual || !nickpretendido) {
+            if (!nome || !email || !whatsapp || isNaN(idade) || !ffid || isNaN(level) || !patente || !nickatual || !nickpretendido.trim()) {
                 resultado.style.display = 'block';
                 resultado.className = 'resultado-erro';
                 resultado.innerHTML = '⚠️ Por favor, preencha todos os campos do formulário!';
                 return;
             }
 
-            // Validação dos requisitos da Guilda
             let erros = [];
 
             if (idade < 16) {
@@ -838,14 +814,20 @@
                 erros.push(`• Level mínimo exigido: Level 50+ (Você informou: Level ${level})`);
             }
 
-            // Verifica patente (Mestre 15 / Mestre de Honra ou superior)
-            const temPatenteValida = patente.includes('mestre') || patente.includes('desafiante') || patente.includes('honra');
+            const patenteLower = patente.toLowerCase();
+            const temPatenteValida = patenteLower.includes('mestre') || patenteLower.includes('desafiante') || patenteLower.includes('honra');
             if (!temPatenteValida) {
-                erros.push(`• Patente mínima exigida: Mestre 15 / Mestre de Honra (Você informou: ${document.getElementById('patente').value})`);
+                erros.push(`• Patente mínima exigida: Mestre 15 / Mestre de Honra (Você informou: ${patente})`);
             }
 
             if (trocanick === 'Nao') {
                 erros.push('• É obrigatório aceitar a troca de nick com a tag da guilda (IN7)');
+            }
+
+            // VALIDAÇÃO ESTRITA DO ESPAÇO INVISÍVEL
+            const prefixoObrigatorio = "IN7ㅤ";
+            if (!nickpretendido.startsWith(prefixoObrigatorio) || nickpretendido.length <= prefixoObrigatorio.length) {
+                erros.push(`• O Nick Pretendido deve iniciar <strong>obrigatoriamente</strong> com a tag <code>IN7ㅤ</code> utilizando o <strong>espaço invisível</strong> (Ex: IN7ㅤSeuNome). Espaço comum ou outros símbolos não são aceitos!`);
             }
 
             resultado.style.display = 'block';
@@ -860,13 +842,289 @@
             } else {
                 resultado.className = 'resultado-sucesso';
                 resultado.innerHTML = `
-                    ✅ <strong>Parabéns, ${nome}! Você passou em todos os requisitos da IN7!</strong><br><br>
-                    Clique no botão abaixo para enviar sua ficha aprovada direto para a staff no WhatsApp:
-                    <a href="https://wa.me/5585999999999?text=Opa%20Staff,%20passei%20nos%20requisitos!%20Meu%20nome%20é%20${encodeURIComponent(nome)},%20ID:%20${encodeURIComponent(ffid)},%20Level:%20${level},%20Patente:%20${encodeURIComponent(document.getElementById('patente').value)}.%20Nick%20pretendido:%20${encodeURIComponent(nickpretendido)}" target="_blank" class="whatsapp-envio-btn">
-                        Enviar Inscrição Aprovada no WhatsApp 📲
-                    </a>
+                    ✅ <strong>Parabéns, ${nome}! Você foi APROVADO nos requisitos da IN7!</strong><br><br>
+                    A sua ficha e a tela de finalização com upload de print foram abertas em uma <strong>nova aba</strong>.
                 `;
+
+                abrirAbaAprovacao({
+                    nome,
+                    idade,
+                    ffid,
+                    email,
+                    whatsapp,
+                    level,
+                    patente,
+                    trocanick,
+                    nickatual,
+                    nickpretendido
+                });
             }
+        }
+
+        function abrirAbaAprovacao(dados) {
+            const novaAba = window.open('', '_blank');
+            if (!novaAba) {
+                alert('O seu navegador bloqueou a abertura da nova aba! Por favor, autorize pop-ups para este site.');
+                return;
+            }
+
+            const textoWhatsApp = 
+`📊 *RECRUTAMENTO IN7:*
+👤 *Nome:* ${dados.nome}
+🎂 *Idade:* ${dados.idade} anos
+🆔 *ID:* ${dados.ffid}
+📧 *E-mail:* ${dados.email}
+📱 *WhatsApp:* ${dados.whatsapp}
+⭐ *Level:* ${dados.level}
+🏆 *Patente CS:* ${dados.patente}
+🔤 *Troca Nick:* ${dados.trocanick}
+🏷️ *Nick Atual:* ${dados.nickatual}
+✨ *Nick Pretendido:* ${dados.nickpretendido}
+📌 *Status Final:* ✅ APROVADO`;
+
+            const linkZap = `https://wa.me/5585988640850?text=${encodeURIComponent(textoWhatsApp)}`;
+
+            const paginaConteudo = `
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>IN7 INVICTUS | Ficha de Aprovação</title>
+    <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <style>
+        * { margin: 0; padding: 0; box-sizing: border-box; }
+        body {
+            background: url('85760.png') no-repeat center center fixed;
+            background-size: cover;
+            color: #f5f5f5;
+            font-family: 'Rajdhani', sans-serif;
+            padding: 30px 15px;
+            display: flex;
+            justify-content: center;
+            min-height: 100vh;
+        }
+        .approval-container {
+            max-width: 650px;
+            width: 100%;
+            background: rgba(18, 18, 18, 0.92);
+            backdrop-filter: blur(5px);
+            border: 2px solid #d4af37;
+            border-radius: 10px;
+            padding: 30px 25px;
+            box-shadow: 0 0 35px rgba(212, 175, 55, 0.35);
+        }
+        .header-title {
+            text-align: center;
+            border-bottom: 2px solid #d4af37;
+            padding-bottom: 15px;
+            margin-bottom: 25px;
+        }
+        h1 {
+            font-family: 'Cinzel', serif;
+            color: #fff;
+            font-size: 2rem;
+            letter-spacing: 1px;
+        }
+        h1 span { color: #d4af37; }
+        .status-tag {
+            display: inline-block;
+            background: #25d366;
+            color: #0b0b0b;
+            font-weight: 700;
+            padding: 6px 16px;
+            border-radius: 4px;
+            margin-top: 10px;
+            font-size: 1.1rem;
+            text-transform: uppercase;
+        }
+        .ficha-box {
+            background: rgba(18, 18, 18, 0.9);
+            border: 1px solid #333;
+            border-left: 4px solid #25d366;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+            line-height: 1.8;
+            font-size: 1.15rem;
+        }
+        .ficha-box p { margin-bottom: 4px; color: #ddd; }
+        .ficha-box strong { color: #d4af37; }
+        
+        .instrucoes-box {
+            background: rgba(212, 175, 55, 0.08);
+            border: 1px dashed #d4af37;
+            padding: 20px;
+            border-radius: 6px;
+            margin-bottom: 25px;
+        }
+        .instrucoes-box h2 {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+        }
+        .step {
+            margin-bottom: 10px;
+            display: flex;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 1.05rem;
+            line-height: 1.4;
+        }
+        .step-num {
+            background: #d4af37;
+            color: #0b0b0b;
+            font-weight: 700;
+            border-radius: 50%;
+            width: 24px;
+            height: 24px;
+            display: inline-flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 0.9rem;
+            flex-shrink: 0;
+        }
+        .upload-area {
+            border: 2px dashed #444;
+            padding: 25px;
+            text-align: center;
+            border-radius: 6px;
+            margin-top: 15px;
+            background: rgba(22, 22, 22, 0.9);
+            transition: 0.3s;
+        }
+        .upload-area:hover { border-color: #d4af37; }
+        .upload-label {
+            display: block;
+            color: #d4af37;
+            font-weight: 700;
+            font-size: 1.1rem;
+            cursor: pointer;
+            margin-bottom: 10px;
+        }
+        input[type="file"] { display: none; }
+        .custom-file-btn {
+            background: #222;
+            color: #fff;
+            border: 1px solid #d4af37;
+            padding: 10px 20px;
+            border-radius: 4px;
+            cursor: pointer;
+            display: inline-block;
+            font-weight: 700;
+            text-transform: uppercase;
+            font-size: 0.95rem;
+        }
+        .custom-file-btn:hover { background: #d4af37; color: #0b0b0b; }
+        #preview-img {
+            max-width: 100%;
+            max-height: 260px;
+            margin-top: 15px;
+            border-radius: 6px;
+            border: 1px solid #d4af37;
+            display: none;
+        }
+        .btn-whatsapp-final {
+            background: #25d366;
+            color: #ffffff;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1.15rem;
+            text-transform: uppercase;
+            padding: 16px;
+            border-radius: 6px;
+            border: none;
+            cursor: pointer;
+            display: block;
+            width: 100%;
+            text-align: center;
+            text-decoration: none;
+            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
+            margin-top: 25px;
+            transition: transform 0.2s;
+        }
+        .btn-whatsapp-final:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
+        }
+    </style>
+</head>
+<body>
+
+    <div class="approval-container">
+        <div class="header-title">
+            <h1>IN7 <span>INVICTUS</span></h1>
+            <div class="status-tag">✅ Inscrição Aprovada</div>
+        </div>
+
+        <div class="ficha-box">
+            <p><strong>👤 Nome:</strong> ${dados.nome}</p>
+            <p><strong>🎂 Idade:</strong> ${dados.idade} anos</p>
+            <p><strong>🆔 ID Free Fire:</strong> ${dados.ffid}</p>
+            <p><strong>📧 E-mail:</strong> ${dados.email}</p>
+            <p><strong>📱 WhatsApp:</strong> ${dados.whatsapp}</p>
+            <p><strong>⭐ Level:</strong> ${dados.level}</p>
+            <p><strong>🏆 Patente CS:</strong> ${dados.patente}</p>
+            <p><strong>🔤 Troca Nick:</strong> ${dados.trocanick}</p>
+            <p><strong>🏷️ Nick Atual:</strong> ${dados.nickatual}</p>
+            <p><strong>✨ Nick Pretendido:</strong> ${dados.nickpretendido}</p>
+            <p><strong>📌 Status Final:</strong> <span style="color:#25d366; font-weight:700;">✅ APROVADO</span></p>
+        </div>
+
+        <div class="instrucoes-box">
+            <h2>⚠️ ETAPA FINAL OBRIGATÓRIA</h2>
+            
+            <div class="step">
+                <span class="step-num">1</span>
+                <div>Abra o Free Fire e altere o seu nick para: <strong style="color:#d4af37;">${dados.nickpretendido}</strong></div>
+            </div>
+            
+            <div class="step">
+                <span class="step-num">2</span>
+                <div>Tire um <strong>print nítido</strong> do perfil da sua conta comprovando o nick alterado e a patente.</div>
+            </div>
+
+            <div class="step">
+                <span class="step-num">3</span>
+                <div>Carregue o print abaixo para conferência antes do envio:</div>
+            </div>
+
+            <div class="upload-area">
+                <label for="comprovante" class="upload-label">Selecione o Print do Jogo</label>
+                <label for="comprovante" class="custom-file-btn">📁 Escolher Arquivo</label>
+                <input type="file" id="comprovante" accept="image/*" onchange="mostrarPreview(event)">
+                <br>
+                <img id="preview-img" alt="Prévia do Comprovante">
+            </div>
+        </div>
+
+        <a href="${linkZap}" target="_blank" class="btn-whatsapp-final">
+            📲 Enviar Ficha Oficial no WhatsApp
+        </a>
+    </div>
+
+    <script>
+        function mostrarPreview(event) {
+            const input = event.target;
+            const preview = document.getElementById('preview-img');
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                reader.onload = function(e) {
+                    preview.src = e.target.result;
+                    preview.style.display = 'inline-block';
+                }
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+    <\/script>
+</body>
+</html>
+            `;
+
+            novaAba.document.open();
+            novaAba.document.write(paginaConteudo);
+            novaAba.document.close();
         }
     </script>
 
