@@ -181,6 +181,138 @@
             background: rgba(212, 175, 55, 0.1);
         }
 
+        /* Mural de Avisos da Staff */
+        .staff-notice-box {
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(15, 15, 15, 0.95) 100%);
+            border: 1px solid #d4af37;
+            border-left: 5px solid #d4af37;
+            padding: 20px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
+        }
+
+        .notice-badge {
+            background: #d4af37;
+            color: #0b0b0b;
+            font-weight: 700;
+            font-size: 0.8rem;
+            padding: 3px 10px;
+            border-radius: 4px;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            display: inline-block;
+            margin-bottom: 8px;
+        }
+
+        /* Player Card Estilo Esport Foda */
+        .player-card-preview {
+            width: 100%;
+            max-width: 400px;
+            margin: 20px auto;
+            background: linear-gradient(145deg, #121212 0%, #1c1c1c 100%);
+            border: 2px solid #d4af37;
+            border-radius: 12px;
+            padding: 25px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            position: relative;
+            overflow: hidden;
+            text-align: center;
+        }
+
+        .player-card-preview::before {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 6px;
+            background: linear-gradient(90deg, #d4af37, #ffdf73, #d4af37);
+        }
+
+        .card-header-flex {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            border-bottom: 1px solid #333;
+            padding-bottom: 12px;
+            margin-bottom: 15px;
+        }
+
+        .card-guild-tag {
+            font-family: 'Cinzel', serif;
+            color: #d4af37;
+            font-size: 0.95rem;
+            letter-spacing: 2px;
+            font-weight: 700;
+        }
+
+        .card-status-badge {
+            background: rgba(37, 211, 102, 0.2);
+            color: #25d366;
+            border: 1px solid #25d366;
+            font-size: 0.75rem;
+            padding: 2px 8px;
+            border-radius: 4px;
+            font-weight: 700;
+            text-transform: uppercase;
+        }
+
+        .card-avatar-container {
+            width: 100px;
+            height: 130px;
+            margin: 0 auto 12px auto;
+            border-radius: 6px;
+            border: 2px solid #d4af37;
+            overflow: hidden;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+        }
+
+        .card-avatar-container img {
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+            border-radius: 4px;
+        }
+
+        .card-player-nick {
+            font-family: 'Cinzel', serif;
+            font-size: 1.4rem;
+            color: #ffffff;
+            margin-bottom: 5px;
+            letter-spacing: 1px;
+        }
+
+        .card-player-details {
+            background: rgba(10, 10, 10, 0.8);
+            border: 1px solid #333;
+            border-radius: 6px;
+            padding: 10px;
+            margin-top: 15px;
+            text-align: left;
+        }
+
+        .card-row {
+            display: flex;
+            justify-content: space-between;
+            font-size: 0.95rem;
+            padding: 4px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.05);
+        }
+
+        .card-row:last-child {
+            border-bottom: none;
+        }
+
+        .card-row span:first-child {
+            color: #aaa;
+        }
+
+        .card-row span:last-child {
+            color: #d4af37;
+            font-weight: 700;
+        }
+
         .guild-gallery {
             display: flex;
             gap: 15px;
@@ -318,7 +450,7 @@
             object-fit: cover;
         }
 
-        /* Formulário de Recrutamento */
+        /* Formulários e Inputs */
         .form-group {
             margin-bottom: 15px;
         }
@@ -368,12 +500,6 @@
             display: none;
             font-size: 1.05rem;
             line-height: 1.5;
-        }
-
-        .resultado-sucesso {
-            background: rgba(37, 211, 102, 0.15);
-            border: 1px solid #25d366;
-            color: #e2fbe8;
         }
 
         .resultado-erro {
@@ -463,7 +589,7 @@
             color: #d4af37;
         }
 
-        /* Estilos específicos da Ficha de Aprovação integrada */
+        /* Ficha de Aprovação */
         .approval-container {
             width: 100%;
             max-width: 600px;
@@ -696,6 +822,68 @@
         </header>
 
         <div class="container">
+            <!-- MURAL DE AVISOS DA STAFF -->
+            <div class="staff-notice-box">
+                <span class="notice-badge">⚡ Mural da Staff</span>
+                <h3 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 5px;">Recrutamento Aberto (CS & BR)</h3>
+                <p style="font-size: 0.95rem; margin-bottom: 0; color: #ddd;">Atenção tropa: As inscrições para jogadores de CS e BR estão ativas. Verifique os requisitos e mande sua ficha direto com a staff!</p>
+            </div>
+
+            <!-- GERADOR DE PLAYER CARD COM O ESTANDARTE OFICIAL IN7 -->
+            <div class="card">
+                <h2>Gerador de Card Oficial IN7</h2>
+                <p>Monte seu cartão de membro profissional da guilda para postar nos status ou redes sociais:</p>
+                
+                <div class="form-group">
+                    <label for="card-input-nick">Seu Nick (com a tag):</label>
+                    <input type="text" id="card-input-nick" class="form-control" placeholder="Ex: IN7ㅤLOST" value="IN7ㅤLOST" oninput="atualizarCard()">
+                </div>
+
+                <div class="form-group">
+                    <label for="card-input-patente">Patente Atual:</label>
+                    <input type="text" id="card-input-patente" class="form-control" placeholder="Ex: Mestre de Honra" value="Mestre de Honra" oninput="atualizarCard()">
+                </div>
+
+                <div class="form-group">
+                    <label for="card-input-modo">Modalidade Principal:</label>
+                    <select id="card-input-modo" class="form-control" onchange="atualizarCard()">
+                        <option value="Contra Squad (CS)">Contra Squad (CS)</option>
+                        <option value="Battle Royale (BR)">Battle Royale (BR)</option>
+                        <option value="Ambos (CS & BR)">Ambos (CS & BR)</option>
+                    </select>
+                </div>
+
+                <!-- O CARD COM A BANDEIRA OFICIAL IN7 (82634.jpg) -->
+                <div class="player-card-preview" id="player-card-render">
+                    <div class="card-header-flex">
+                        <span class="card-guild-tag">IN7 INVICTUS</span>
+                        <span class="card-status-badge">Membro Elite</span>
+                    </div>
+                    <div class="card-avatar-container">
+                        <img src="82634.jpg" alt="Estandarte Oficial IN7">
+                    </div>
+                    <div class="card-player-nick" id="render-nick">IN7ㅤLOST</div>
+                    <p style="font-size: 0.85rem; color: #d4af37; margin-bottom: 10px; font-style: italic;">"Jamais Conquistados"</p>
+                    
+                    <div class="card-player-details">
+                        <div class="card-row">
+                            <span>Modalidade:</span>
+                            <span id="render-modo">Contra Squad (CS)</span>
+                        </div>
+                        <div class="card-row">
+                            <span>Patente:</span>
+                            <span id="render-patente">Mestre de Honra</span>
+                        </div>
+                        <div class="card-row">
+                            <span>ID da Guilda:</span>
+                            <span>2064438275</span>
+                        </div>
+                    </div>
+                </div>
+
+                <p style="text-align: center; font-size: 0.9rem; color: #aaa; margin-top: 10px;">Dica: Tire um print ou salve a tela do card acima para usar nos status!</p>
+            </div>
+
             <div class="card">
                 <h2>Sobre a Guilda</h2>
                 <p>A <strong>IN7 INVICTUS</strong> é uma guilda de elite focada em alta performance, organização competitiva e lealdade absoluta. Nascida para dominar o cenário, nossa tropa valoriza o trabalho em equipe, o rush inteligente e o respeito dentro e fora do mapa.</p>
@@ -1047,7 +1235,7 @@
         </footer>
     </div>
 
-    <!-- SCRIPTS DE NAVEGAÇÃO E VALIDAÇÃO DE REQUISITOS -->
+    <!-- SCRIPTS DE NAVEGAÇÃO, VALIDAÇÃO E PLAYER CARD -->
     <script>
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(screen => {
@@ -1055,6 +1243,17 @@
             });
             document.getElementById(screenId).classList.add('active');
             window.scrollTo(0, 0);
+        }
+
+        // Função para atualizar o Card Dinamicamente
+        function atualizarCard() {
+            const nick = document.getElementById('card-input-nick').value.trim() || 'IN7ㅤNICK';
+            const patente = document.getElementById('card-input-patente').value.trim() || 'Mestre';
+            const modo = document.getElementById('card-input-modo').value;
+
+            document.getElementById('render-nick').innerText = nick;
+            document.getElementById('render-patente').innerText = patente;
+            document.getElementById('render-modo').innerText = modo;
         }
 
         function verificarRequisitos() {
@@ -1090,16 +1289,12 @@
 
             const patenteLower = patente.toLowerCase();
             let patenteValida = false;
-
-            // Patentes globais de elite (valem para qualquer modo)
             const éEliteOuDesafiante = patenteLower.includes('elite') || patenteLower.includes('desafiante');
 
             if (modopatente.includes('Contra Squad')) {
-                // CS: Exige Mestre de Honra, Elite ou Desafiante
                 const éMestreHonra = patenteLower.includes('honra');
                 patenteValida = éMestreHonra || éEliteOuDesafiante;
             } else if (modopatente.includes('Battle Royale')) {
-                // BR: Exige Mestre 2, 3, 4, 5 estrelas, Elite ou Desafiante
                 const éMestre = patenteLower.includes('mestre');
                 if (éEliteOuDesafiante) {
                     patenteValida = true;
@@ -1111,7 +1306,6 @@
                     patenteValida = temEstrelasValidas;
                 }
             } else {
-                // Se for "Ambos", aceita se cumprir o requisito em pelo menos um deles
                 const éMestreHonra = patenteLower.includes('honra');
                 const temEstrelasValidas = patenteLower.includes('2') || patenteLower.includes('dois') || 
                                            patenteLower.includes('3') || patenteLower.includes('três') || 
@@ -1128,14 +1322,11 @@
                 erros.push('• É obrigatório aceitar a troca de nick com a tag da guilda (IN7)');
             }
 
-            // TRAVA ANTI-TROLL: VALIDAÇÃO RIGOROSA DO NICK (Exatamente "IN7" + 1 único espaço invisível + Nome)
             const prefixoEsperado = "IN7ㅤ"; 
-            
             if (!nickpretendido.startsWith(prefixoEsperado)) {
                 erros.push(`• O Nick Pretendido deve iniciar <strong>obrigatoriamente</strong> com a tag <code>IN7ㅤ</code> utilizando o <strong>espaço invisível</strong> (Ex: IN7ㅤSeuNome).`);
             } else {
                 const restoNick = nickpretendido.substring(prefixoEsperado.length);
-                
                 if (restoNick.startsWith(" ") || restoNick.startsWith("ㅤ") || restoNick.trim() === "") {
                     erros.push(`• Nick inválido! Não utilize múltiplos espaços após a tag <code>IN7</code>. Use apenas um espaço invisível (Ex: IN7ㅤSeuNome).`);
                 }
@@ -1151,7 +1342,6 @@
                     <em>Tente novamente quando corrigir os dados da tropa!</em>
                 `;
             } else {
-                // Preenche os dados na tela de aprovação interna
                 document.getElementById('ficha-detalhes').innerHTML = `
                     <p><strong>👤 Nome:</strong> ${nome}</p>
                     <p><strong>🎂 Idade:</strong> ${idade} anos</p>
@@ -1193,8 +1383,6 @@
 📌 *Discord:* https://discord.gg/cadv2E4eKe`;
 
                 document.getElementById('btn-whatsapp-link').href = `https://wa.me/5585988640850?text=${encodeURIComponent(textoWhatsApp)}`;
-
-                // Navega direto para a tela interna de aprovação em tela cheia
                 goToScreen('aprovacao-screen');
             }
         }
