@@ -685,7 +685,6 @@
     </video>
     <div class="overlay"></div>
 
-    <!-- ================= TELA 1: HOME (PRINCIPAL) ================= -->
     <div id="main-screen" class="screen active">
         <header>
             <img src="82605_2.jpg" alt="IN7 INVICTUS Logo" class="logo-img">
@@ -799,7 +798,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 2: RECRUTAMENTO ================= -->
     <div id="recrutamento-screen" class="screen">
         <header>
             <h1>Recrutamento <span>IN7</span></h1>
@@ -882,7 +880,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 3: EVENTOS & CAMPEONATOS ================= -->
     <div id="eventos-screen" class="screen">
         <header>
             <h1>Arena de Eventos & <span>Campeonatos</span></h1>
@@ -944,7 +941,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 4: PAGAMENTO / PASSE ================= -->
     <div id="payment-screen" class="screen">
         <header>
             <h1>Passe <span>IN7</span></h1>
@@ -976,7 +972,6 @@
         </footer>
     </div>
 
-    <!-- ================= TELA 5: APROVAÇÃO (INTEGRADA) ================= -->
     <div id="aprovacao-screen" class="screen">
         <header>
             <h1>IN7 <span>INVICTUS</span></h1>
@@ -991,8 +986,7 @@
                 </div>
 
                 <div class="ficha-box" id="ficha-detalhes">
-                    <!-- Preenchido via JavaScript -->
-                </div>
+                    </div>
 
                 <div class="instrucoes-box">
                     <h2>⚠️ ETAPA FINAL OBRIGATÓRIA</h2>
@@ -1051,7 +1045,6 @@
         </footer>
     </div>
 
-    <!-- SCRIPTS DE NAVEGAÇÃO E VALIDAÇÃO DE REQUISITOS -->
     <script>
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(screen => {
@@ -1103,16 +1096,13 @@
             }
 
             // TRAVA ANTI-TROLL: VALIDAÇÃO RIGOROSA DO NICK (Exatamente "IN7" + 1 único espaço invisível + Nome)
-            const prefixoEsperado = "IN7ㅤ"; // Contém o espaço invisível
+            const prefixoEsperado = "IN7ㅤ"; 
             
-            // Verifica se começa com o prefixo
             if (!nickpretendido.startsWith(prefixoEsperado)) {
                 erros.push(`• O Nick Pretendido deve iniciar <strong>obrigatoriamente</strong> com a tag <code>IN7ㅤ</code> utilizando o <strong>espaço invisível</strong> (Ex: IN7ㅤSeuNome).`);
             } else {
-                // Pega o restante do nick após a tag e o espaço invisível
                 const restoNick = nickpretendido.substring(prefixoEsperado.length);
                 
-                // Se o resto começar com outro espaço invisível ou espaço comum, significa que o espertinho colocou múltiplos espaços!
                 if (restoNick.startsWith(" ") || restoNick.startsWith("ㅤ") || restoNick.trim() === "") {
                     erros.push(`• Nick inválido! Não utilize múltiplos espaços após a tag <code>IN7</code>. Use apenas um espaço invisível (Ex: IN7ㅤSeuNome).`);
                 }
@@ -1147,7 +1137,10 @@
                 document.getElementById('nick-alvo').innerText = nickpretendido;
 
                 const textoWhatsApp = 
-`📊 *RECRUTAMENTO IN7:*
+`🏰 *IN7 INVICTUS*
+🆔 *ID da Guilda:* 2064438275
+
+📊 *RECRUTAMENTO IN7:*
 👤 *Nome:* ${nome}
 🎂 *Idade:* ${idade} anos
 🆔 *ID:* ${ffid}
@@ -1159,7 +1152,12 @@
 🔤 *Troca Nick:* ${trocanick}
 🏷️ *Nick Atual:* ${nickatual}
 ✨ *Nick Pretendido:* ${nickpretendido}
-📌 *Status Final:* ✅ APROVADO`;
+📌 *Status Final:* ✅ APROVADO
+
+🌐 *REDES SOCIAIS OFICIAIS:*
+📸 *Instagram:* https://www.instagram.com/in7_invictus?igsh=M3Rxc3hrcTI3cmZ6
+🎬 *TikTok:* https://www.tiktok.com/@in7_invictus?_r=1&_t=ZS-999mudkCwhV
+📌 *Discord:* https://discord.gg/cadv2E4eKe`;
 
                 document.getElementById('btn-whatsapp-link').href = `https://wa.me/5585988640850?text=${encodeURIComponent(textoWhatsApp)}`;
 
