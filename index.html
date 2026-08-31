@@ -5,6 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IN7 INVICTUS | Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Biblioteca html2canvas para salvar o card em imagem -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
             margin: 0;
@@ -205,99 +207,105 @@
             margin-bottom: 8px;
         }
 
-        /* Player Card Estilo Esport Foda */
+        /* ================= PLAYER CARD ESTILO ESPORTS INSANO ================= */
         .player-card-preview {
             width: 100%;
-            max-width: 400px;
+            max-width: 420px;
             margin: 20px auto;
-            background: linear-gradient(145deg, #121212 0%, #1c1c1c 100%);
-            border: 2px solid #d4af37;
-            border-radius: 12px;
+            background: radial-gradient(circle at center, #1f1b10 0%, #0d0d0d 70%);
+            border: 3px solid #d4af37;
+            border-radius: 16px;
             padding: 25px;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 40px rgba(212, 175, 55, 0.5), inset 0 0 20px rgba(212, 175, 55, 0.2);
             position: relative;
             overflow: hidden;
             text-align: center;
         }
 
+        /* Detalhe de luz superior no card */
         .player-card-preview::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, #d4af37, #ffdf73, #d4af37);
+            height: 8px;
+            background: linear-gradient(90deg, #aa8228, #ffdf73, #aa8228);
         }
 
         .card-header-flex {
             display: flex;
             align-items: center;
             justify-content: space-between;
-            border-bottom: 1px solid #333;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
             padding-bottom: 12px;
-            margin-bottom: 15px;
+            margin-bottom: 18px;
+            margin-top: 5px;
         }
 
         .card-guild-tag {
             font-family: 'Cinzel', serif;
             color: #d4af37;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             letter-spacing: 2px;
             font-weight: 700;
+            text-shadow: 0 2px 4px rgba(0,0,0,0.8);
         }
 
         .card-status-badge {
-            background: rgba(37, 211, 102, 0.2);
+            background: rgba(37, 211, 102, 0.25);
             color: #25d366;
             border: 1px solid #25d366;
             font-size: 0.75rem;
-            padding: 2px 8px;
+            padding: 3px 10px;
             border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
         }
 
-        .card-avatar-container {
-            width: 100px;
-            height: 130px;
+        /* Estandarte de Guerra Oficial em Destaque Absoluto */
+        .card-emblem-container {
+            width: 110px;
+            height: 145px;
             margin: 0 auto 12px auto;
-            border-radius: 6px;
+            border-radius: 8px;
             border: 2px solid #d4af37;
             overflow: hidden;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6);
+            background: #000;
         }
 
-        .card-avatar-container img {
+        .card-emblem-container img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            border-radius: 4px;
         }
 
         .card-player-nick {
             font-family: 'Cinzel', serif;
-            font-size: 1.4rem;
+            font-size: 1.7rem;
             color: #ffffff;
-            margin-bottom: 5px;
+            margin-bottom: 2px;
             letter-spacing: 1px;
+            text-shadow: 0 2px 10px rgba(0,0,0,0.9);
         }
 
         .card-player-details {
-            background: rgba(10, 10, 10, 0.8);
-            border: 1px solid #333;
-            border-radius: 6px;
-            padding: 10px;
+            background: rgba(10, 10, 10, 0.9);
+            border: 1px solid rgba(212, 175, 55, 0.4);
+            border-radius: 8px;
+            padding: 14px;
             margin-top: 15px;
             text-align: left;
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.9);
         }
 
         .card-row {
             display: flex;
             justify-content: space-between;
-            font-size: 0.95rem;
-            padding: 4px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.05);
+            font-size: 1rem;
+            padding: 6px 0;
+            border-bottom: 1px solid rgba(255,255,255,0.08);
         }
 
         .card-row:last-child {
@@ -305,12 +313,35 @@
         }
 
         .card-row span:first-child {
-            color: #aaa;
+            color: #bbb;
         }
 
         .card-row span:last-child {
             color: #d4af37;
             font-weight: 700;
+        }
+
+        /* Botão de Download do Card */
+        .download-card-btn {
+            background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
+            color: #ffffff;
+            border: none;
+            padding: 14px 20px;
+            border-radius: 6px;
+            font-family: 'Cinzel', serif;
+            font-weight: 700;
+            font-size: 1rem;
+            text-transform: uppercase;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 15px;
+            box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
+            transition: transform 0.2s;
+        }
+
+        .download-card-btn:hover {
+            transform: translateY(-2px);
+            opacity: 0.95;
         }
 
         .guild-gallery {
@@ -822,68 +853,14 @@
         </header>
 
         <div class="container">
-            <!-- MURAL DE AVISOS DA STAFF -->
+            <!-- 1. MURAL DE AVISOS DA STAFF (No Topo) -->
             <div class="staff-notice-box">
                 <span class="notice-badge">⚡ Mural da Staff</span>
                 <h3 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 5px;">Recrutamento Aberto (CS & BR)</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 0; color: #ddd;">Atenção tropa: As inscrições para jogadores de CS e BR estão ativas. Verifique os requisitos e mande sua ficha direto com a staff!</p>
             </div>
 
-            <!-- GERADOR DE PLAYER CARD COM O ESTANDARTE OFICIAL IN7 -->
-            <div class="card">
-                <h2>Gerador de Card Oficial IN7</h2>
-                <p>Monte seu cartão de membro profissional da guilda para postar nos status ou redes sociais:</p>
-                
-                <div class="form-group">
-                    <label for="card-input-nick">Seu Nick (com a tag):</label>
-                    <input type="text" id="card-input-nick" class="form-control" placeholder="Ex: IN7ㅤLOST" value="IN7ㅤLOST" oninput="atualizarCard()">
-                </div>
-
-                <div class="form-group">
-                    <label for="card-input-patente">Patente Atual:</label>
-                    <input type="text" id="card-input-patente" class="form-control" placeholder="Ex: Mestre de Honra" value="Mestre de Honra" oninput="atualizarCard()">
-                </div>
-
-                <div class="form-group">
-                    <label for="card-input-modo">Modalidade Principal:</label>
-                    <select id="card-input-modo" class="form-control" onchange="atualizarCard()">
-                        <option value="Contra Squad (CS)">Contra Squad (CS)</option>
-                        <option value="Battle Royale (BR)">Battle Royale (BR)</option>
-                        <option value="Ambos (CS & BR)">Ambos (CS & BR)</option>
-                    </select>
-                </div>
-
-                <!-- O CARD COM A BANDEIRA OFICIAL IN7 (82634.jpg) -->
-                <div class="player-card-preview" id="player-card-render">
-                    <div class="card-header-flex">
-                        <span class="card-guild-tag">IN7 INVICTUS</span>
-                        <span class="card-status-badge">Membro Elite</span>
-                    </div>
-                    <div class="card-avatar-container">
-                        <img src="82634.jpg" alt="Estandarte Oficial IN7">
-                    </div>
-                    <div class="card-player-nick" id="render-nick">IN7ㅤLOST</div>
-                    <p style="font-size: 0.85rem; color: #d4af37; margin-bottom: 10px; font-style: italic;">"Jamais Conquistados"</p>
-                    
-                    <div class="card-player-details">
-                        <div class="card-row">
-                            <span>Modalidade:</span>
-                            <span id="render-modo">Contra Squad (CS)</span>
-                        </div>
-                        <div class="card-row">
-                            <span>Patente:</span>
-                            <span id="render-patente">Mestre de Honra</span>
-                        </div>
-                        <div class="card-row">
-                            <span>ID da Guilda:</span>
-                            <span>2064438275</span>
-                        </div>
-                    </div>
-                </div>
-
-                <p style="text-align: center; font-size: 0.9rem; color: #aaa; margin-top: 10px;">Dica: Tire um print ou salve a tela do card acima para usar nos status!</p>
-            </div>
-
+            <!-- 2. SOBRE A GUILDA (Abaixo do Mural) -->
             <div class="card">
                 <h2>Sobre a Guilda</h2>
                 <p>A <strong>IN7 INVICTUS</strong> é uma guilda de elite focada em alta performance, organização competitiva e lealdade absoluta. Nascida para dominar o cenário, nossa tropa valoriza o trabalho em equipe, o rush inteligente e o respeito dentro e fora do mapa.</p>
@@ -906,6 +883,7 @@
                 </div>
             </div>
 
+            <!-- TOP 3 DE HONRAS -->
             <div class="card">
                 <h2>Top 3 de Honras - Ranking Semanal</h2>
                 <p>A dedicação da nossa tropa é a nossa força! Confira o pódio da semana:</p>
@@ -914,6 +892,7 @@
                 </div>
             </div>
 
+            <!-- 3. NOSSA STAFF -->
             <div class="card">
                 <h2>Nossa Staff</h2>
                 <p>O comando oficial da IN7 INVICTUS:</p>
@@ -946,6 +925,77 @@
                 </div>
             </div>
 
+            <!-- 4. GERADOR DE PLAYER CARD OFICIAL (Abaixo da Staff, com ID Pessoal + Estandarte de Guerra) -->
+            <div class="card">
+                <h2>Gerador de Card Oficial IN7</h2>
+                <p>Monte seu cartão de membro profissional com seu ID pessoal e baixe direto na galeria:</p>
+                
+                <div class="form-group">
+                    <label for="card-input-nick">Seu Nick (com a tag):</label>
+                    <input type="text" id="card-input-nick" class="form-control" placeholder="Ex: IN7ㅤLOST" value="IN7ㅤLOST" oninput="atualizarCard()">
+                </div>
+
+                <div class="form-group">
+                    <label for="card-input-id">Seu ID Pessoal do Free Fire:</label>
+                    <input type="text" id="card-input-id" class="form-control" placeholder="Ex: 250219877" value="250219877" oninput="atualizarCard()">
+                </div>
+
+                <div class="form-group">
+                    <label for="card-input-patente">Patente Atual:</label>
+                    <input type="text" id="card-input-patente" class="form-control" placeholder="Ex: Mestre de Honra" value="Mestre de Honra" oninput="atualizarCard()">
+                </div>
+
+                <div class="form-group">
+                    <label for="card-input-modo">Modalidade Principal:</label>
+                    <select id="card-input-modo" class="form-control" onchange="atualizarCard()">
+                        <option value="Contra Squad (CS)">Contra Squad (CS)</option>
+                        <option value="Battle Royale (BR)">Battle Royale (BR)</option>
+                        <option value="Ambos (CS & BR)">Ambos (CS & BR)</option>
+                    </select>
+                </div>
+
+                <!-- O CARD COM DESIGN ESPORTS DE ELITE E ESTANDARTE 82634.jpg -->
+                <div class="player-card-preview" id="player-card-render">
+                    <div class="card-header-flex">
+                        <span class="card-guild-tag">IN7 INVICTUS</span>
+                        <span class="card-status-badge">Membro Elite</span>
+                    </div>
+
+                    <!-- Estandarte Oficial em Destaque Absoluto -->
+                    <div class="card-emblem-container">
+                        <img src="82634.jpg" alt="Estandarte Oficial IN7">
+                    </div>
+
+                    <div class="card-player-nick" id="render-nick">IN7ㅤLOST</div>
+                    <p style="font-size: 0.85rem; color: #d4af37; margin-bottom: 15px; font-style: italic; text-shadow: 0 1px 3px rgba(0,0,0,0.9);">"Jamais Conquistados"</p>
+                    
+                    <div class="card-player-details">
+                        <div class="card-row">
+                            <span>Modalidade:</span>
+                            <span id="render-modo">Contra Squad (CS)</span>
+                        </div>
+                        <div class="card-row">
+                            <span>Patente:</span>
+                            <span id="render-patente">Mestre de Honra</span>
+                        </div>
+                        <div class="card-row">
+                            <span>ID Pessoal:</span>
+                            <span id="render-id">250219877</span>
+                        </div>
+                        <div class="card-row">
+                            <span>ID da Guilda:</span>
+                            <span>2064438275</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- BOTÃO DE SALVAR NA GALERIA -->
+                <button onclick="salvarCardNaGaleria()" class="download-card-btn">
+                    📥 Salvar Card na Galeria
+                </button>
+            </div>
+
+            <!-- REQUISITOS OFICIAIS -->
             <div class="card">
                 <h2>Requisitos Oficiais</h2>
                 <p>Para fazer parte da nossa tropa, o candidato precisa cumprir com os padrões mínimos da guilda:</p>
@@ -965,6 +1015,7 @@
                 </div>
             </div>
 
+            <!-- LOJA OFICIAL IN7 -->
             <div class="card">
                 <h2>Loja Oficial IN7</h2>
                 <p>Garanta seu Passe de Elite com segurança e ótimo preço:</p>
@@ -1235,7 +1286,7 @@
         </footer>
     </div>
 
-    <!-- SCRIPTS DE NAVEGAÇÃO, VALIDAÇÃO E PLAYER CARD -->
+    <!-- SCRIPTS DE NAVEGAÇÃO, VALIDAÇÃO E DOWNLOAD DO CARD -->
     <script>
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(screen => {
@@ -1245,15 +1296,36 @@
             window.scrollTo(0, 0);
         }
 
-        // Função para atualizar o Card Dinamicamente
+        // Função para atualizar o Card Dinamicamente (incluindo ID Pessoal)
         function atualizarCard() {
             const nick = document.getElementById('card-input-nick').value.trim() || 'IN7ㅤNICK';
+            const idPessoal = document.getElementById('card-input-id').value.trim() || '000000000';
             const patente = document.getElementById('card-input-patente').value.trim() || 'Mestre';
             const modo = document.getElementById('card-input-modo').value;
 
             document.getElementById('render-nick').innerText = nick;
+            document.getElementById('render-id').innerText = idPessoal;
             document.getElementById('render-patente').innerText = patente;
             document.getElementById('render-modo').innerText = modo;
+        }
+
+        // Função para gerar a imagem do card com o estandarte e baixar automaticamente
+        function salvarCardNaGaleria() {
+            const cardElement = document.getElementById('player-card-render');
+            
+            html2canvas(cardElement, {
+                scale: 3, // Alta resolução para nítida perfeição
+                useCORS: true,
+                backgroundColor: null
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'card-in7-invictus.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }).catch(err => {
+                alert('⚠️ Ocorreu um erro ao gerar a imagem. Tente tirar um print do card!');
+                console.error(err);
+            });
         }
 
         function verificarRequisitos() {
