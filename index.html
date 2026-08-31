@@ -216,16 +216,6 @@
             margin-top: 20px;
         }
 
-        .honra-img-single {
-            width: 100%;
-            max-width: 320px;
-            height: 420px;
-            object-fit: cover;
-            border-radius: 8px;
-            border: 2px solid #d4af37;
-            box-shadow: 0 5px 25px rgba(212, 175, 55, 0.4);
-        }
-
         .staff-item {
             flex: 1;
             min-width: 160px;
@@ -685,6 +675,7 @@
     </video>
     <div class="overlay"></div>
 
+    <!-- ================= TELA 1: HOME (PRINCIPAL) ================= -->
     <div id="main-screen" class="screen active">
         <header>
             <img src="82605_2.jpg" alt="IN7 INVICTUS Logo" class="logo-img">
@@ -728,10 +719,10 @@
             </div>
 
             <div class="card">
-                <h2>Top Honra Semanal</h2>
-                <p>O destaque da tropa que carregou a guilda nesta semana!</p>
+                <h2>Top 3 de Honras - Ranking Semanal</h2>
+                <p>A dedicação da nossa tropa é a nossa força! Confira o pódio da semana:</p>
                 <div class="honra-single-container">
-                    <img src="82885.jpg" alt="Top Honra Semanal" class="honra-img-single">
+                    <img src="97326.jpg" alt="Top 3 de Honras Semanal" style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; border: 2px solid #d4af37; box-shadow: 0 5px 25px rgba(212, 175, 55, 0.4);">
                 </div>
             </div>
 
@@ -767,7 +758,8 @@
                 <p>Para fazer parte da nossa tropa, o candidato precisa cumprir com os padrões mínimos da guilda:</p>
                 
                 <ul>
-                    <li><span>Patente Mínima</span> <span>Mestre (BR ou CS) 🌟 / Honra</span></li>
+                    <li><span>Patente Mínima (CS)</span> <span>Mestre de Honra / Elite / Desafiante 🌟</span></li>
+                    <li><span>Patente Mínima (BR)</span> <span>Mestre 2★+ / Elite / Desafiante 🎮</span></li>
                     <li><span>Level Mínimo</span> <span>Level 50+</span></li>
                     <li><span>Idade Mínima</span> <span>16 Anos</span></li>
                     <li><span>Obrigatório</span> <span>Troca Nick com a Tag (IN7ㅤ)</span></li>
@@ -798,6 +790,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 2: RECRUTAMENTO ================= -->
     <div id="recrutamento-screen" class="screen">
         <header>
             <h1>Recrutamento <span>IN7</span></h1>
@@ -842,15 +835,15 @@
                 <div class="form-group">
                     <label for="modopatente">Modo de Passaporte (Deseja entrar por qual modo?):</label>
                     <select id="modopatente" class="form-control">
-                        <option value="Contra Squad (CS)">Contra Squad (CS)</option>
-                        <option value="Battle Royale (BR)">Battle Royale (BR)</option>
+                        <option value="Contra Squad (CS)">Contra Squad (CS - Exige Mestre de Honra, Elite ou Desafiante)</option>
+                        <option value="Battle Royale (BR)">Battle Royale (BR - Exige Mestre 2★+, Elite ou Desafiante)</option>
                         <option value="Ambos">Ambos (BR e CS)</option>
                     </select>
                 </div>
 
                 <div class="form-group">
-                    <label for="patente">Sua Patente Atual (Ex: Mestre, Mestre de Honra, Elite, Desafiante):</label>
-                    <input type="text" id="patente" class="form-control" placeholder="Ex: Mestre / Desafiante">
+                    <label for="patente">Sua Patente Atual (Ex: Mestre de Honra, Mestre 2 Estrelas, Elite, Desafiante):</label>
+                    <input type="text" id="patente" class="form-control" placeholder="Ex: Mestre de Honra / Mestre 2 Estrelas">
                 </div>
 
                 <div class="form-group">
@@ -880,6 +873,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 3: EVENTOS & CAMPEONATOS ================= -->
     <div id="eventos-screen" class="screen">
         <header>
             <h1>Arena de Eventos & <span>Campeonatos</span></h1>
@@ -941,6 +935,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 4: PAGAMENTO / PASSE ================= -->
     <div id="payment-screen" class="screen">
         <header>
             <h1>Passe <span>IN7</span></h1>
@@ -972,6 +967,7 @@
         </footer>
     </div>
 
+    <!-- ================= TELA 5: APROVAÇÃO (INTEGRADA) ================= -->
     <div id="aprovacao-screen" class="screen">
         <header>
             <h1>IN7 <span>INVICTUS</span></h1>
@@ -986,7 +982,8 @@
                 </div>
 
                 <div class="ficha-box" id="ficha-detalhes">
-                    </div>
+                    <!-- Preenchido via JavaScript -->
+                </div>
 
                 <div class="instrucoes-box">
                     <h2>⚠️ ETAPA FINAL OBRIGATÓRIA</h2>
@@ -1045,6 +1042,7 @@
         </footer>
     </div>
 
+    <!-- SCRIPTS DE NAVEGAÇÃO E VALIDAÇÃO DE REQUISITOS -->
     <script>
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(screen => {
@@ -1086,9 +1084,39 @@
             }
 
             const patenteLower = patente.toLowerCase();
-            const temPatenteValida = patenteLower.includes('mestre') || patenteLower.includes('elite') || patenteLower.includes('desafiante') || patenteLower.includes('honra');
-            if (!temPatenteValida) {
-                erros.push(`• Patente mínima exigida: Mestre, Mestre de Honra, Elite ou Desafiante (Você informou: ${patente})`);
+            let patenteValida = false;
+
+            // Patentes globais de elite (valem para qualquer modo)
+            const éEliteOuDesafiante = patenteLower.includes('elite') || patenteLower.includes('desafiante');
+
+            if (modopatente.includes('Contra Squad')) {
+                // CS: Exige Mestre de Honra, Elite ou Desafiante
+                const éMestreHonra = patenteLower.includes('honra');
+                patenteValida = éMestreHonra || éEliteOuDesafiante;
+            } else if (modopatente.includes('Battle Royale')) {
+                // BR: Exige Mestre 2, 3, 4, 5 estrelas, Elite ou Desafiante
+                const éMestre = patenteLower.includes('mestre');
+                if (éEliteOuDesafiante) {
+                    patenteValida = true;
+                } else if (éMestre) {
+                    const temEstrelasValidas = patenteLower.includes('2') || patenteLower.includes('dois') || 
+                                               patenteLower.includes('3') || patenteLower.includes('três') || 
+                                               patenteLower.includes('4') || patenteLower.includes('quatro') || 
+                                               patenteLower.includes('5') || patenteLower.includes('cinco');
+                    patenteValida = temEstrelasValidas;
+                }
+            } else {
+                // Se for "Ambos", aceita se cumprir o requisito em pelo menos um deles
+                const éMestreHonra = patenteLower.includes('honra');
+                const temEstrelasValidas = patenteLower.includes('2') || patenteLower.includes('dois') || 
+                                           patenteLower.includes('3') || patenteLower.includes('três') || 
+                                           patenteLower.includes('4') || patenteLower.includes('quatro') || 
+                                           patenteLower.includes('5') || patenteLower.includes('cinco');
+                patenteValida = éMestreHonra || éEliteOuDesafiante || temEstrelasValidas;
+            }
+
+            if (!patenteValida) {
+                erros.push(`• Patente mínima insuficiente para o modo escolhido: Exigido <strong>Mestre de Honra/Elite/Desafiante (CS)</strong> ou <strong>Mestre 2★+ (BR)</strong> (Você informou: ${patente})`);
             }
 
             if (trocanick === 'Nao') {
