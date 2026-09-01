@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IN7 INVICTUS | Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <!-- Biblioteca html2canvas para exportar o card em alta resolução -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
@@ -230,7 +229,7 @@
             margin-bottom: 8px;
         }
 
-        /* ================= PLAYER CARD ESTÁVEL (EXATAMENTE COMO O APROVADO) ================= -->
+        /* ================= PLAYER CARD COM O PADRÃO APROVADO (SEM LEÃO, BORDAS DOURADAS, SELO NO TOPO DIREITO) ================= -->
         .player-card-preview {
             width: 100%;
             max-width: 420px;
@@ -243,6 +242,12 @@
             position: relative;
             overflow: hidden;
             text-align: center;
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+        }
+
+        .player-card-preview:hover {
+            transform: translateY(-4px);
+            box-shadow: 0 0 65px rgba(255, 215, 0, 0.85);
         }
 
         .card-top-row {
@@ -263,6 +268,7 @@
             text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
         }
 
+        /* Selo "MEMBRO ELITE" perfeitamente alinhado no topo direito */
         .card-elite-badge {
             background: #10b981;
             color: #ffffff;
@@ -275,6 +281,7 @@
             letter-spacing: 0.5px;
         }
 
+        /* Moldura da Nova Bandeira Oficial (98378.jpg) no Centro */
         .card-emblem-box {
             width: 110px;
             height: 145px;
@@ -310,6 +317,7 @@
             text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
         }
 
+        /* Painel Holográfico de Dados com Fundo Escuro Sólido */
         .card-data-panel {
             background: rgba(10, 8, 3, 0.94);
             border: 2px solid #c59b27;
@@ -342,6 +350,7 @@
             text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
         }
 
+        /* Botão de Cópia Rápida de Tag */
         .copy-tag-btn {
             background: rgba(212, 175, 55, 0.15);
             color: #d4af37;
@@ -363,6 +372,7 @@
             box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
         }
 
+        /* Botão de Download na Galeria */
         .download-card-btn {
             background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
             color: #ffffff;
@@ -412,6 +422,13 @@
             border-radius: 6px;
             border: 1px solid #444;
             scroll-snap-align: start;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .guild-gallery img:hover {
+            transform: scale(1.03);
+            border-color: #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
         }
 
         .honra-single-container {
@@ -430,6 +447,13 @@
             border: 1px solid #444;
             border-radius: 6px;
             padding: 10px;
+            transition: transform 0.3s ease, border-color 0.3s ease;
+        }
+
+        .staff-item:hover {
+            transform: translateY(-3px);
+            border-color: #d4af37;
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
 
         .staff-item img {
@@ -452,6 +476,7 @@
             font-size: 1.4rem;
             font-weight: 700;
             margin: 10px 0;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
         }
 
         .guild-id-box {
@@ -461,6 +486,7 @@
             text-align: center;
             border-radius: 6px;
             margin-top: 20px;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
         }
 
         .guild-id-box span {
@@ -468,6 +494,7 @@
             font-weight: 700;
             font-size: 1.4rem;
             letter-spacing: 2px;
+            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
         ul {
@@ -507,6 +534,13 @@
             display: flex;
             align-items: center;
             gap: 10px;
+            transition: all 0.3s ease;
+        }
+
+        .social-btn:hover {
+            border-color: #d4af37;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            transform: translateY(-2px);
         }
 
         .social-btn svg {
@@ -543,11 +577,13 @@
             color: #fff;
             font-family: 'Rajdhani', sans-serif;
             font-size: 1rem;
+            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-control:focus {
             border-color: #d4af37;
             outline: none;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
 
         .recrutamento-btn {
@@ -563,6 +599,13 @@
             font-size: 1.1rem;
             letter-spacing: 1px;
             margin-top: 10px;
+            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
+            transition: all 0.3s ease;
+        }
+
+        .recrutamento-btn:hover {
+            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+            transform: translateY(-2px);
         }
 
         #resultado-recrutamento {
@@ -641,11 +684,20 @@
             margin-top: 15px;
             text-decoration: none;
             display: inline-block;
+            transition: all 0.3s ease;
+        }
+
+        .pagbank-link-btn:hover {
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
         }
 
         .whatsapp-confirm-btn {
             background: #25d366;
             color: #fff;
+        }
+
+        .whatsapp-confirm-btn:hover {
+            box-shadow: 0 0 20px rgba(37, 211, 102, 0.7);
         }
 
         .back-link {
@@ -655,10 +707,12 @@
             text-decoration: none;
             font-size: 0.95rem;
             cursor: pointer;
+            transition: color 0.2s;
         }
 
         .back-link:hover {
             color: #d4af37;
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
         }
 
         /* Ficha de Aprovação */
@@ -691,6 +745,7 @@
             margin-top: 10px;
             font-size: 1rem;
             text-transform: uppercase;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
         }
 
         .ficha-box {
@@ -776,9 +831,10 @@
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.9rem;
+            transition: all 0.2s ease;
         }
 
-        .custom-file-btn:hover { background: #d4af37; color: #0b0b0b; }
+        .custom-file-btn:hover { background: #d4af37; color: #0b0b0b; box-shadow: 0 0 10px rgba(212, 175, 55, 0.6); }
 
         #preview-img {
             max-width: 100%;
@@ -806,6 +862,12 @@
             text-decoration: none;
             box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
             margin-top: 20px;
+            transition: all 0.3s ease;
+        }
+
+        .btn-whatsapp-final:hover {
+            transform: translateY(-2px);
+            box-shadow: 0 0 25px rgba(37, 211, 102, 0.8);
         }
 
         .links-section {
@@ -829,12 +891,25 @@
             text-decoration: none;
             display: block;
             font-size: 0.95rem;
+            transition: all 0.3s ease;
+        }
+
+        .group-btn:hover {
+            background: #25d366;
+            color: #0b0b0b;
+            box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
         }
 
         .group-btn.secondary-link {
             background: rgba(212, 175, 55, 0.1);
             color: #d4af37;
             border-color: #d4af37;
+        }
+
+        .group-btn.secondary-link:hover {
+            background: #d4af37;
+            color: #0b0b0b;
+            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
         }
 
         footer {
@@ -856,7 +931,6 @@
     </video>
     <div class="overlay"></div>
 
-    <!-- ================= TELA 1: HOME (PRINCIPAL) ================= -->
     <div id="main-screen" class="screen active">
         <header>
             <img src="82605_2.jpg" alt="IN7 INVICTUS Logo" class="logo-img">
@@ -877,14 +951,12 @@
         </header>
 
         <div class="container">
-            <!-- 1. MURAL DE AVISOS DA STAFF -->
             <div class="staff-notice-box">
                 <span class="notice-badge">⚡ Mural da Staff</span>
                 <h3 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 5px;">Recrutamento Aberto (CS & BR)</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 0; color: #ddd;">Atenção tropa: As inscrições para jogadores de CS e BR estão ativas. Verifique os requisitos e mande sua ficha direto com a staff!</p>
             </div>
 
-            <!-- 2. SOBRE A GUILDA -->
             <div class="card">
                 <h2>Sobre a Guilda</h2>
                 <p>A <strong>IN7 INVICTUS</strong> é uma guilda de elite focada em alta performance, organização competitiva e lealdade absoluta. Nascida para dominar o cenário, nossa tropa valoriza o trabalho em equipe, o rush inteligente e o respeito dentro e fora do mapa.</p>
@@ -907,7 +979,6 @@
                 </div>
             </div>
 
-            <!-- TOP 3 DE HONRAS -->
             <div class="card">
                 <h2>Top 3 de Honras - Ranking Semanal</h2>
                 <p>A dedicação da nossa tropa é a nossa força! Confira o pódio da semana:</p>
@@ -916,7 +987,6 @@
                 </div>
             </div>
 
-            <!-- 3. NOSSA STAFF -->
             <div class="card">
                 <h2>Nossa Staff</h2>
                 <p>O comando oficial da IN7 INVICTUS:</p>
@@ -949,25 +1019,24 @@
                 </div>
             </div>
 
-            <!-- 4. GERADOR DE PLAYER CARD COM CAMPOS ZERADOS -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
                 
                 <div class="form-group">
                     <label for="card-input-nick">Seu Nick (com a tag):</label>
-                    <input type="text" id="card-input-nick" class="form-control" placeholder="Ex: IN7ㅤSEUNOME" value="" oninput="atualizarCard()">
+                    <input type="text" id="card-input-nick" class="form-control" placeholder="Ex: IN7ㅤLOST" value="IN7ㅤLOST" oninput="atualizarCard()">
                     <button type="button" onclick="copiarTagIn7()" class="copy-tag-btn">📋 Copiar Tag IN7 com Espaço Invisível</button>
                 </div>
 
                 <div class="form-group">
                     <label for="card-input-id">Seu ID Pessoal do Free Fire:</label>
-                    <input type="text" id="card-input-id" class="form-control" placeholder="Ex: 000000000" value="" oninput="atualizarCard()">
+                    <input type="text" id="card-input-id" class="form-control" placeholder="Ex: 250219877" value="250219877" oninput="atualizarCard()">
                 </div>
 
                 <div class="form-group">
                     <label for="card-input-patente">Patente Atual:</label>
-                    <input type="text" id="card-input-patente" class="form-control" placeholder="Ex: Mestre de Honra" value="" oninput="atualizarCard()">
+                    <input type="text" id="card-input-patente" class="form-control" placeholder="Ex: Mestre de Honra" value="Mestre de Honra" oninput="atualizarCard()">
                 </div>
 
                 <div class="form-group">
@@ -979,19 +1048,17 @@
                     </select>
                 </div>
 
-                <!-- O PLAYER CARD ZERADO PRONTO PARA O MEMBRO PREENCHER -->
                 <div class="player-card-preview" id="player-card-render">
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
                         <span class="card-elite-badge">MEMBRO ELITE</span>
                     </div>
 
-                    <!-- Nova Bandeira Oficial (98378.jpg) em Destaque -->
                     <div class="card-emblem-box">
                         <img src="98378.jpg" alt="Bandeira Oficial IN7">
                     </div>
 
-                    <div class="card-nick-display" id="render-nick">IN7ㅤSEUNOME</div>
+                    <div class="card-nick-display" id="render-nick">IN7ㅤLOST</div>
                     <div class="card-motto-text">"Jamais Conquistados"</div>
                     
                     <div class="card-data-panel">
@@ -1001,11 +1068,11 @@
                         </div>
                         <div class="card-data-row">
                             <span>Patente:</span>
-                            <span id="render-patente">Mestre</span>
+                            <span id="render-patente">Mestre de Honra</span>
                         </div>
                         <div class="card-data-row">
                             <span>ID Pessoal:</span>
-                            <span id="render-id">000000000</span>
+                            <span id="render-id">250219877</span>
                         </div>
                         <div class="card-data-row">
                             <span>ID da Guilda:</span>
@@ -1014,13 +1081,11 @@
                     </div>
                 </div>
 
-                <!-- BOTÃO DE SALVAR NA GALERIA -->
                 <button onclick="salvarCardNaGaleria()" class="download-card-btn">
                     📥 Salvar Card na Galeria
                 </button>
             </div>
 
-            <!-- REQUISITOS OFICIAIS -->
             <div class="card">
                 <h2>Requisitos Oficiais</h2>
                 <p>Para fazer parte da nossa tropa, o candidato precisa cumprir com os padrões mínimos da guilda:</p>
@@ -1040,7 +1105,6 @@
                 </div>
             </div>
 
-            <!-- LOJA OFICIAL IN7 -->
             <div class="card">
                 <h2>Loja Oficial IN7</h2>
                 <p>Garanta seu Passe de Elite com segurança e ótimo preço:</p>
@@ -1059,7 +1123,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 2: RECRUTAMENTO ================= -->
     <div id="recrutamento-screen" class="screen">
         <header>
             <h1>Recrutamento <span>IN7</span></h1>
@@ -1093,12 +1156,12 @@
 
                 <div class="form-group">
                     <label for="ffid">ID do Free Fire:</label>
-                    <input type="text" id="ffid" class="form-control" placeholder="Ex: 000000000">
+                    <input type="text" id="ffid" class="form-control" placeholder="Ex: 250219877">
                 </div>
 
                 <div class="form-group">
                     <label for="level">Level Atual:</label>
-                    <input type="number" id="level" class="form-control" placeholder="Ex: 60">
+                    <input type="number" id="level" class="form-control" placeholder="Ex: 77">
                 </div>
 
                 <div class="form-group">
@@ -1117,12 +1180,12 @@
 
                 <div class="form-group">
                     <label for="nickatual">Nick Atual:</label>
-                    <input type="text" id="nickatual" class="form-control" placeholder="Ex: Seu Nick Antigo">
+                    <input type="text" id="nickatual" class="form-control" placeholder="Ex: NX DEA7H">
                 </div>
 
                 <div class="form-group">
                     <label for="nickpretendido">Nick Pretendido (Ex: IN7ㅤSeuNome):</label>
-                    <input type="text" id="nickpretendido" class="form-control" placeholder="Ex: IN7ㅤSEUNOME">
+                    <input type="text" id="nickpretendido" class="form-control" placeholder="Ex: IN7ㅤLOST">
                     <button type="button" onclick="copiarTagIn7()" class="copy-tag-btn">📋 Copiar Tag IN7 com Espaço Invisível</button>
                 </div>
 
@@ -1143,7 +1206,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 3: EVENTOS & CAMPEONATOS ================= -->
     <div id="eventos-screen" class="screen">
         <header>
             <h1>Arena de Eventos & <span>Campeonatos</span></h1>
@@ -1192,7 +1254,7 @@
                     <div style="background: rgba(20,20,20,0.8); padding: 15px; border-radius: 6px; border-left: 3px solid #d4af37;">
                         <p style="color: #d4af37; font-weight: 700; margin-bottom: 5px;">🔥 Edição Atual: Mata-Mata 2x2</p>
                         <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 3px;">Status: Em Andamento / Chaveamento Divulgado no Grupo Oficial</p>
-                        <p style="color: #aaa; font-size: 0.9rem;">Os confrontos e placares parciais são atualizados após o término de cada rodada pela Staff.</p>
+                        <p style="color: #aaa; font-size: 0.9rem;">Os confrontos e placares parcial são atualizados após o término de cada rodada pela Staff.</p>
                     </div>
                 </div>
 
@@ -1205,7 +1267,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 4: PAGAMENTO / PASSE ================= -->
     <div id="payment-screen" class="screen">
         <header>
             <h1>Passe <span>IN7</span></h1>
@@ -1237,7 +1298,6 @@
         </footer>
     </div>
 
-    <!-- ================= TELA 5: APROVAÇÃO (INTEGRADA) ================= -->
     <div id="aprovacao-screen" class="screen">
         <header>
             <h1>IN7 <span>INVICTUS</span></h1>
@@ -1252,8 +1312,7 @@
                 </div>
 
                 <div class="ficha-box" id="ficha-detalhes">
-                    <!-- Preenchido via JavaScript -->
-                </div>
+                    </div>
 
                 <div class="instrucoes-box">
                     <h2>⚠️ ETAPA FINAL OBRIGATÓRIA</h2>
@@ -1312,7 +1371,6 @@
         </footer>
     </div>
 
-    <!-- SCRIPTS DE NAVEGAÇÃO, VALIDAÇÃO E DOWNLOAD DO CARD -->
     <script>
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(screen => {
@@ -1324,7 +1382,7 @@
 
         // Função para atualizar o Card Dinamicamente
         function atualizarCard() {
-            const nick = document.getElementById('card-input-nick').value.trim() || 'IN7ㅤSEUNOME';
+            const nick = document.getElementById('card-input-nick').value.trim() || 'IN7ㅤNICK';
             const idPessoal = document.getElementById('card-input-id').value.trim() || '000000000';
             const patente = document.getElementById('card-input-patente').value.trim() || 'Mestre';
             const modo = document.getElementById('card-input-modo').value;
