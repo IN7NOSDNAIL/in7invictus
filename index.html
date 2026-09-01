@@ -230,34 +230,48 @@
             margin-bottom: 8px;
         }
 
-        /* ================= O PADRÃO DA DIREITA: TEXTURA DOURADA DO LEÃO + NOVA BANDEIRA ================= -->
+        /* ================= O CARD DEFINITIVO COM TEXTURA DO LEÃO E BORDAS DOURADAS ENVELHECIDAS ================= -->
         .player-card-preview {
             width: 100%;
             max-width: 420px;
             margin: 20px auto;
-            /* Mantém a textura imersiva do leão (82496.jpg) com o fundo dourado/amarelado irado */
-            background: linear-gradient(rgba(20, 16, 8, 0.78), rgba(10, 8, 4, 0.92)), url('82496.jpg') no-repeat center center;
+            /* Textura imersiva do leão (82496.jpg) com degradê dourado/envelhecido de fundo */
+            background: linear-gradient(rgba(26, 21, 10, 0.88), rgba(12, 10, 4, 0.96)), url('82496.jpg') no-repeat center center;
             background-size: cover;
-            border: 3px solid #d4af37;
-            border-radius: 14px;
+            /* Borda dourada envelhecida principal com efeito de relevo */
+            border: 4px solid #c59b27;
+            border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.55), inset 0 0 25px rgba(212, 175, 55, 0.25);
+            box-shadow: 0 0 45px rgba(197, 155, 39, 0.6), inset 0 0 30px rgba(197, 155, 39, 0.3);
             position: relative;
             overflow: hidden;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
+        /* Detalhe extra nas laterais simulando bordas envelhecidas */
+        .player-card-preview::after {
+            content: '';
+            position: absolute;
+            top: 0;
+            left: 0;
+            right: 0;
+            bottom: 0;
+            border: 1px solid rgba(255, 215, 0, 0.3);
+            border-radius: 9px;
+            pointer-events: none;
+        }
+
         .player-card-preview:hover {
             transform: translateY(-4px);
-            box-shadow: 0 0 65px rgba(255, 215, 0, 0.85);
+            box-shadow: 0 0 60px rgba(255, 215, 0, 0.85);
         }
 
         .card-top-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid rgba(212, 175, 55, 0.5);
+            border-bottom: 2px solid rgba(197, 155, 39, 0.5);
             padding-bottom: 10px;
             margin-bottom: 15px;
         }
@@ -272,7 +286,7 @@
         }
 
         .card-elite-badge {
-            background: #10b981; /* O verde exato do modelo da direita */
+            background: #10b981; /* Verde esmeralda exato do modelo aprovado */
             color: #ffffff;
             font-size: 0.75rem;
             padding: 5px 14px;
@@ -283,7 +297,7 @@
             letter-spacing: 0.5px;
         }
 
-        /* Moldura Perfeita da Nova Bandeira (98378.jpg) no Centro do Card */
+        /* Moldura da Nova Bandeira Oficial (98378.jpg) no Centro */
         .card-emblem-box {
             width: 110px;
             height: 145px;
@@ -319,10 +333,10 @@
             text-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
         }
 
-        /* Painel Holográfico de Dados com a Borda Dupla da Direita */
+        /* Painel Holográfico de Dados com Borda Dourada Envelhecida */
         .card-data-panel {
-            background: rgba(12, 12, 12, 0.95);
-            border: 2px solid #333;
+            background: rgba(10, 10, 10, 0.95);
+            border: 2px solid #c59b27;
             border-radius: 8px;
             padding: 14px;
             text-align: left;
@@ -1026,7 +1040,7 @@
                 </div>
             </div>
 
-            <!-- 4. GERADOR DE PLAYER CARD COM O ESTILO IDÊNTICO DA DIREITA + BANDEIRA OFICIAL -->
+            <!-- 4. GERADOR DE PLAYER CARD COM TEXTURA DO LEÃO, BORDAS DOURADAS ENVELHECIDAS E BANDEIRA NOVA -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
@@ -1056,7 +1070,7 @@
                     </select>
                 </div>
 
-                <!-- O PLAYER CARD IDÊNTICO AO DA DIREITA COM A BANDEIRA 98378.jpg -->
+                <!-- O PLAYER CARD DEFINITIVO COM A TEXTURA DO LEÃO E BORDAS DOURADAS ENVELHECIDAS -->
                 <div class="player-card-preview" id="player-card-render">
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
@@ -1422,7 +1436,7 @@
             });
         }
 
-        // Função para gerar a imagem do card com a textura dourada exata e baixar automaticamente
+        // Função para gerar a imagem do card perfeitamente mantendo a textura e as bordas douradas
         function salvarCardNaGaleria() {
             const cardElement = document.getElementById('player-card-render');
             
