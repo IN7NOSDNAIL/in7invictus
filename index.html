@@ -230,7 +230,7 @@
             margin-bottom: 8px;
         }
 
-        /* ================= PLAYER CARD LIMPO (ZERADO PARA O USUÁRIO PREENCHER) ================= -->
+        /* ================= PLAYER CARD ESTÁVEL (EXATAMENTE COMO O APROVADO) ================= -->
         .player-card-preview {
             width: 100%;
             max-width: 420px;
@@ -243,12 +243,6 @@
             position: relative;
             overflow: hidden;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .player-card-preview:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 65px rgba(255, 215, 0, 0.85);
         }
 
         .card-top-row {
@@ -418,13 +412,6 @@
             border-radius: 6px;
             border: 1px solid #444;
             scroll-snap-align: start;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .guild-gallery img:hover {
-            transform: scale(1.03);
-            border-color: #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
         }
 
         .honra-single-container {
@@ -443,13 +430,6 @@
             border: 1px solid #444;
             border-radius: 6px;
             padding: 10px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .staff-item:hover {
-            transform: translateY(-3px);
-            border-color: #d4af37;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
 
         .staff-item img {
@@ -472,7 +452,6 @@
             font-size: 1.4rem;
             font-weight: 700;
             margin: 10px 0;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
         }
 
         .guild-id-box {
@@ -482,7 +461,6 @@
             text-align: center;
             border-radius: 6px;
             margin-top: 20px;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
         }
 
         .guild-id-box span {
@@ -490,7 +468,6 @@
             font-weight: 700;
             font-size: 1.4rem;
             letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
         ul {
@@ -530,13 +507,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .social-btn:hover {
-            border-color: #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-            transform: translateY(-2px);
         }
 
         .social-btn svg {
@@ -573,13 +543,11 @@
             color: #fff;
             font-family: 'Rajdhani', sans-serif;
             font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-control:focus {
             border-color: #d4af37;
             outline: none;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
 
         .recrutamento-btn {
@@ -595,13 +563,6 @@
             font-size: 1.1rem;
             letter-spacing: 1px;
             margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .recrutamento-btn:hover {
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
-            transform: translateY(-2px);
         }
 
         #resultado-recrutamento {
@@ -680,20 +641,11 @@
             margin-top: 15px;
             text-decoration: none;
             display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .pagbank-link-btn:hover {
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
         }
 
         .whatsapp-confirm-btn {
             background: #25d366;
             color: #fff;
-        }
-
-        .whatsapp-confirm-btn:hover {
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.7);
         }
 
         .back-link {
@@ -703,12 +655,10 @@
             text-decoration: none;
             font-size: 0.95rem;
             cursor: pointer;
-            transition: color 0.2s;
         }
 
         .back-link:hover {
             color: #d4af37;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
         }
 
         /* Ficha de Aprovação */
@@ -741,7 +691,6 @@
             margin-top: 10px;
             font-size: 1rem;
             text-transform: uppercase;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
         }
 
         .ficha-box {
@@ -827,10 +776,9 @@
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.9rem;
-            transition: all 0.2s ease;
         }
 
-        .custom-file-btn:hover { background: #d4af37; color: #0b0b0b; box-shadow: 0 0 10px rgba(212, 175, 55, 0.6); }
+        .custom-file-btn:hover { background: #d4af37; color: #0b0b0b; }
 
         #preview-img {
             max-width: 100%;
@@ -858,12 +806,6 @@
             text-decoration: none;
             box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
             margin-top: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-whatsapp-final:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.8);
         }
 
         .links-section {
@@ -887,25 +829,12 @@
             text-decoration: none;
             display: block;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .group-btn:hover {
-            background: #25d366;
-            color: #0b0b0b;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
         }
 
         .group-btn.secondary-link {
             background: rgba(212, 175, 55, 0.1);
             color: #d4af37;
             border-color: #d4af37;
-        }
-
-        .group-btn.secondary-link:hover {
-            background: #d4af37;
-            color: #0b0b0b;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
         }
 
         footer {
@@ -1020,25 +949,25 @@
                 </div>
             </div>
 
-            <!-- 4. GERADOR DE PLAYER CARD COM DADOS ZERADOS PARA O USUÁRIO PREENCHER -->
+            <!-- 4. GERADOR DE PLAYER CARD COM CAMPOS ZERADOS -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
                 
                 <div class="form-group">
                     <label for="card-input-nick">Seu Nick (com a tag):</label>
-                    <input type="text" id="card-input-nick" class="form-control" placeholder="Ex: IN7ㅤSEUNOME" value="IN7ㅤSEUNOME" oninput="atualizarCard()">
+                    <input type="text" id="card-input-nick" class="form-control" placeholder="Ex: IN7ㅤSEUNOME" value="" oninput="atualizarCard()">
                     <button type="button" onclick="copiarTagIn7()" class="copy-tag-btn">📋 Copiar Tag IN7 com Espaço Invisível</button>
                 </div>
 
                 <div class="form-group">
                     <label for="card-input-id">Seu ID Pessoal do Free Fire:</label>
-                    <input type="text" id="card-input-id" class="form-control" placeholder="Ex: 000000000" value="000000000" oninput="atualizarCard()">
+                    <input type="text" id="card-input-id" class="form-control" placeholder="Ex: 000000000" value="" oninput="atualizarCard()">
                 </div>
 
                 <div class="form-group">
                     <label for="card-input-patente">Patente Atual:</label>
-                    <input type="text" id="card-input-patente" class="form-control" placeholder="Ex: Mestre de Honra" value="Mestre de Honra" oninput="atualizarCard()">
+                    <input type="text" id="card-input-patente" class="form-control" placeholder="Ex: Mestre de Honra" value="" oninput="atualizarCard()">
                 </div>
 
                 <div class="form-group">
@@ -1072,7 +1001,7 @@
                         </div>
                         <div class="card-data-row">
                             <span>Patente:</span>
-                            <span id="render-patente">Mestre de Honra</span>
+                            <span id="render-patente">Mestre</span>
                         </div>
                         <div class="card-data-row">
                             <span>ID Pessoal:</span>
