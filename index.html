@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IN7 INVICTUS | Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Biblioteca html2canvas para exportar o card em alta resolução -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
@@ -206,12 +207,12 @@
             margin-bottom: 8px;
         }
 
-        /* ================= PLAYER CARD COM LAYOUT BLINDADO ================= */
+        /* ================= PLAYER CARD COM FUNDO PRETO FOSCO PURO (SEM AMARELO) ================= */
         .player-card-preview {
             width: 100%;
             max-width: 420px;
             margin: 20px auto;
-            background: #0d0d0d;
+            background: #0d0d0d; /* Fundo preto fosco limpo, sem tom amarelo/verde */
             border: 3px solid #d4af37;
             border-radius: 16px;
             padding: 28px;
@@ -837,6 +838,7 @@
     </video>
     <div class="overlay"></div>
 
+    <!-- ================= TELA 1: HOME (PRINCIPAL) ================= -->
     <div id="main-screen" class="screen active">
         <header>
             <img src="82605_2.jpg" alt="IN7 INVICTUS Logo" class="logo-img">
@@ -857,12 +859,14 @@
         </header>
 
         <div class="container">
+            <!-- 1. MURAL DE AVISOS DA STAFF -->
             <div class="staff-notice-box">
                 <span class="notice-badge">⚡ Mural da Staff</span>
                 <h3 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 5px;">Recrutamento Aberto (CS & BR)</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 0; color: #ddd;">Atenção tropa: As inscrições para jogadores de CS e BR estão ativas. Verifique os requisitos e mande sua ficha direto com a staff!</p>
             </div>
 
+            <!-- 2. SOBRE A GUILDA -->
             <div class="card">
                 <h2>Sobre a Guilda</h2>
                 <p>A <strong>IN7 INVICTUS</strong> é uma guilda de elite focada em alta performance, organização competitiva e lealdade absoluta. Nascida para dominar o cenário, nossa tropa valoriza o trabalho em equipe, o rush inteligente e o respeito dentro e fora do mapa.</p>
@@ -885,6 +889,7 @@
                 </div>
             </div>
 
+            <!-- TOP 3 DE HONRAS -->
             <div class="card">
                 <h2>Top 3 de Honras - Ranking Semanal</h2>
                 <p>A dedicação da nossa tropa é a nossa força! Confira o pódio da semana:</p>
@@ -893,6 +898,7 @@
                 </div>
             </div>
 
+            <!-- 3. NOSSA STAFF -->
             <div class="card">
                 <h2>Nossa Staff</h2>
                 <p>O comando oficial da IN7 INVICTUS:</p>
@@ -925,6 +931,7 @@
                 </div>
             </div>
 
+            <!-- 4. GERADOR DE PLAYER CARD COM FUNDO PRETO FOSCO ZERADO -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
@@ -954,12 +961,14 @@
                     </select>
                 </div>
 
+                <!-- O PLAYER CARD COM FUNDO PRETO FOSCO E SELO ALINHADO -->
                 <div class="player-card-preview" id="player-card-render">
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
                         <span class="card-elite-badge">MEMBRO ELITE</span>
                     </div>
 
+                    <!-- Nova Bandeira Oficial (98378.jpg) em Destaque -->
                     <div class="card-emblem-box">
                         <img src="98378.jpg" alt="Bandeira Oficial IN7">
                     </div>
@@ -987,11 +996,13 @@
                     </div>
                 </div>
 
+                <!-- BOTÃO DE SALVAR NA GALERIA -->
                 <button onclick="salvarCardNaGaleria()" class="download-card-btn">
                     📥 Salvar Card na Galeria
                 </button>
             </div>
 
+            <!-- REQUISITOS OFICIAIS -->
             <div class="card">
                 <h2>Requisitos Oficiais</h2>
                 <p>Para fazer parte da nossa tropa, o candidato precisa cumprir com os padrões mínimos da guilda:</p>
@@ -1011,6 +1022,7 @@
                 </div>
             </div>
 
+            <!-- LOJA OFICIAL IN7 -->
             <div class="card">
                 <h2>Loja Oficial IN7</h2>
                 <p>Garanta seu Passe de Elite com segurança e ótimo preço:</p>
@@ -1029,6 +1041,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 2: RECRUTAMENTO ================= -->
     <div id="recrutamento-screen" class="screen">
         <header>
             <h1>Recrutamento <span>IN7</span></h1>
@@ -1112,6 +1125,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 3: EVENTOS & CAMPEONATOS ================= -->
     <div id="eventos-screen" class="screen">
         <header>
             <h1>Arena de Eventos & <span>Campeonatos</span></h1>
@@ -1173,6 +1187,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 4: PAGAMENTO / PASSE ================= -->
     <div id="payment-screen" class="screen">
         <header>
             <h1>Passe <span>IN7</span></h1>
@@ -1204,6 +1219,7 @@
         </footer>
     </div>
 
+    <!-- ================= TELA 5: APROVAÇÃO (INTEGRADA) ================= -->
     <div id="aprovacao-screen" class="screen">
         <header>
             <h1>IN7 <span>INVICTUS</span></h1>
@@ -1218,7 +1234,8 @@
                 </div>
 
                 <div class="ficha-box" id="ficha-detalhes">
-                    </div>
+                    <!-- Preenchido via JavaScript -->
+                </div>
 
                 <div class="instrucoes-box">
                     <h2>⚠️ ETAPA FINAL OBRIGATÓRIA</h2>
@@ -1277,6 +1294,7 @@
         </footer>
     </div>
 
+    <!-- SCRIPTS DE NAVEGAÇÃO, VALIDAÇÃO E DOWNLOAD DO CARD -->
     <script>
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(screen => {
