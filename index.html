@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IN7 INVICTUS | Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <!-- Biblioteca html2canvas para exportar o card em alta resolução -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
@@ -230,38 +229,22 @@
             margin-bottom: 8px;
         }
 
-        /* ================= PLAYER CARD PERFEITO: COM O LEÃO DE FUNDO, BORDAS DOURADAS E SELO NO TOPO DIREITO ================= -->
+        /* ================= PLAYER CARD COM O LEÃO 82496.jpg PERFEITAMENTE TRAVADO NO FUNDO ================= -->
         .player-card-preview {
             width: 100%;
             max-width: 420px;
             margin: 20px auto;
+            /* Leão 82496.jpg como plano de fundo controlado com opacidade e sobreposição escura */
+            background: linear-gradient(rgba(18, 14, 6, 0.85), rgba(8, 6, 2, 0.95)), url('82496.jpg') no-repeat center center;
+            background-size: cover;
             border: 4px solid #c59b27;
             border-radius: 12px;
             padding: 25px;
-            box-shadow: 0 0 50px rgba(197, 155, 39, 0.6), inset 0 0 30px rgba(197, 155, 39, 0.3);
+            box-shadow: 0 0 50px rgba(197, 155, 39, 0.6), inset 0 0 25px rgba(197, 155, 39, 0.3);
             position: relative;
-            overflow: hidden; /* Trava o leão estritamente dentro da caixa do card */
+            overflow: hidden;
             text-align: center;
             transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        /* Imagem do leão travada perfeitamente no fundo com opacidade equilibrada */
-        .card-lion-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.38;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* Conteúdo interno flutuando acima do leão */
-        .player-card-preview > * {
-            position: relative;
-            z-index: 2;
         }
 
         .player-card-preview:hover {
@@ -287,7 +270,7 @@
             text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
         }
 
-        /* Selo "MEMBRO ELITE" perfeitamente alinhado no topo direito */
+        /* Selo "MEMBRO ELITE" perfeitamente alinhado no canto superior direito */
         .card-elite-badge {
             background: #10b981;
             color: #ffffff;
@@ -336,9 +319,9 @@
             text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
         }
 
-        /* Painel Holográfico de Dados com Fundo Escuro Sólido para Leitura Perfeita */
+        /* Painel Holográfico de Dados com Fundo Escuro Sólido */
         .card-data-panel {
-            background: rgba(12, 10, 4, 0.94);
+            background: rgba(10, 8, 3, 0.94);
             border: 2px solid #c59b27;
             border-radius: 8px;
             padding: 14px;
@@ -950,7 +933,6 @@
     </video>
     <div class="overlay"></div>
 
-    <!-- ================= TELA 1: HOME (PRINCIPAL) ================= -->
     <div id="main-screen" class="screen active">
         <header>
             <img src="82605_2.jpg" alt="IN7 INVICTUS Logo" class="logo-img">
@@ -971,14 +953,12 @@
         </header>
 
         <div class="container">
-            <!-- 1. MURAL DE AVISOS DA STAFF -->
             <div class="staff-notice-box">
                 <span class="notice-badge">⚡ Mural da Staff</span>
                 <h3 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 5px;">Recrutamento Aberto (CS & BR)</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 0; color: #ddd;">Atenção tropa: As inscrições para jogadores de CS e BR estão ativas. Verifique os requisitos e mande sua ficha direto com a staff!</p>
             </div>
 
-            <!-- 2. SOBRE A GUILDA -->
             <div class="card">
                 <h2>Sobre a Guilda</h2>
                 <p>A <strong>IN7 INVICTUS</strong> é uma guilda de elite focada em alta performance, organização competitiva e lealdade absoluta. Nascida para dominar o cenário, nossa tropa valoriza o trabalho em equipe, o rush inteligente e o respeito dentro e fora do mapa.</p>
@@ -1001,7 +981,6 @@
                 </div>
             </div>
 
-            <!-- TOP 3 DE HONRAS -->
             <div class="card">
                 <h2>Top 3 de Honras - Ranking Semanal</h2>
                 <p>A dedicação da nossa tropa é a nossa força! Confira o pódio da semana:</p>
@@ -1010,7 +989,6 @@
                 </div>
             </div>
 
-            <!-- 3. NOSSA STAFF -->
             <div class="card">
                 <h2>Nossa Staff</h2>
                 <p>O comando oficial da IN7 INVICTUS:</p>
@@ -1043,7 +1021,6 @@
                 </div>
             </div>
 
-            <!-- 4. GERADOR DE PLAYER CARD COM O LEÃO NO FUNDO, BANDEIRA NOVA E SELO NO TOPO DIREITO -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
@@ -1073,17 +1050,12 @@
                     </select>
                 </div>
 
-                <!-- O PLAYER CARD DEFINITIVO -->
                 <div class="player-card-preview" id="player-card-render">
-                    <!-- Fundo do Leão travado e visível dentro do card -->
-                    <img src="82496.jpg" alt="Fundo Leão IN7" class="card-lion-bg">
-
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
                         <span class="card-elite-badge">MEMBRO ELITE</span>
                     </div>
 
-                    <!-- Nova Bandeira Oficial (98378.jpg) em Destaque -->
                     <div class="card-emblem-box">
                         <img src="98378.jpg" alt="Bandeira Oficial IN7">
                     </div>
@@ -1111,13 +1083,11 @@
                     </div>
                 </div>
 
-                <!-- BOTÃO DE SALVAR NA GALERIA -->
                 <button onclick="salvarCardNaGaleria()" class="download-card-btn">
                     📥 Salvar Card na Galeria
                 </button>
             </div>
 
-            <!-- REQUISITOS OFICIAIS -->
             <div class="card">
                 <h2>Requisitos Oficiais</h2>
                 <p>Para fazer parte da nossa tropa, o candidato precisa cumprir com os padrões mínimos da guilda:</p>
@@ -1137,7 +1107,6 @@
                 </div>
             </div>
 
-            <!-- LOJA OFICIAL IN7 -->
             <div class="card">
                 <h2>Loja Oficial IN7</h2>
                 <p>Garanta seu Passe de Elite com segurança e ótimo preço:</p>
@@ -1156,7 +1125,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 2: RECRUTAMENTO ================= -->
     <div id="recrutamento-screen" class="screen">
         <header>
             <h1>Recrutamento <span>IN7</span></h1>
@@ -1240,7 +1208,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 3: EVENTOS & CAMPEONATOS ================= -->
     <div id="eventos-screen" class="screen">
         <header>
             <h1>Arena de Eventos & <span>Campeonatos</span></h1>
@@ -1302,7 +1269,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 4: PAGAMENTO / PASSE ================= -->
     <div id="payment-screen" class="screen">
         <header>
             <h1>Passe <span>IN7</span></h1>
@@ -1334,7 +1300,6 @@
         </footer>
     </div>
 
-    <!-- ================= TELA 5: APROVAÇÃO (INTEGRADA) ================= -->
     <div id="aprovacao-screen" class="screen">
         <header>
             <h1>IN7 <span>INVICTUS</span></h1>
@@ -1349,8 +1314,7 @@
                 </div>
 
                 <div class="ficha-box" id="ficha-detalhes">
-                    <!-- Preenchido via JavaScript -->
-                </div>
+                    </div>
 
                 <div class="instrucoes-box">
                     <h2>⚠️ ETAPA FINAL OBRIGATÓRIA</h2>
@@ -1409,7 +1373,6 @@
         </footer>
     </div>
 
-    <!-- SCRIPTS DE NAVEGAÇÃO, VALIDAÇÃO E DOWNLOAD DO CARD -->
     <script>
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(screen => {
