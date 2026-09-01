@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IN7 INVICTUS | Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Biblioteca html2canvas para exportar o card em alta resolução -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
@@ -70,11 +71,10 @@
         header {
             text-align: center;
             padding: 40px 20px;
-            background: linear-gradient(180deg, rgba(22,22,22,0.9) 0%, rgba(11,11,11,0.9) 100%);
-            border-bottom: 2px solid #d4af37;
+            background: linear-gradient(180deg, rgba(22,22,22,0.85) 0%, rgba(11,11,11,0.85) 100%);
+            border-bottom: 2px solid #c5a059;
             position: relative;
             z-index: 1;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
         }
 
         .logo-img {
@@ -84,13 +84,7 @@
             border: 2px solid #d4af37;
             margin-bottom: 15px;
             object-fit: cover;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.6);
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .logo-img:hover {
-            transform: scale(1.05);
-            box-shadow: 0 0 45px rgba(255, 215, 0, 0.9);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.5);
         }
 
         h1 {
@@ -99,12 +93,10 @@
             color: #ffffff;
             letter-spacing: 2px;
             text-transform: uppercase;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.4);
         }
 
         h1 span {
             color: #d4af37;
-            text-shadow: 0 0 15px rgba(255, 215, 0, 0.6);
         }
 
         .motto {
@@ -125,20 +117,14 @@
         }
 
         .card {
-            background: rgba(15, 15, 15, 0.9);
-            backdrop-filter: blur(8px);
+            background: rgba(15, 15, 15, 0.88);
+            backdrop-filter: blur(5px);
             border: 1px solid #333;
             border-left: 4px solid #d4af37;
             padding: 30px;
             margin-bottom: 30px;
             border-radius: 8px;
-            box-shadow: 0 10px 30px rgba(0,0,0,0.7), inset 0 0 15px rgba(212, 175, 55, 0.03);
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .card:hover {
-            border-color: #d4af37;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25), inset 0 0 20px rgba(212, 175, 55, 0.08);
+            box-shadow: 0 10px 30px rgba(0,0,0,0.7);
         }
 
         h2 {
@@ -146,7 +132,6 @@
             color: #d4af37;
             margin-bottom: 15px;
             font-size: 1.5rem;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.3);
         }
 
         p {
@@ -179,13 +164,13 @@
             justify-content: center;
             gap: 10px;
             box-shadow: 0 5px 20px rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
+            transition: transform 0.2s ease, opacity 0.2s ease;
             width: 100%;
         }
 
         .action-btn:hover {
-            transform: translateY(-3px);
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
+            transform: translateY(-2px);
+            opacity: 0.9;
         }
 
         .action-btn.secondary {
@@ -195,25 +180,18 @@
         }
 
         .action-btn.secondary:hover {
-            background: rgba(212, 175, 55, 0.15);
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.5);
+            background: rgba(212, 175, 55, 0.1);
         }
 
         /* Mural de Avisos da Staff */
         .staff-notice-box {
-            background: linear-gradient(135deg, rgba(212, 175, 55, 0.15) 0%, rgba(15, 15, 15, 0.95) 100%);
+            background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(15, 15, 15, 0.95) 100%);
             border: 1px solid #d4af37;
             border-left: 5px solid #d4af37;
             padding: 20px;
             border-radius: 8px;
             margin-bottom: 30px;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.25);
-            animation: pulseGlow 3s infinite alternate;
-        }
-
-        @keyframes pulseGlow {
-            0% { box-shadow: 0 0 15px rgba(212, 175, 55, 0.2); }
-            100% { box-shadow: 0 0 30px rgba(255, 215, 0, 0.45); }
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.2);
         }
 
         .notice-badge {
@@ -229,34 +207,30 @@
             margin-bottom: 8px;
         }
 
-        /* ================= PLAYER CARD COM O PADRÃO APROVADO (SEM LEÃO, BORDAS DOURADAS, SELO NO TOPO DIREITO) ================= -->
+        /* ================= PLAYER CARD ESTÁVEL (COM SELO CORRIGIDO DENTRO DA CAIXA) ================= -->
         .player-card-preview {
             width: 100%;
             max-width: 420px;
             margin: 20px auto;
-            background: linear-gradient(180deg, #161208 0%, #080703 100%);
-            border: 4px solid #c59b27;
-            border-radius: 12px;
-            padding: 25px;
-            box-shadow: 0 0 50px rgba(197, 155, 39, 0.6), inset 0 0 25px rgba(197, 155, 39, 0.25);
+            background: #0d0d0d;
+            border: 3px solid #d4af37;
+            border-radius: 16px;
+            padding: 28px;
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.55), inset 0 0 25px rgba(212, 175, 55, 0.2);
             position: relative;
-            overflow: hidden;
+            overflow: hidden; /* Garante que nada escape para fora da caixa do card */
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        .player-card-preview:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 65px rgba(255, 215, 0, 0.85);
         }
 
         .card-top-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid rgba(197, 155, 39, 0.5);
-            padding-bottom: 10px;
-            margin-bottom: 15px;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+            padding-bottom: 12px;
+            margin-bottom: 18px;
+            position: relative;
+            z-index: 2;
         }
 
         .card-guild-title {
@@ -265,31 +239,30 @@
             font-size: 1.1rem;
             letter-spacing: 2px;
             font-weight: 700;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
         }
 
-        /* Selo "MEMBRO ELITE" perfeitamente alinhado no topo direito */
         .card-elite-badge {
-            background: #10b981;
+            background: linear-gradient(135deg, #25d366, #128c7e);
             color: #ffffff;
-            font-size: 0.75rem;
-            padding: 5px 14px;
+            font-size: 0.7rem;
+            padding: 4px 10px;
             border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
-            box-shadow: 0 0 12px rgba(16, 185, 129, 0.7);
-            letter-spacing: 0.5px;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(37, 211, 102, 0.5);
         }
 
-        /* Moldura da Nova Bandeira Oficial (98378.jpg) no Centro */
+        /* Moldura com a Nova Bandeira 98378.jpg */
         .card-emblem-box {
-            width: 110px;
+            width: 115px;
             height: 145px;
-            margin: 0 auto 12px auto;
+            margin: 0 auto 15px auto;
             border-radius: 6px;
             border: 2px solid #ffd700;
             overflow: hidden;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), inset 0 0 10px rgba(0,0,0,0.9);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
             background: #000;
         }
 
@@ -305,8 +278,8 @@
             color: #ffffff;
             font-weight: 700;
             letter-spacing: 1.5px;
+            text-shadow: 0 3px 12px rgba(0,0,0,0.95);
             margin-bottom: 2px;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.5), 0 3px 10px rgba(0,0,0,0.95);
         }
 
         .card-motto-text {
@@ -314,17 +287,18 @@
             color: #ffd700;
             margin-bottom: 18px;
             font-style: italic;
-            text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+            letter-spacing: 1px;
         }
 
-        /* Painel Holográfico de Dados com Fundo Escuro Sólido */
         .card-data-panel {
-            background: rgba(10, 8, 3, 0.94);
-            border: 2px solid #c59b27;
-            border-radius: 8px;
-            padding: 14px;
+            background: rgba(10, 10, 10, 0.88);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 10px;
+            padding: 15px;
             text-align: left;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.95);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
         }
 
         .card-data-row {
@@ -340,17 +314,16 @@
         }
 
         .card-data-row span:first-child {
-            color: #dddddd;
+            color: #cccccc;
             font-weight: 500;
         }
 
         .card-data-row span:last-child {
             color: #ffd700;
             font-weight: 700;
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
         }
 
-        /* Botão de Cópia Rápida de Tag */
         .copy-tag-btn {
             background: rgba(212, 175, 55, 0.15);
             color: #d4af37;
@@ -363,16 +336,13 @@
             width: 100%;
             margin-top: 10px;
             margin-bottom: 5px;
-            transition: all 0.2s ease;
         }
 
         .copy-tag-btn:hover {
             background: #d4af37;
             color: #0b0b0b;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
         }
 
-        /* Botão de Download na Galeria */
         .download-card-btn {
             background: linear-gradient(135deg, #25d366 0%, #128c7e 100%);
             color: #ffffff;
@@ -385,14 +355,14 @@
             text-transform: uppercase;
             cursor: pointer;
             width: 100%;
-            margin-top: 10px;
+            margin-top: 15px;
             box-shadow: 0 4px 15px rgba(37, 211, 102, 0.4);
-            transition: all 0.3s ease;
+            transition: transform 0.2s;
         }
 
         .download-card-btn:hover {
             transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.8);
+            opacity: 0.95;
         }
 
         .guild-gallery {
@@ -422,13 +392,6 @@
             border-radius: 6px;
             border: 1px solid #444;
             scroll-snap-align: start;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .guild-gallery img:hover {
-            transform: scale(1.03);
-            border-color: #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.5);
         }
 
         .honra-single-container {
@@ -447,13 +410,6 @@
             border: 1px solid #444;
             border-radius: 6px;
             padding: 10px;
-            transition: transform 0.3s ease, border-color 0.3s ease;
-        }
-
-        .staff-item:hover {
-            transform: translateY(-3px);
-            border-color: #d4af37;
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
         }
 
         .staff-item img {
@@ -476,7 +432,6 @@
             font-size: 1.4rem;
             font-weight: 700;
             margin: 10px 0;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.4);
         }
 
         .guild-id-box {
@@ -486,7 +441,6 @@
             text-align: center;
             border-radius: 6px;
             margin-top: 20px;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.15);
         }
 
         .guild-id-box span {
@@ -494,7 +448,6 @@
             font-weight: 700;
             font-size: 1.4rem;
             letter-spacing: 2px;
-            text-shadow: 0 0 10px rgba(212, 175, 55, 0.5);
         }
 
         ul {
@@ -534,13 +487,6 @@
             display: flex;
             align-items: center;
             gap: 10px;
-            transition: all 0.3s ease;
-        }
-
-        .social-btn:hover {
-            border-color: #d4af37;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
-            transform: translateY(-2px);
         }
 
         .social-btn svg {
@@ -577,13 +523,11 @@
             color: #fff;
             font-family: 'Rajdhani', sans-serif;
             font-size: 1rem;
-            transition: border-color 0.3s ease, box-shadow 0.3s ease;
         }
 
         .form-control:focus {
             border-color: #d4af37;
             outline: none;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
         }
 
         .recrutamento-btn {
@@ -599,13 +543,6 @@
             font-size: 1.1rem;
             letter-spacing: 1px;
             margin-top: 10px;
-            box-shadow: 0 4px 15px rgba(212, 175, 55, 0.3);
-            transition: all 0.3s ease;
-        }
-
-        .recrutamento-btn:hover {
-            box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
-            transform: translateY(-2px);
         }
 
         #resultado-recrutamento {
@@ -684,20 +621,11 @@
             margin-top: 15px;
             text-decoration: none;
             display: inline-block;
-            transition: all 0.3s ease;
-        }
-
-        .pagbank-link-btn:hover {
-            box-shadow: 0 0 20px rgba(212, 175, 55, 0.7);
         }
 
         .whatsapp-confirm-btn {
             background: #25d366;
             color: #fff;
-        }
-
-        .whatsapp-confirm-btn:hover {
-            box-shadow: 0 0 20px rgba(37, 211, 102, 0.7);
         }
 
         .back-link {
@@ -707,12 +635,10 @@
             text-decoration: none;
             font-size: 0.95rem;
             cursor: pointer;
-            transition: color 0.2s;
         }
 
         .back-link:hover {
             color: #d4af37;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.5);
         }
 
         /* Ficha de Aprovação */
@@ -745,7 +671,6 @@
             margin-top: 10px;
             font-size: 1rem;
             text-transform: uppercase;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.5);
         }
 
         .ficha-box {
@@ -831,10 +756,9 @@
             font-weight: 700;
             text-transform: uppercase;
             font-size: 0.9rem;
-            transition: all 0.2s ease;
         }
 
-        .custom-file-btn:hover { background: #d4af37; color: #0b0b0b; box-shadow: 0 0 10px rgba(212, 175, 55, 0.6); }
+        .custom-file-btn:hover { background: #d4af37; color: #0b0b0b; }
 
         #preview-img {
             max-width: 100%;
@@ -862,12 +786,6 @@
             text-decoration: none;
             box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
             margin-top: 20px;
-            transition: all 0.3s ease;
-        }
-
-        .btn-whatsapp-final:hover {
-            transform: translateY(-2px);
-            box-shadow: 0 0 25px rgba(37, 211, 102, 0.8);
         }
 
         .links-section {
@@ -891,25 +809,12 @@
             text-decoration: none;
             display: block;
             font-size: 0.95rem;
-            transition: all 0.3s ease;
-        }
-
-        .group-btn:hover {
-            background: #25d366;
-            color: #0b0b0b;
-            box-shadow: 0 0 15px rgba(37, 211, 102, 0.6);
         }
 
         .group-btn.secondary-link {
             background: rgba(212, 175, 55, 0.1);
             color: #d4af37;
             border-color: #d4af37;
-        }
-
-        .group-btn.secondary-link:hover {
-            background: #d4af37;
-            color: #0b0b0b;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.6);
         }
 
         footer {
@@ -931,6 +836,7 @@
     </video>
     <div class="overlay"></div>
 
+    <!-- ================= TELA 1: HOME (PRINCIPAL) ================= -->
     <div id="main-screen" class="screen active">
         <header>
             <img src="82605_2.jpg" alt="IN7 INVICTUS Logo" class="logo-img">
@@ -951,12 +857,14 @@
         </header>
 
         <div class="container">
+            <!-- 1. MURAL DE AVISOS DA STAFF -->
             <div class="staff-notice-box">
                 <span class="notice-badge">⚡ Mural da Staff</span>
                 <h3 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 5px;">Recrutamento Aberto (CS & BR)</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 0; color: #ddd;">Atenção tropa: As inscrições para jogadores de CS e BR estão ativas. Verifique os requisitos e mande sua ficha direto com a staff!</p>
             </div>
 
+            <!-- 2. SOBRE A GUILDA -->
             <div class="card">
                 <h2>Sobre a Guilda</h2>
                 <p>A <strong>IN7 INVICTUS</strong> é uma guilda de elite focada em alta performance, organização competitiva e lealdade absoluta. Nascida para dominar o cenário, nossa tropa valoriza o trabalho em equipe, o rush inteligente e o respeito dentro e fora do mapa.</p>
@@ -979,6 +887,7 @@
                 </div>
             </div>
 
+            <!-- TOP 3 DE HONRAS -->
             <div class="card">
                 <h2>Top 3 de Honras - Ranking Semanal</h2>
                 <p>A dedicação da nossa tropa é a nossa força! Confira o pódio da semana:</p>
@@ -987,6 +896,7 @@
                 </div>
             </div>
 
+            <!-- 3. NOSSA STAFF -->
             <div class="card">
                 <h2>Nossa Staff</h2>
                 <p>O comando oficial da IN7 INVICTUS:</p>
@@ -1019,24 +929,25 @@
                 </div>
             </div>
 
+            <!-- 4. GERADOR DE PLAYER CARD ZERADO E ESTÁVEL -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
                 
                 <div class="form-group">
                     <label for="card-input-nick">Seu Nick (com a tag):</label>
-                    <input type="text" id="card-input-nick" class="form-control" placeholder="Ex: IN7ㅤLOST" value="IN7ㅤLOST" oninput="atualizarCard()">
+                    <input type="text" id="card-input-nick" class="form-control" placeholder="Ex: IN7ㅤSEUNOME" value="" oninput="atualizarCard()">
                     <button type="button" onclick="copiarTagIn7()" class="copy-tag-btn">📋 Copiar Tag IN7 com Espaço Invisível</button>
                 </div>
 
                 <div class="form-group">
                     <label for="card-input-id">Seu ID Pessoal do Free Fire:</label>
-                    <input type="text" id="card-input-id" class="form-control" placeholder="Ex: 250219877" value="250219877" oninput="atualizarCard()">
+                    <input type="text" id="card-input-id" class="form-control" placeholder="Ex: 000000000" value="" oninput="atualizarCard()">
                 </div>
 
                 <div class="form-group">
                     <label for="card-input-patente">Patente Atual:</label>
-                    <input type="text" id="card-input-patente" class="form-control" placeholder="Ex: Mestre de Honra" value="Mestre de Honra" oninput="atualizarCard()">
+                    <input type="text" id="card-input-patente" class="form-control" placeholder="Ex: Mestre de Honra" value="" oninput="atualizarCard()">
                 </div>
 
                 <div class="form-group">
@@ -1048,17 +959,19 @@
                     </select>
                 </div>
 
+                <!-- O PLAYER CARD PERFEITO COM SELO ALINHADO NO TOPO DIREITO -->
                 <div class="player-card-preview" id="player-card-render">
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
                         <span class="card-elite-badge">MEMBRO ELITE</span>
                     </div>
 
+                    <!-- Nova Bandeira Oficial (98378.jpg) em Destaque -->
                     <div class="card-emblem-box">
                         <img src="98378.jpg" alt="Bandeira Oficial IN7">
                     </div>
 
-                    <div class="card-nick-display" id="render-nick">IN7ㅤLOST</div>
+                    <div class="card-nick-display" id="render-nick">IN7ㅤSEUNOME</div>
                     <div class="card-motto-text">"Jamais Conquistados"</div>
                     
                     <div class="card-data-panel">
@@ -1072,7 +985,7 @@
                         </div>
                         <div class="card-data-row">
                             <span>ID Pessoal:</span>
-                            <span id="render-id">250219877</span>
+                            <span id="render-id">000000000</span>
                         </div>
                         <div class="card-data-row">
                             <span>ID da Guilda:</span>
@@ -1081,11 +994,13 @@
                     </div>
                 </div>
 
+                <!-- BOTÃO DE SALVAR NA GALERIA -->
                 <button onclick="salvarCardNaGaleria()" class="download-card-btn">
                     📥 Salvar Card na Galeria
                 </button>
             </div>
 
+            <!-- REQUISITOS OFICIAIS -->
             <div class="card">
                 <h2>Requisitos Oficiais</h2>
                 <p>Para fazer parte da nossa tropa, o candidato precisa cumprir com os padrões mínimos da guilda:</p>
@@ -1105,6 +1020,7 @@
                 </div>
             </div>
 
+            <!-- LOJA OFICIAL IN7 -->
             <div class="card">
                 <h2>Loja Oficial IN7</h2>
                 <p>Garanta seu Passe de Elite com segurança e ótimo preço:</p>
@@ -1123,6 +1039,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 2: RECRUTAMENTO ================= -->
     <div id="recrutamento-screen" class="screen">
         <header>
             <h1>Recrutamento <span>IN7</span></h1>
@@ -1156,12 +1073,12 @@
 
                 <div class="form-group">
                     <label for="ffid">ID do Free Fire:</label>
-                    <input type="text" id="ffid" class="form-control" placeholder="Ex: 250219877">
+                    <input type="text" id="ffid" class="form-control" placeholder="Ex: 000000000">
                 </div>
 
                 <div class="form-group">
                     <label for="level">Level Atual:</label>
-                    <input type="number" id="level" class="form-control" placeholder="Ex: 77">
+                    <input type="number" id="level" class="form-control" placeholder="Ex: 60">
                 </div>
 
                 <div class="form-group">
@@ -1180,12 +1097,12 @@
 
                 <div class="form-group">
                     <label for="nickatual">Nick Atual:</label>
-                    <input type="text" id="nickatual" class="form-control" placeholder="Ex: NX DEA7H">
+                    <input type="text" id="nickatual" class="form-control" placeholder="Ex: Seu Nick Antigo">
                 </div>
 
                 <div class="form-group">
                     <label for="nickpretendido">Nick Pretendido (Ex: IN7ㅤSeuNome):</label>
-                    <input type="text" id="nickpretendido" class="form-control" placeholder="Ex: IN7ㅤLOST">
+                    <input type="text" id="nickpretendido" class="form-control" placeholder="Ex: IN7ㅤSEUNOME">
                     <button type="button" onclick="copiarTagIn7()" class="copy-tag-btn">📋 Copiar Tag IN7 com Espaço Invisível</button>
                 </div>
 
@@ -1206,6 +1123,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 3: EVENTOS & CAMPEONATOS ================= -->
     <div id="eventos-screen" class="screen">
         <header>
             <h1>Arena de Eventos & <span>Campeonatos</span></h1>
@@ -1254,7 +1172,7 @@
                     <div style="background: rgba(20,20,20,0.8); padding: 15px; border-radius: 6px; border-left: 3px solid #d4af37;">
                         <p style="color: #d4af37; font-weight: 700; margin-bottom: 5px;">🔥 Edição Atual: Mata-Mata 2x2</p>
                         <p style="color: #aaa; font-size: 0.9rem; margin-bottom: 3px;">Status: Em Andamento / Chaveamento Divulgado no Grupo Oficial</p>
-                        <p style="color: #aaa; font-size: 0.9rem;">Os confrontos e placares parcial são atualizados após o término de cada rodada pela Staff.</p>
+                        <p style="color: #aaa; font-size: 0.9rem;">Os confrontos e placares parciais são atualizados após o término de cada rodada pela Staff.</p>
                     </div>
                 </div>
 
@@ -1267,6 +1185,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 4: PAGAMENTO / PASSE ================= -->
     <div id="payment-screen" class="screen">
         <header>
             <h1>Passe <span>IN7</span></h1>
@@ -1298,6 +1217,7 @@
         </footer>
     </div>
 
+    <!-- ================= TELA 5: APROVAÇÃO (INTEGRADA) ================= -->
     <div id="aprovacao-screen" class="screen">
         <header>
             <h1>IN7 <span>INVICTUS</span></h1>
@@ -1312,7 +1232,8 @@
                 </div>
 
                 <div class="ficha-box" id="ficha-detalhes">
-                    </div>
+                    <!-- Preenchido via JavaScript -->
+                </div>
 
                 <div class="instrucoes-box">
                     <h2>⚠️ ETAPA FINAL OBRIGATÓRIA</h2>
@@ -1371,6 +1292,7 @@
         </footer>
     </div>
 
+    <!-- SCRIPTS DE NAVEGAÇÃO, VALIDAÇÃO E DOWNLOAD DO CARD -->
     <script>
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(screen => {
@@ -1382,7 +1304,7 @@
 
         // Função para atualizar o Card Dinamicamente
         function atualizarCard() {
-            const nick = document.getElementById('card-input-nick').value.trim() || 'IN7ㅤNICK';
+            const nick = document.getElementById('card-input-nick').value.trim() || 'IN7ㅤSEUNOME';
             const idPessoal = document.getElementById('card-input-id').value.trim() || '000000000';
             const patente = document.getElementById('card-input-patente').value.trim() || 'Mestre';
             const modo = document.getElementById('card-input-modo').value;
