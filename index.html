@@ -230,73 +230,47 @@
             margin-bottom: 8px;
         }
 
-        /* ================= O PLAYER CARD CORRIGIDO (LEÃO CONTIDO APENAS DENTRO DO CARD) ================= -->
+        /* ================= PLAYER CARD LIMPO (SEM FUNDO AMARELO, COM A BANDEIRA NOVA) ================= -->
         .player-card-preview {
             width: 100%;
             max-width: 420px;
             margin: 20px auto;
-            border: 4px solid #c59b27;
-            border-radius: 12px;
+            background: #0e0e0e; /* Preto fosco limpo e absoluto */
+            border: 3px solid #d4af37;
+            border-radius: 14px;
             padding: 25px;
-            box-shadow: 0 0 45px rgba(197, 155, 39, 0.6), inset 0 0 30px rgba(197, 155, 39, 0.3);
+            box-shadow: 0 0 45px rgba(212, 175, 55, 0.5);
             position: relative;
-            overflow: hidden; /* Trava tudo aqui dentro para o leão não vazar! */
+            overflow: hidden;
             text-align: center;
-            transition: transform 0.3s ease, box-shadow 0.3s ease;
-        }
-
-        /* Leão preso estritamente dentro do card com opacidade equilibrada */
-        .card-lion-bg {
-            position: absolute;
-            top: 0;
-            left: 0;
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            opacity: 0.35;
-            z-index: 1;
-            pointer-events: none;
-        }
-
-        /* Conteúdo interno flutuando acima do leão */
-        .player-card-preview > * {
-            position: relative;
-            z-index: 2;
-        }
-
-        .player-card-preview:hover {
-            transform: translateY(-4px);
-            box-shadow: 0 0 60px rgba(255, 215, 0, 0.85);
         }
 
         .card-top-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid rgba(197, 155, 39, 0.6);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
             padding-bottom: 10px;
             margin-bottom: 15px;
         }
 
         .card-guild-title {
             font-family: 'Cinzel', serif;
-            color: #ffd700;
-            font-size: 1.1rem;
+            color: #d4af37;
+            font-size: 1.05rem;
             letter-spacing: 2px;
             font-weight: 700;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
         }
 
         .card-elite-badge {
             background: #10b981;
             color: #ffffff;
             font-size: 0.75rem;
-            padding: 5px 14px;
+            padding: 4px 12px;
             border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
-            box-shadow: 0 0 12px rgba(16, 185, 129, 0.7);
-            letter-spacing: 0.5px;
+            box-shadow: 0 0 10px rgba(16, 185, 129, 0.5);
         }
 
         /* Moldura da Nova Bandeira Oficial (98378.jpg) no Centro */
@@ -305,9 +279,9 @@
             height: 145px;
             margin: 0 auto 12px auto;
             border-radius: 6px;
-            border: 2px solid #ffd700;
+            border: 2px solid #d4af37;
             overflow: hidden;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.8), inset 0 0 10px rgba(0,0,0,0.9);
+            box-shadow: 0 0 20px rgba(212, 175, 55, 0.6);
             background: #000;
         }
 
@@ -319,37 +293,36 @@
 
         .card-nick-display {
             font-family: 'Cinzel', serif;
-            font-size: 1.9rem;
+            font-size: 1.8rem;
             color: #ffffff;
             font-weight: 700;
-            letter-spacing: 1.5px;
+            letter-spacing: 1px;
             margin-bottom: 2px;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.5), 0 3px 10px rgba(0,0,0,0.95);
+            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
         }
 
         .card-motto-text {
             font-size: 0.85rem;
-            color: #ffd700;
-            margin-bottom: 18px;
+            color: #d4af37;
+            margin-bottom: 15px;
             font-style: italic;
-            text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
         }
 
-        /* Painel Holográfico de Dados com Fundo Escuro Sólido para Leitura Perfeita */
+        /* Painel de Dados Limpo */
         .card-data-panel {
-            background: rgba(10, 8, 3, 0.94);
-            border: 2px solid #c59b27;
+            background: #060606;
+            border: 1px solid rgba(212, 175, 55, 0.4);
             border-radius: 8px;
-            padding: 14px;
+            padding: 12px;
             text-align: left;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.95);
+            box-shadow: inset 0 0 10px rgba(0,0,0,0.9);
         }
 
         .card-data-row {
             display: flex;
             justify-content: space-between;
-            font-size: 1.05rem;
-            padding: 7px 0;
+            font-size: 1rem;
+            padding: 6px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
@@ -358,14 +331,12 @@
         }
 
         .card-data-row span:first-child {
-            color: #dddddd;
-            font-weight: 500;
+            color: #aaa;
         }
 
         .card-data-row span:last-child {
-            color: #ffd700;
+            color: #d4af37;
             font-weight: 700;
-            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
         }
 
         /* Botão de Cópia Rápida de Tag */
@@ -1042,7 +1013,7 @@
                 </div>
             </div>
 
-            <!-- 4. GERADOR DE PLAYER CARD COM O LEÃO PRESO E TRAVADO DENTRO DO CARD -->
+            <!-- 4. GERADOR DE PLAYER CARD COM A NOVA BANDEIRA 98378.jpg E VISUAL LIMPO -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
@@ -1072,11 +1043,8 @@
                     </select>
                 </div>
 
-                <!-- O PLAYER CARD COM OVERFLOW HIDDEN (LEÃO PRESO DENTRO DA CAIXA) -->
+                <!-- O PLAYER CARD DEFINITIVO COM A BANDEIRA 98378.jpg -->
                 <div class="player-card-preview" id="player-card-render">
-                    <!-- Imagem do leão contida exclusivamente dentro do card -->
-                    <img src="82496.jpg" alt="Fundo Leão IN7" class="card-lion-bg">
-
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
                         <span class="card-elite-badge">MEMBRO ELITE</span>
@@ -1441,7 +1409,7 @@
             });
         }
 
-        // Função para gerar a imagem do card perfeitamente com o leão contido
+        // Função para gerar a imagem do card sem falhas
         function salvarCardNaGaleria() {
             const cardElement = document.getElementById('player-card-render');
             
