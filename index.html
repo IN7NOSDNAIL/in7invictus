@@ -207,119 +207,134 @@
             margin-bottom: 8px;
         }
 
-        /* ================= PLAYER CARD ESTILO E-SPORTS PESADO ================= */
+        /* ================= O NOVO PLAYER CARD DE ELITE (IMERSIVO) ================= */
         .player-card-preview {
             width: 100%;
             max-width: 420px;
             margin: 20px auto;
-            background: radial-gradient(circle at center, #18150f 0%, #060606 80%);
+            /* Usa a imagem do leão 82496.jpg como fundo gráfico de alta imersão */
+            background: linear-gradient(rgba(11, 11, 11, 0.75), rgba(5, 5, 5, 0.92)), url('82496.jpg') no-repeat center center;
+            background-size: cover;
             border: 3px solid #d4af37;
             border-radius: 16px;
             padding: 28px;
-            box-shadow: 0 0 45px rgba(212, 175, 55, 0.45), inset 0 0 25px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.55), inset 0 0 30px rgba(212, 175, 55, 0.25);
             position: relative;
             overflow: hidden;
             text-align: center;
         }
 
-        /* Efeito de brilho metálico no topo do card */
+        /* Linha de luz superior estilo laser dourado */
         .player-card-preview::before {
             content: '';
             position: absolute;
             top: 0;
             left: 0;
             width: 100%;
-            height: 6px;
-            background: linear-gradient(90deg, #8c6720, #ffd700, #ffdf73, #ffd700, #8c6720);
+            height: 5px;
+            background: linear-gradient(90deg, transparent, #ffd700, #ffffff, #ffd700, transparent);
         }
 
-        .card-header-flex {
+        .card-top-row {
             display: flex;
-            align-items: center;
             justify-content: space-between;
-            border-bottom: 2px solid rgba(212, 175, 55, 0.35);
+            align-items: center;
+            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
             padding-bottom: 12px;
             margin-bottom: 18px;
         }
 
-        .card-guild-tag {
+        .card-guild-title {
             font-family: 'Cinzel', serif;
-            color: #d4af37;
-            font-size: 1.05rem;
+            color: #ffd700;
+            font-size: 1.1rem;
             letter-spacing: 2px;
             font-weight: 700;
-            text-shadow: 0 2px 6px rgba(0,0,0,0.9);
+            text-shadow: 0 2px 8px rgba(0,0,0,0.9);
         }
 
-        .card-status-badge {
-            background: rgba(37, 211, 102, 0.2);
-            color: #25d366;
-            border: 1px solid #25d366;
-            font-size: 0.75rem;
-            padding: 3px 10px;
+        .card-elite-badge {
+            background: linear-gradient(135deg, #25d366, #128c7e);
+            color: #ffffff;
+            font-size: 0.7rem;
+            padding: 4px 10px;
             border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
+            letter-spacing: 1px;
+            box-shadow: 0 0 10px rgba(37, 211, 102, 0.5);
         }
 
-        /* Moldura da Caveira da Bandeira (Destaque Central) */
-        .card-emblem-container {
-            width: 110px;
-            height: 140px;
+        /* Moldura Central com a Caveira da Bandeira 82634.jpg */
+        .card-emblem-box {
+            width: 105px;
+            height: 135px;
             margin: 0 auto 15px auto;
             border-radius: 8px;
-            border: 2px solid #d4af37;
+            border: 2px solid #ffd700;
             overflow: hidden;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.6), inset 0 0 10px rgba(0,0,0,0.8);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
             background: #000;
-            position: relative;
         }
 
-        .card-emblem-container img {
+        .card-emblem-box img {
             width: 100%;
             height: 100%;
             object-fit: cover;
-            transform: scale(1.15); /* Foca bem na caveira do estandarte */
+            transform: scale(1.15);
         }
 
-        .card-player-nick {
+        .card-nick-display {
             font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: #ffffff;
-            margin-bottom: 2px;
+            font-weight: 700;
             letter-spacing: 1.5px;
-            text-shadow: 0 2px 10px rgba(0,0,0,0.95);
+            text-shadow: 0 3px 12px rgba(0,0,0,0.95);
+            margin-bottom: 2px;
         }
 
-        .card-player-details {
-            background: rgba(10, 10, 10, 0.92);
-            border: 1px solid rgba(212, 175, 55, 0.35);
-            border-radius: 8px;
-            padding: 14px;
-            margin-top: 18px;
+        .card-motto-text {
+            font-size: 0.85rem;
+            color: #ffd700;
+            margin-bottom: 18px;
+            font-style: italic;
+            text-shadow: 0 2px 5px rgba(0,0,0,0.9);
+            letter-spacing: 1px;
+        }
+
+        /* Painel Holográfico de Dados */
+        .card-data-panel {
+            background: rgba(10, 10, 10, 0.88);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.5);
+            border-radius: 10px;
+            padding: 15px;
             text-align: left;
-            box-shadow: inset 0 0 15px rgba(0,0,0,0.9);
+            box-shadow: inset 0 0 20px rgba(0,0,0,0.9);
         }
 
-        .card-row {
+        .card-data-row {
             display: flex;
             justify-content: space-between;
-            font-size: 1rem;
-            padding: 6px 0;
-            border-bottom: 1px solid rgba(255,255,255,0.06);
+            font-size: 1.05rem;
+            padding: 7px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
-        .card-row:last-child {
+        .card-data-row:last-child {
             border-bottom: none;
         }
 
-        .card-row span:first-child {
-            color: #aaa;
+        .card-data-row span:first-child {
+            color: #cccccc;
+            font-weight: 500;
         }
 
-        .card-row span:last-child {
-            color: #d4af37;
+        .card-data-row span:last-child {
+            color: #ffd700;
             font-weight: 700;
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.3);
         }
 
         /* Botão de Download na Galeria */
@@ -926,10 +941,10 @@
                 </div>
             </div>
 
-            <!-- 4. GERADOR DE PLAYER CARD PROFISSIONAL (COM A CAVEIRA EM DESTAQUE E ID PESSOAL) -->
+            <!-- 4. GERADOR DE PLAYER CARD PROFISSIONAL (COM A ARTE DE FUNDO DO LEÃO E CAVEIRA EM DESTAQUE) -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
-                <p>Monte seu cartão de membro profissional no padrão e-sports e baixe direto na galeria:</p>
+                <p>Monte seu cartão de membro profissional com padrão visual imersivo e baixe direto na galeria:</p>
                 
                 <div class="form-group">
                     <label for="card-input-nick">Seu Nick (com a tag):</label>
@@ -955,42 +970,42 @@
                     </select>
                 </div>
 
-                <!-- O PLAYER CARD REFORMULADO (DESIGN E-SPORTS PESADO) -->
+                <!-- O PLAYER CARD DEFINITIVO (IMERSIVO E AGRESSIVO) -->
                 <div class="player-card-preview" id="player-card-render">
-                    <div class="card-header-flex">
-                        <span class="card-guild-tag">IN7 INVICTUS</span>
-                        <span class="card-status-badge">MEMBRO ELITE</span>
+                    <div class="card-top-row">
+                        <span class="card-guild-title">IN7 INVICTUS</span>
+                        <span class="card-elite-badge">MEMBRO ELITE</span>
                     </div>
 
-                    <!-- Emblema da Caveira em Destaque Absoluto -->
-                    <div class="card-emblem-container">
-                        <img src="82634.jpg" alt="Caveira Estandarte IN7">
+                    <!-- Emblema da Caveira (82634.jpg) em Destaque Absoluto -->
+                    <div class="card-emblem-box">
+                        <img src="82634.jpg" alt="Estandarte IN7">
                     </div>
 
-                    <div class="card-player-nick" id="render-nick">IN7ㅤLOST</div>
-                    <p style="font-size: 0.85rem; color: #d4af37; margin-bottom: 15px; font-style: italic; text-shadow: 0 1px 3px rgba(0,0,0,0.9);">"Jamais Conquistados"</p>
+                    <div class="card-nick-display" id="render-nick">IN7ㅤLOST</div>
+                    <div class="card-motto-text">"Jamais Conquistados"</div>
                     
-                    <div class="card-player-details">
-                        <div class="card-row">
+                    <div class="card-data-panel">
+                        <div class="card-data-row">
                             <span>Modalidade:</span>
                             <span id="render-modo">Contra Squad (CS)</span>
                         </div>
-                        <div class="card-row">
+                        <div class="card-data-row">
                             <span>Patente:</span>
                             <span id="render-patente">Mestre de Honra</span>
                         </div>
-                        <div class="card-row">
+                        <div class="card-data-row">
                             <span>ID Pessoal:</span>
                             <span id="render-id">250219877</span>
                         </div>
-                        <div class="card-row">
+                        <div class="card-data-row">
                             <span>ID da Guilda:</span>
                             <span>2064438275</span>
                         </div>
                     </div>
                 </div>
 
-                <!-- BOTÃO DE DOWNLOAD NA GALERIA -->
+                <!-- BOTÃO DE SALVAR NA GALERIA -->
                 <button onclick="salvarCardNaGaleria()" class="download-card-btn">
                     📥 Salvar Card na Galeria
                 </button>
@@ -1310,7 +1325,7 @@
             document.getElementById('render-modo').innerText = modo;
         }
 
-        // Função para gerar a imagem do card e baixar automaticamente
+        // Função para gerar a imagem do card com a textura gráfica e baixar automaticamente
         function salvarCardNaGaleria() {
             const cardElement = document.getElementById('player-card-render');
             
