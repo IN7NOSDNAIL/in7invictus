@@ -125,7 +125,6 @@
             z-index: 1;
         }
 
-        /* Efeito Neon Pulsante Global nas Caixas */
         .card {
             background: rgba(15, 15, 15, 0.9);
             backdrop-filter: blur(8px);
@@ -163,7 +162,6 @@
             text-align: center;
         }
 
-        /* Botões com Efeito Neon Ativo */
         .action-btn {
             background: linear-gradient(135deg, #d4af37 0%, #aa8228 100%);
             color: #0b0b0b;
@@ -189,7 +187,6 @@
         .action-btn:hover {
             transform: translateY(-3px);
             box-shadow: 0 0 25px rgba(255, 215, 0, 0.7);
-            opacity: 1;
         }
 
         .action-btn.secondary {
@@ -233,16 +230,17 @@
             margin-bottom: 8px;
         }
 
-        /* ================= PLAYER CARD COM EFEITO HOLOGRÁFICO E NEON ================= -->
+        /* ================= O ESTILO DA DIREITA: TEXTURA IMERSIVA + BANDEIRA OFICIAL ================= -->
         .player-card-preview {
             width: 100%;
             max-width: 420px;
             margin: 20px auto;
-            background: #0d0d0d;
+            background: linear-gradient(rgba(18, 15, 10, 0.88), rgba(5, 5, 5, 0.96)), url('82496.jpg') no-repeat center center;
+            background-size: cover;
             border: 3px solid #d4af37;
-            border-radius: 16px;
+            border-radius: 14px;
             padding: 25px;
-            box-shadow: 0 0 45px rgba(212, 175, 55, 0.55), inset 0 0 20px rgba(212, 175, 55, 0.15);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.5), inset 0 0 25px rgba(212, 175, 55, 0.2);
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -251,48 +249,47 @@
 
         .player-card-preview:hover {
             transform: translateY(-4px);
-            box-shadow: 0 0 60px rgba(255, 215, 0, 0.8), inset 0 0 25px rgba(255, 215, 0, 0.3);
+            box-shadow: 0 0 65px rgba(255, 215, 0, 0.85);
         }
 
         .card-top-row {
             display: flex;
             justify-content: space-between;
             align-items: center;
-            border-bottom: 2px solid rgba(212, 175, 55, 0.4);
+            border-bottom: 2px solid rgba(212, 175, 55, 0.45);
             padding-bottom: 10px;
             margin-bottom: 15px;
         }
 
         .card-guild-title {
             font-family: 'Cinzel', serif;
-            color: #d4af37;
-            font-size: 1.05rem;
+            color: #ffd700;
+            font-size: 1.1rem;
             letter-spacing: 2px;
             font-weight: 700;
-            text-shadow: 0 0 5px rgba(212, 175, 55, 0.5);
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
         }
 
         .card-elite-badge {
-            background: rgba(37, 211, 102, 0.25);
-            color: #25d366;
-            border: 1px solid #25d366;
+            background: linear-gradient(135deg, #11998e, #38ef7d);
+            color: #ffffff;
             font-size: 0.75rem;
-            padding: 3px 10px;
+            padding: 4px 12px;
             border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
-            box-shadow: 0 0 10px rgba(37, 211, 102, 0.4);
+            box-shadow: 0 0 12px rgba(37, 211, 102, 0.6);
         }
 
-        /* Moldura da Bandeira (98378.jpg) */
+        /* Moldura Retangular Perfeita da Bandeira Oficial (98378.jpg) */
         .card-emblem-box {
-            width: 120px;
-            height: 155px;
+            width: 110px;
+            height: 145px;
             margin: 0 auto 12px auto;
             border-radius: 6px;
-            border: 2px solid #d4af37;
+            border: 2px solid #ffd700;
             overflow: hidden;
-            box-shadow: 0 0 25px rgba(212, 175, 55, 0.7);
+            box-shadow: 0 0 25px rgba(212, 175, 55, 0.7), inset 0 0 10px rgba(0,0,0,0.8);
             background: #000;
         }
 
@@ -304,37 +301,38 @@
 
         .card-nick-display {
             font-family: 'Cinzel', serif;
-            font-size: 1.8rem;
+            font-size: 1.9rem;
             color: #ffffff;
             font-weight: 700;
-            letter-spacing: 1px;
+            letter-spacing: 1.5px;
             margin-bottom: 2px;
-            text-shadow: 0 0 10px rgba(255, 255, 255, 0.5), 0 2px 6px rgba(0,0,0,0.9);
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.4), 0 3px 10px rgba(0,0,0,0.95);
         }
 
         .card-motto-text {
             font-size: 0.85rem;
-            color: #d4af37;
-            margin-bottom: 15px;
+            color: #ffd700;
+            margin-bottom: 18px;
             font-style: italic;
-            text-shadow: 0 0 5px rgba(212, 175, 55, 0.4);
+            text-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
         }
 
-        /* Painel de Dados Limpo */
+        /* Painel Holográfico de Dados */
         .card-data-panel {
-            background: #080808;
-            border: 1px solid rgba(212, 175, 55, 0.45);
+            background: rgba(10, 10, 10, 0.92);
+            backdrop-filter: blur(8px);
+            border: 1px solid rgba(212, 175, 55, 0.5);
             border-radius: 8px;
-            padding: 12px;
+            padding: 14px;
             text-align: left;
-            box-shadow: inset 0 0 12px rgba(0,0,0,0.9);
+            box-shadow: inset 0 0 15px rgba(0,0,0,0.9);
         }
 
         .card-data-row {
             display: flex;
             justify-content: space-between;
-            font-size: 1rem;
-            padding: 6px 0;
+            font-size: 1.05rem;
+            padding: 7px 0;
             border-bottom: 1px solid rgba(255, 255, 255, 0.08);
         }
 
@@ -343,13 +341,14 @@
         }
 
         .card-data-row span:first-child {
-            color: #aaa;
+            color: #cccccc;
+            font-weight: 500;
         }
 
         .card-data-row span:last-child {
-            color: #d4af37;
+            color: #ffd700;
             font-weight: 700;
-            text-shadow: 0 0 6px rgba(255, 215, 0, 0.3);
+            text-shadow: 0 0 8px rgba(255, 215, 0, 0.4);
         }
 
         /* Botão de Cópia Rápida de Tag */
@@ -1026,7 +1025,7 @@
                 </div>
             </div>
 
-            <!-- 4. GERADOR DE PLAYER CARD PROFISSIONAL COM BOTÃO DE CÓPIA DE TAG -->
+            <!-- 4. GERADOR DE PLAYER CARD COM O ESTILO DA DIREITA + BANDEIRA OFICIAL -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
@@ -1056,14 +1055,14 @@
                     </select>
                 </div>
 
-                <!-- O PLAYER CARD DEFINITIVO COM NEON E A BANDEIRA 98378.jpg -->
+                <!-- O PLAYER CARD DEFINITIVO NO ESTILO DA DIREITA COM A BANDEIRA 98378.jpg -->
                 <div class="player-card-preview" id="player-card-render">
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
                         <span class="card-elite-badge">MEMBRO ELITE</span>
                     </div>
 
-                    <!-- Nova Bandeira (98378.jpg) em Destaque Absoluto -->
+                    <!-- Bandeira Oficial (98378.jpg) em Destaque -->
                     <div class="card-emblem-box">
                         <img src="98378.jpg" alt="Bandeira Oficial IN7">
                     </div>
@@ -1200,6 +1199,7 @@
                 <div class="form-group">
                     <label for="nickpretendido">Nick Pretendido (Ex: IN7ㅤSeuNome):</label>
                     <input type="text" id="nickpretendido" class="form-control" placeholder="Ex: IN7ㅤLOST">
+                    <button type="button" onclick="copiarTagIn7()" class="copy-tag-btn">📋 Copiar Tag IN7 com Espaço Invisível</button>
                 </div>
 
                 <div class="form-group">
@@ -1421,7 +1421,7 @@
             });
         }
 
-        // Função para gerar a imagem do card limpa e baixar automaticamente
+        // Função para gerar a imagem do card perfeitamente sem o fundo amarelo
         function salvarCardNaGaleria() {
             const cardElement = document.getElementById('player-card-render');
             
