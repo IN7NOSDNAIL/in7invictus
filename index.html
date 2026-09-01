@@ -207,7 +207,7 @@
             margin-bottom: 8px;
         }
 
-        /* ================= PLAYER CARD ESTÁVEL (COM SELO CORRIGIDO DENTRO DA CAIXA) ================= -->
+        /* ================= PLAYER CARD COM SELO ALINHADO NO TOPO DIREITO ================= -->
         .player-card-preview {
             width: 100%;
             max-width: 420px;
@@ -218,7 +218,7 @@
             padding: 28px;
             box-shadow: 0 0 50px rgba(212, 175, 55, 0.55), inset 0 0 25px rgba(212, 175, 55, 0.2);
             position: relative;
-            overflow: hidden; /* Garante que nada escape para fora da caixa do card */
+            overflow: hidden;
             text-align: center;
         }
 
@@ -229,8 +229,7 @@
             border-bottom: 2px solid rgba(212, 175, 55, 0.4);
             padding-bottom: 12px;
             margin-bottom: 18px;
-            position: relative;
-            z-index: 2;
+            width: 100%;
         }
 
         .card-guild-title {
@@ -242,16 +241,18 @@
             text-shadow: 0 2px 8px rgba(0,0,0,0.9);
         }
 
+        /* Selo "MEMBRO ELITE" perfeitamente posicionado à direita */
         .card-elite-badge {
             background: linear-gradient(135deg, #25d366, #128c7e);
             color: #ffffff;
             font-size: 0.7rem;
-            padding: 4px 10px;
+            padding: 5px 12px;
             border-radius: 4px;
             font-weight: 700;
             text-transform: uppercase;
             letter-spacing: 1px;
             box-shadow: 0 0 10px rgba(37, 211, 102, 0.5);
+            white-space: nowrap;
         }
 
         /* Moldura com a Nova Bandeira 98378.jpg */
@@ -929,7 +930,7 @@
                 </div>
             </div>
 
-            <!-- 4. GERADOR DE PLAYER CARD ZERADO E ESTÁVEL -->
+            <!-- 4. GERADOR DE PLAYER CARD ESTÁVEL E ZERADO -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
@@ -959,7 +960,7 @@
                     </select>
                 </div>
 
-                <!-- O PLAYER CARD PERFEITO COM SELO ALINHADO NO TOPO DIREITO -->
+                <!-- O PLAYER CARD COM O SELO CORRIGIDO DENTRO DA CAIXA -->
                 <div class="player-card-preview" id="player-card-render">
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
