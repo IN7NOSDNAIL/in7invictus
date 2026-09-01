@@ -230,15 +230,14 @@
             margin-bottom: 8px;
         }
 
-        /* ================= O CARD DEFINITIVO COM TEXTURA DO LEÃO E BORDAS DOURADAS ENVELHECIDAS ================= -->
+        /* ================= CARD COM O LEÃO 82496.jpg APARECENDO CLARO NO FUNDO ================= -->
         .player-card-preview {
             width: 100%;
             max-width: 420px;
             margin: 20px auto;
-            /* Textura imersiva do leão (82496.jpg) com degradê dourado/envelhecido de fundo */
-            background: linear-gradient(rgba(26, 21, 10, 0.88), rgba(12, 10, 4, 0.96)), url('82496.jpg') no-repeat center center;
+            /* Camada escura mais suave para deixar o leão (82496.jpg) visível com o tom dourado irado */
+            background: linear-gradient(rgba(35, 28, 12, 0.65), rgba(15, 12, 5, 0.85)), url('82496.jpg') no-repeat center center;
             background-size: cover;
-            /* Borda dourada envelhecida principal com efeito de relevo */
             border: 4px solid #c59b27;
             border-radius: 12px;
             padding: 25px;
@@ -249,7 +248,6 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
 
-        /* Detalhe extra nas laterais simulando bordas envelhecidas */
         .player-card-preview::after {
             content: '';
             position: absolute;
@@ -282,11 +280,11 @@
             font-size: 1.1rem;
             letter-spacing: 2px;
             font-weight: 700;
-            text-shadow: 0 0 8px rgba(212, 175, 55, 0.6);
+            text-shadow: 0 0 8px rgba(212, 175, 55, 0.8);
         }
 
         .card-elite-badge {
-            background: #10b981; /* Verde esmeralda exato do modelo aprovado */
+            background: #10b981;
             color: #ffffff;
             font-size: 0.75rem;
             padding: 5px 14px;
@@ -322,7 +320,7 @@
             font-weight: 700;
             letter-spacing: 1.5px;
             margin-bottom: 2px;
-            text-shadow: 0 0 12px rgba(255, 255, 255, 0.4), 0 3px 10px rgba(0,0,0,0.95);
+            text-shadow: 0 0 12px rgba(255, 255, 255, 0.5), 0 3px 10px rgba(0,0,0,0.95);
         }
 
         .card-motto-text {
@@ -330,12 +328,12 @@
             color: #ffd700;
             margin-bottom: 18px;
             font-style: italic;
-            text-shadow: 0 0 6px rgba(212, 175, 55, 0.5);
+            text-shadow: 0 0 6px rgba(212, 175, 55, 0.6);
         }
 
-        /* Painel Holográfico de Dados com Borda Dourada Envelhecida */
+        /* Painel Holográfico de Dados */
         .card-data-panel {
-            background: rgba(10, 10, 10, 0.95);
+            background: rgba(12, 10, 5, 0.92);
             border: 2px solid #c59b27;
             border-radius: 8px;
             padding: 14px;
@@ -356,7 +354,7 @@
         }
 
         .card-data-row span:first-child {
-            color: #cccccc;
+            color: #dddddd;
             font-weight: 500;
         }
 
@@ -1040,7 +1038,7 @@
                 </div>
             </div>
 
-            <!-- 4. GERADOR DE PLAYER CARD COM TEXTURA DO LEÃO, BORDAS DOURADAS ENVELHECIDAS E BANDEIRA NOVA -->
+            <!-- 4. GERADOR DE PLAYER CARD COM O LEÃO 82496.jpg BEM VISÍVEL -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
@@ -1070,7 +1068,7 @@
                     </select>
                 </div>
 
-                <!-- O PLAYER CARD DEFINITIVO COM A TEXTURA DO LEÃO E BORDAS DOURADAS ENVELHECIDAS -->
+                <!-- O PLAYER CARD DEFINITIVO COM O LEÃO CLARO E A BANDEIRA 98378.jpg -->
                 <div class="player-card-preview" id="player-card-render">
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
@@ -1436,7 +1434,7 @@
             });
         }
 
-        // Função para gerar a imagem do card perfeitamente mantendo a textura e as bordas douradas
+        // Função para gerar a imagem do card perfeitamente mantendo o leão visível e as bordas douradas
         function salvarCardNaGaleria() {
             const cardElement = document.getElementById('player-card-render');
             
@@ -1508,7 +1506,7 @@
                 const éMestreHonra = patenteLower.includes('honra');
                 const temEstrelasValidas = patenteLower.includes('2') || patenteLower.includes('dois') || 
                                            patenteLower.includes('3') || patenteLower.includes('três') || 
-                                           patenteLower.includes('4') || patenteLower.includes('quatro') || 
+                                           patenteLower.instances('4') || patenteLower.includes('quatro') || 
                                            patenteLower.includes('5') || patenteLower.includes('cinco');
                 patenteValida = éMestreHonra || éEliteOuDesafiante || temEstrelasValidas;
             }
