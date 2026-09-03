@@ -5,6 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IN7 INVICTUS | Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Biblioteca html2canvas para exportar o card em alta resolução -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
@@ -834,6 +835,7 @@
     </video>
     <div class="overlay"></div>
 
+    <!-- ================= TELA 1: HOME (PRINCIPAL) ================= -->
     <div id="main-screen" class="screen active">
         <header>
             <img src="82605_2.jpg" alt="IN7 INVICTUS Logo" class="logo-img">
@@ -854,12 +856,14 @@
         </header>
 
         <div class="container">
+            <!-- 1. MURAL DE AVISOS DA STAFF -->
             <div class="staff-notice-box">
                 <span class="notice-badge">⚡ Mural da Staff</span>
                 <h3 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 5px;">Recrutamento Aberto (CS & BR)</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 0; color: #ddd;">Atenção tropa: As inscrições para jogadores de CS e BR estão ativas. Verifique os requisitos e mande sua ficha direto com a staff!</p>
             </div>
 
+            <!-- 2. SOBRE A GUILDA -->
             <div class="card">
                 <h2>Sobre a Guilda</h2>
                 <p>A <strong>IN7 INVICTUS</strong> é uma guilda de elite focada em alta performance, organização competitiva e lealdade absoluta. Nascida para dominar o cenário, nossa tropa valoriza o trabalho em equipe, o rush inteligente e o respeito dentro e fora do mapa.</p>
@@ -882,6 +886,7 @@
                 </div>
             </div>
 
+            <!-- TOP 3 DE HONRAS -->
             <div class="card">
                 <h2>Top 3 de Honras - Ranking Semanal</h2>
                 <p>A dedicação da nossa tropa é a nossa força! Confira o pódio da semana:</p>
@@ -890,6 +895,7 @@
                 </div>
             </div>
 
+            <!-- 3. NOSSA STAFF -->
             <div class="card">
                 <h2>Nossa Staff</h2>
                 <p>O comando oficial da IN7 INVICTUS:</p>
@@ -922,6 +928,7 @@
                 </div>
             </div>
 
+            <!-- 4. GERADOR DE PLAYER CARD -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
@@ -951,6 +958,7 @@
                     </select>
                 </div>
 
+                <!-- O PLAYER CARD -->
                 <div class="player-card-preview" id="player-card-render">
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
@@ -989,6 +997,7 @@
                 </button>
             </div>
 
+            <!-- REQUISITOS OFICIAIS -->
             <div class="card">
                 <h2>Requisitos Oficiais</h2>
                 <p>Para fazer parte da nossa tropa, o candidato precisa cumprir com os padrões mínimos da guilda:</p>
@@ -1010,6 +1019,7 @@
                 </div>
             </div>
 
+            <!-- LOJA OFICIAL IN7 -->
             <div class="card">
                 <h2>Loja Oficial IN7</h2>
                 <p>Garanta seu Passe de Elite com segurança e ótimo preço:</p>
@@ -1028,6 +1038,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 2: RECRUTAMENTO ================= -->
     <div id="recrutamento-screen" class="screen">
         <header>
             <h1>Recrutamento <span>IN7</span></h1>
@@ -1111,6 +1122,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 3: EVENTOS & CAMPEONATOS ================= -->
     <div id="eventos-screen" class="screen">
         <header>
             <h1>Arena de Eventos & <span>Campeonatos</span></h1>
@@ -1172,6 +1184,7 @@
         </div>
     </div>
 
+    <!-- ================= TELA 4: PAGAMENTO / PASSE ================= -->
     <div id="payment-screen" class="screen">
         <header>
             <h1>Passe <span>IN7</span></h1>
@@ -1203,6 +1216,7 @@
         </footer>
     </div>
 
+    <!-- ================= TELA 5: APROVAÇÃO (INTEGRADA) ================= -->
     <div id="aprovacao-screen" class="screen">
         <header>
             <h1>IN7 <span>INVICTUS</span></h1>
@@ -1217,7 +1231,48 @@
                 </div>
 
                 <div class="ficha-box" id="ficha-detalhes">
+                    <!-- Preenchido via JavaScript -->
+                </div>
+
+                <!-- MINI PLAYER CARD GERADO AUTOMATICAMENTE DO RECRUTA -->
+                <div style="margin: 20px 0; text-align: center;">
+                    <p style="color: #d4af37; font-weight: 700; margin-bottom: 8px;">🎨 SEU CARD OFICIAL GERADO:</p>
+                    <div class="player-card-preview" id="player-card-render-aprovacao" style="max-width: 100%; margin: 0 auto;">
+                        <div class="card-top-row">
+                            <span class="card-guild-title">IN7 INVICTUS</span>
+                            <span class="card-elite-badge">NOVO MEMBRO</span>
+                        </div>
+
+                        <div class="card-emblem-box">
+                            <img src="98378.jpg" alt="Bandeira Oficial IN7">
+                        </div>
+
+                        <div class="card-nick-display" id="aprov-render-nick">IN7ㅤSEUNOME</div>
+                        <div class="card-motto-text">"Jamais Conquistados"</div>
+                        
+                        <div class="card-data-panel">
+                            <div class="card-data-row">
+                                <span>Modalidade:</span>
+                                <span id="aprov-render-modo">Contra Squad (CS)</span>
+                            </div>
+                            <div class="card-data-row">
+                                <span>Patente:</span>
+                                <span id="aprov-render-patente">Mestre</span>
+                            </div>
+                            <div class="card-data-row">
+                                <span>ID Pessoal:</span>
+                                <span id="aprov-render-id">000000000</span>
+                            </div>
+                            <div class="card-data-row">
+                                <span>ID da Guilda:</span>
+                                <span>2064438275</span>
+                            </div>
+                        </div>
                     </div>
+                    <button onclick="salvarCardAprovacaoNaGaleria()" class="download-card-btn" style="margin-top: 10px;">
+                        📥 Baixar Meu Card Oficial
+                    </button>
+                </div>
 
                 <div class="instrucoes-box">
                     <h2>⚠️ ETAPA FINAL OBRIGATÓRIA</h2>
@@ -1251,6 +1306,7 @@
                     </div>
                 </div>
 
+                <!-- DOIS BOTÕES DE WHATSAPP (RECRUTADOR 1 E RECRUTADOR 2) -->
                 <a id="btn-whatsapp-nosdnail" href="#" target="_blank" class="btn-whatsapp-final">
                     📲 Enviar Ficha — Recrutador 1 (NOSDNAIL)
                 </a>
@@ -1280,6 +1336,7 @@
         </footer>
     </div>
 
+    <!-- SCRIPTS DE NAVEGAÇÃO, VALIDAÇÃO E DOWNLOAD DO CARD -->
     <script>
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(screen => {
@@ -1328,6 +1385,24 @@
             });
         }
 
+        function salvarCardAprovacaoNaGaleria() {
+            const cardElement = document.getElementById('player-card-render-aprovacao');
+            
+            html2canvas(cardElement, {
+                scale: 3,
+                useCORS: true,
+                backgroundColor: "#000000"
+            }).then(canvas => {
+                const link = document.createElement('a');
+                link.download = 'meu-card-in7.png';
+                link.href = canvas.toDataURL('image/png');
+                link.click();
+            }).catch(err => {
+                alert('⚠️ Ocorreu um erro ao gerar a imagem. Tente tirar um print do card!');
+                console.error(err);
+            });
+        }
+
         function verificarRequisitos() {
             const nome = document.getElementById('nome').value.trim();
             const email = document.getElementById('email').value.trim();
@@ -1360,30 +1435,43 @@
             }
 
             const patenteLower = patente.toLowerCase();
+            
+            // BLINDAGEM CONTRA PATENTES BAIXAS (Diamante, Dima, Platina, Ouro, Prata, Bronze, etc.)
+            const patenteProibida = patenteLower.includes('diamante') || 
+                                    patenteLower.includes('dima') || 
+                                    patenteLower.includes('platina') || 
+                                    patenteLower.includes('ouro') || 
+                                    patenteLower.includes('prata') || 
+                                    patenteLower.includes('bronze');
+
             let patenteValida = false;
             const éEliteOuDesafiante = patenteLower.includes('elite') || patenteLower.includes('desafiante');
 
-            if (modopatente.includes('Contra Squad')) {
-                const éMestreHonra = patenteLower.includes('honra');
-                patenteValida = éMestreHonra || éEliteOuDesafiante;
-            } else if (modopatente.includes('Battle Royale')) {
-                const éMestre = patenteLower.includes('mestre');
-                if (éEliteOuDesafiante) {
-                    patenteValida = true;
-                } else if (éMestre) {
+            if (!patenteProibida) {
+                if (modopatente.includes('Contra Squad')) {
+                    const éMestreHonra = patenteLower.includes('honra');
+                    patenteValida = éMestreHonra || éEliteOuDesafiante;
+                } else if (modopatente.includes('Battle Royale')) {
+                    const éMestre = patenteLower.includes('mestre');
+                    if (éEliteOuDesafiante) {
+                        patenteValida = true;
+                    } else if (éMestre) {
+                        const temEstrelasValidas = patenteLower.includes('2') || patenteLower.includes('dois') || 
+                                                   patenteLower.includes('3') || patenteLower.includes('três') || 
+                                                   patenteLower.includes('4') || patenteLower.includes('quatro') || 
+                                                   patenteLower.includes('5') || patenteLower.includes('cinco');
+                        patenteValida = temEstrelasValidas;
+                    }
+                } else {
+                    // Ambos
+                    const éMestreHonra = patenteLower.includes('honra');
+                    const éMestreSimples = patenteLower.includes('mestre');
                     const temEstrelasValidas = patenteLower.includes('2') || patenteLower.includes('dois') || 
                                                patenteLower.includes('3') || patenteLower.includes('três') || 
                                                patenteLower.includes('4') || patenteLower.includes('quatro') || 
                                                patenteLower.includes('5') || patenteLower.includes('cinco');
-                    patenteValida = temEstrelasValidas;
+                    patenteValida = éMestreHonra || éEliteOuDesafiante || (éMestreSimples && temEstrelasValidas);
                 }
-            } else {
-                const éMestreHonra = patenteLower.includes('honra');
-                const temEstrelasValidas = patenteLower.includes('2') || patenteLower.includes('dois') || 
-                                           patenteLower.includes('3') || patenteLower.includes('três') || 
-                                           patenteLower.includes('4') || patenteLower.includes('quatro') || 
-                                           patenteLower.includes('5') || patenteLower.includes('cinco');
-                patenteValida = éMestreHonra || éEliteOuDesafiante || temEstrelasValidas;
             }
 
             if (!patenteValida) {
@@ -1429,6 +1517,12 @@
                     <p><strong>📌 Status Final:</strong> <span style="color:#25d366; font-weight:700;">✅ APROVADO</span></p>
                 `;
 
+                // ATUALIZA OS DADOS NO CARD DE APROVAÇÃO AUTOMATICAMENTE
+                document.getElementById('aprov-render-nick').innerText = nickpretendido;
+                document.getElementById('aprov-render-modo').innerText = modopatente;
+                document.getElementById('aprov-render-patente').innerText = patente;
+                document.getElementById('aprov-render-id').innerText = ffid;
+
                 document.getElementById('nick-alvo').innerText = nickpretendido;
 
                 const textoWhatsApp = 
@@ -1454,7 +1548,7 @@
 🎬 *TikTok:* https://www.tiktok.com/@in7_invictus?_r=1&_t=ZS-999mudkCwhV
 📌 *Discord:* https://discord.gg/cadv2E4eKe`;
 
-                // Configura os links para o teu WhatsApp e para o da Mia
+                // Configura os links para o WhatsApp do NOSDNAIL e da Mia
                 document.getElementById('btn-whatsapp-nosdnail').href = `https://wa.me/5585988640850?text=${encodeURIComponent(textoWhatsApp)}`;
                 document.getElementById('btn-whatsapp-mia').href = `https://wa.me/5561992931495?text=${encodeURIComponent(textoWhatsApp)}`;
                 
