@@ -5,7 +5,6 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IN7 INVICTUS | Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <!-- Biblioteca html2canvas para exportar o card em alta resolução -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
         * {
@@ -207,17 +206,16 @@
             margin-bottom: 8px;
         }
 
-        /* ================= PLAYER CARD COM FUNDO PRETO FOSCO FORÇADO (SEM COR INDESEJADA) ================= */
+        /* ================= PLAYER CARD COM FUNDO 100% PRETO ================= */
         .player-card-preview {
             width: 100%;
             max-width: 420px;
             margin: 20px auto;
-            background-color: #0d0d0d !important;
-            background-image: none !important;
+            background: #000000 !important;
             border: 3px solid #d4af37;
             border-radius: 16px;
             padding: 28px;
-            box-shadow: 0 0 50px rgba(212, 175, 55, 0.55), inset 0 0 25px rgba(212, 175, 55, 0.2);
+            box-shadow: 0 0 50px rgba(212, 175, 55, 0.55);
             position: relative;
             overflow: hidden;
             text-align: center;
@@ -293,8 +291,7 @@
         }
 
         .card-data-panel {
-            background: rgba(10, 10, 10, 0.88);
-            backdrop-filter: blur(8px);
+            background: #050505 !important;
             border: 1px solid rgba(212, 175, 55, 0.5);
             border-radius: 10px;
             padding: 15px;
@@ -775,9 +772,9 @@
             color: #ffffff;
             font-family: 'Cinzel', serif;
             font-weight: 700;
-            font-size: 1.05rem;
+            font-size: 1rem;
             text-transform: uppercase;
-            padding: 15px;
+            padding: 14px;
             border-radius: 6px;
             border: none;
             cursor: pointer;
@@ -785,8 +782,8 @@
             width: 100%;
             text-align: center;
             text-decoration: none;
-            box-shadow: 0 5px 20px rgba(37, 211, 102, 0.4);
-            margin-top: 20px;
+            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.4);
+            margin-top: 12px;
         }
 
         .links-section {
@@ -837,7 +834,6 @@
     </video>
     <div class="overlay"></div>
 
-    <!-- ================= TELA 1: HOME (PRINCIPAL) ================= -->
     <div id="main-screen" class="screen active">
         <header>
             <img src="82605_2.jpg" alt="IN7 INVICTUS Logo" class="logo-img">
@@ -858,14 +854,12 @@
         </header>
 
         <div class="container">
-            <!-- 1. MURAL DE AVISOS DA STAFF -->
             <div class="staff-notice-box">
                 <span class="notice-badge">⚡ Mural da Staff</span>
                 <h3 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 5px;">Recrutamento Aberto (CS & BR)</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 0; color: #ddd;">Atenção tropa: As inscrições para jogadores de CS e BR estão ativas. Verifique os requisitos e mande sua ficha direto com a staff!</p>
             </div>
 
-            <!-- 2. SOBRE A GUILDA -->
             <div class="card">
                 <h2>Sobre a Guilda</h2>
                 <p>A <strong>IN7 INVICTUS</strong> é uma guilda de elite focada em alta performance, organização competitiva e lealdade absoluta. Nascida para dominar o cenário, nossa tropa valoriza o trabalho em equipe, o rush inteligente e o respeito dentro e fora do mapa.</p>
@@ -888,7 +882,6 @@
                 </div>
             </div>
 
-            <!-- TOP 3 DE HONRAS -->
             <div class="card">
                 <h2>Top 3 de Honras - Ranking Semanal</h2>
                 <p>A dedicação da nossa tropa é a nossa força! Confira o pódio da semana:</p>
@@ -897,7 +890,6 @@
                 </div>
             </div>
 
-            <!-- 3. NOSSA STAFF -->
             <div class="card">
                 <h2>Nossa Staff</h2>
                 <p>O comando oficial da IN7 INVICTUS:</p>
@@ -930,7 +922,6 @@
                 </div>
             </div>
 
-            <!-- 4. GERADOR DE PLAYER CARD COM FUNDO PRETO FOSCO PURO -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
@@ -960,14 +951,12 @@
                     </select>
                 </div>
 
-                <!-- O PLAYER CARD COM FUNDO PRETO FOSCO ABSOLUTO -->
                 <div class="player-card-preview" id="player-card-render">
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
                         <span class="card-elite-badge">MEMBRO ELITE</span>
                     </div>
 
-                    <!-- Nova Bandeira Oficial (98378.jpg) em Destaque -->
                     <div class="card-emblem-box">
                         <img src="98378.jpg" alt="Bandeira Oficial IN7">
                     </div>
@@ -995,13 +984,11 @@
                     </div>
                 </div>
 
-                <!-- BOTÃO DE SALVAR NA GALERIA -->
                 <button onclick="salvarCardNaGaleria()" class="download-card-btn">
                     📥 Salvar Card na Galeria
                 </button>
             </div>
 
-            <!-- REQUISITOS OFICIAIS -->
             <div class="card">
                 <h2>Requisitos Oficiais</h2>
                 <p>Para fazer parte da nossa tropa, o candidato precisa cumprir com os padrões mínimos da guilda:</p>
@@ -1012,6 +999,8 @@
                     <li><span>Level Mínimo</span> <span>Level 50+</span></li>
                     <li><span>Idade Mínima</span> <span>16 Anos</span></li>
                     <li><span>Obrigatório</span> <span>Troca Nick com a Tag (IN7ㅤ)</span></li>
+                    <li><span>Meta de Honra</span> <span>3.500+ de Honra Semanal 🔥</span></li>
+                    <li><span>Atividade</span> <span>Participar de Salinhas & Dinâmicas ⚔️</span></li>
                 </ul>
 
                 <div class="section-action-container">
@@ -1021,7 +1010,6 @@
                 </div>
             </div>
 
-            <!-- LOJA OFICIAL IN7 -->
             <div class="card">
                 <h2>Loja Oficial IN7</h2>
                 <p>Garanta seu Passe de Elite com segurança e ótimo preço:</p>
@@ -1040,7 +1028,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 2: RECRUTAMENTO ================= -->
     <div id="recrutamento-screen" class="screen">
         <header>
             <h1>Recrutamento <span>IN7</span></h1>
@@ -1124,7 +1111,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 3: EVENTOS & CAMPEONATOS ================= -->
     <div id="eventos-screen" class="screen">
         <header>
             <h1>Arena de Eventos & <span>Campeonatos</span></h1>
@@ -1186,7 +1172,6 @@
         </div>
     </div>
 
-    <!-- ================= TELA 4: PAGAMENTO / PASSE ================= -->
     <div id="payment-screen" class="screen">
         <header>
             <h1>Passe <span>IN7</span></h1>
@@ -1218,7 +1203,6 @@
         </footer>
     </div>
 
-    <!-- ================= TELA 5: APROVAÇÃO (INTEGRADA) ================= -->
     <div id="aprovacao-screen" class="screen">
         <header>
             <h1>IN7 <span>INVICTUS</span></h1>
@@ -1233,8 +1217,7 @@
                 </div>
 
                 <div class="ficha-box" id="ficha-detalhes">
-                    <!-- Preenchido via JavaScript -->
-                </div>
+                    </div>
 
                 <div class="instrucoes-box">
                     <h2>⚠️ ETAPA FINAL OBRIGATÓRIA</h2>
@@ -1264,12 +1247,16 @@
 
                     <div class="step" style="margin-top: 15px;">
                         <span class="step-num">4</span>
-                        <div>Clique no botão abaixo para enviar os dados da ficha no WhatsApp da staff <strong>e envie também o print da tela acima no chat para a conferência!</strong></div>
+                        <div>Clique num dos botões abaixo para enviar os dados da ficha no WhatsApp do recrutador <strong>e envie também o print da tela acima no chat para a conferência!</strong></div>
                     </div>
                 </div>
 
-                <a id="btn-whatsapp-link" href="#" target="_blank" class="btn-whatsapp-final">
-                    📲 Enviar Ficha Oficial no WhatsApp
+                <a id="btn-whatsapp-nosdnail" href="#" target="_blank" class="btn-whatsapp-final">
+                    📲 Enviar Ficha — Recrutador 1 (NOSDNAIL)
+                </a>
+
+                <a id="btn-whatsapp-mia" href="#" target="_blank" class="btn-whatsapp-final" style="background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);">
+                    📲 Enviar Ficha — Recrutador 2 (MIA)
                 </a>
 
                 <div class="links-section">
@@ -1293,7 +1280,6 @@
         </footer>
     </div>
 
-    <!-- SCRIPTS DE NAVEGAÇÃO, VALIDAÇÃO E DOWNLOAD DO CARD -->
     <script>
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(screen => {
@@ -1303,7 +1289,6 @@
             window.scrollTo(0, 0);
         }
 
-        // Função para atualizar o Card Dinamicamente
         function atualizarCard() {
             const nick = document.getElementById('card-input-nick').value.trim() || 'IN7ㅤSEUNOME';
             const idPessoal = document.getElementById('card-input-id').value.trim() || '000000000';
@@ -1316,7 +1301,6 @@
             document.getElementById('render-modo').innerText = modo;
         }
 
-        // Função para copiar a Tag com o espaço invisível (U+3164)
         function copiarTagIn7() {
             const tagInvisivel = "IN7\u3164";
             navigator.clipboard.writeText(tagInvisivel).then(() => {
@@ -1326,14 +1310,13 @@
             });
         }
 
-        // Função para gerar a imagem do card perfeitamente
         function salvarCardNaGaleria() {
             const cardElement = document.getElementById('player-card-render');
             
             html2canvas(cardElement, {
-                scale: 3, // Alta resolução para nítida perfeição
+                scale: 3,
                 useCORS: true,
-                backgroundColor: null
+                backgroundColor: "#000000"
             }).then(canvas => {
                 const link = document.createElement('a');
                 link.download = 'card-in7-invictus.png';
@@ -1471,7 +1454,10 @@
 🎬 *TikTok:* https://www.tiktok.com/@in7_invictus?_r=1&_t=ZS-999mudkCwhV
 📌 *Discord:* https://discord.gg/cadv2E4eKe`;
 
-                document.getElementById('btn-whatsapp-link').href = `https://wa.me/5585988640850?text=${encodeURIComponent(textoWhatsApp)}`;
+                // Configura os links para o teu WhatsApp e para o da Mia
+                document.getElementById('btn-whatsapp-nosdnail').href = `https://wa.me/5585988640850?text=${encodeURIComponent(textoWhatsApp)}`;
+                document.getElementById('btn-whatsapp-mia').href = `https://wa.me/5561992931495?text=${encodeURIComponent(textoWhatsApp)}`;
+                
                 goToScreen('aprovacao-screen');
             }
         }
