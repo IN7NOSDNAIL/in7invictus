@@ -5,6 +5,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IN7 INVICTUS | Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
+    <!-- Configuração PWA -->
+    <link rel="manifest" href="manifest.json">
+    <meta name="theme-color" content="#d4af37">
     <!-- Biblioteca html2canvas para exportar o card em alta resolução -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
     <style>
@@ -55,14 +58,14 @@
             display: block;
         }
 
-        #payment-screen.active, #aprovacao-screen.active {
+        #payment-screen.active, #aprovacao-screen.active, #staff-panel-screen.active {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
         /* Telas secundárias unificadas com a imagem 85760.png de fundo */
-        #recrutamento-screen, #eventos-screen, #payment-screen, #aprovacao-screen {
+        #recrutamento-screen, #eventos-screen, #payment-screen, #aprovacao-screen, #staff-login-screen, #staff-panel-screen {
             background: url('85760.png') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
@@ -205,6 +208,50 @@
             letter-spacing: 1px;
             display: inline-block;
             margin-bottom: 8px;
+        }
+
+        /* Estilo do AVISO GERAL OFICIAL */
+        .aviso-geral-box {
+            background: rgba(12, 12, 12, 0.95);
+            border: 2px solid #d4af37;
+            border-left: 6px solid #ff4b4b;
+            padding: 25px;
+            border-radius: 8px;
+            margin-bottom: 30px;
+            box-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
+        }
+
+        .aviso-geral-box h3 {
+            font-family: 'Cinzel', serif;
+            color: #ffd700;
+            font-size: 1.3rem;
+            margin-bottom: 12px;
+            display: flex;
+            align-items: center;
+            gap: 8px;
+        }
+
+        .aviso-geral-box p, .aviso-geral-box li {
+            font-size: 1.05rem;
+            color: #ddd;
+            line-height: 1.6;
+            margin-bottom: 10px;
+        }
+
+        .aviso-geral-box ul {
+            list-style: none;
+            margin: 15px 0;
+            padding: 0;
+        }
+
+        .aviso-geral-box ul li {
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 0;
+            display: block;
+        }
+
+        .aviso-geral-box strong {
+            color: #d4af37;
         }
 
         /* ================= PLAYER CARD COM FUNDO 100% PRETO ================= */
@@ -863,6 +910,35 @@
                 <p style="font-size: 0.95rem; margin-bottom: 0; color: #ddd;">Atenção tropa: As inscrições para jogadores de CS e BR estão ativas. Verifique os requisitos e mande sua ficha direto com a staff!</p>
             </div>
 
+            <!-- AVISO GERAL - IN7 INVICTUS -->
+            <div class="aviso-geral-box">
+                <h3>🚨 AVISO GERAL - IN7 INVICTUS 🚨</h3>
+                <p>Família, para a IN7 crescer e ganhar moral lá fora, a partir de hoje a cobrança vai ser mais rigorosa. Somos parceiros, mas precisamos de compromisso.</p>
+                
+                <p style="color: #d4af37; font-weight: 700; margin-top: 15px;">‼️ Prestem atenção no que muda a partir de HOJE:</p>
+                
+                <ul>
+                    <li>📌 <strong>1. Metas de Honra:</strong><br>
+                    > • 2k de honra mínima para poder encostar nas salas.<br>
+                    > • 4k de honra semanal OBRIGATÓRIA.<br>
+                    > • Quem não justificar, não bater meta, vai levar advertência, se bater 3/3 é ban. Não tem conversa.</li>
+                    
+                    <li style="margin-top: 12px;">📌 <strong>2. Gravações, Salinhas e Eventos:</strong><br>
+                    > • Presença obrigatória em TUDO o que a guilda organizar (gravações, salinhas e eventos internos). Chega de preguiça e de "cumprir tabela". Quem veste a camisa participa e ponto final.<br>
+                    > Se não puder participar, justifique.</li>
+                    
+                    <li style="margin-top: 12px;">📌 <strong>3. GVG Obrigatória:</strong><br>
+                    > • Como o resultado da nossa enquete deixou claro, a grande maioria foca em BR, então a <strong>GVG AGORA É OBRIGATÓRIA</strong>, <em>(com o mínimo de 100 pontos)</em>.<br>
+                    > • A única exceção de isenção da GVG vai para quem joga estritamente CS (conforme o voto na enquete). O resto vai ter que colar e dar o sangue.<br>
+                    > <em>Mais tarde vai ser postado um comunicado explicando melhor a situação.</em></li>
+                    
+                    <li style="margin-top: 12px;">📌 <strong>4. Engajamento e Moral:</strong><br>
+                    > • Postou vídeo ou conteúdo da guilda? É obrigação de todo mundo ir lá curtir, comentar e dar moral. Guilda que não se apoia não cresce.</li>
+                </ul>
+
+                <p style="margin-top: 15px; font-style: italic; color: #f5f5f5;">O aviso tá dado. A gente é amigo de jogo, mas aqui dentro a cobrança é de líder para membro. Quem quiser somar e fazer a IN7 respeitada, cola com a gente. Quem não quiser, a porta está aberta. Disciplina e foco! 👊🔥</p>
+            </div>
+
             <!-- 2. SOBRE A GUILDA -->
             <div class="card">
                 <h2>Sobre a Guilda</h2>
@@ -1008,8 +1084,8 @@
                     <li><span>Level Mínimo</span> <span>Level 50+</span></li>
                     <li><span>Idade Mínima</span> <span>16 Anos</span></li>
                     <li><span>Obrigatório</span> <span>Troca Nick com a Tag (IN7ㅤ)</span></li>
-                    <li><span>Meta de Honra</span> <span>3.500+ de Honra Semanal 🔥</span></li>
-                    <li><span>Atividade</span> <span>Participar de Salinhas & Dinâmicas ⚔️</span></li>
+                    <li><span>Meta de Honra</span> <span>4.000+ Semanal (2k mín. p/ salas) 🔥</span></li>
+                    <li><span>GVG / Engajamento</span> <span>Obrigatório (Regras do Aviso Geral) ⚔️</span></li>
                 </ul>
 
                 <div class="section-action-container">
@@ -1036,6 +1112,10 @@
                 </div>
             </div>
         </div>
+
+        <footer>
+            <p>&copy; 2026 IN7 INVICTUS. Todos os direitos reservados. | <a onclick="goToScreen('staff-login-screen')" style="color: #d4af37; cursor: pointer; text-decoration: underline;">🔒 Área da Staff</a></p>
+        </footer>
     </div>
 
     <!-- ================= TELA 2: RECRUTAMENTO ================= -->
@@ -1160,7 +1240,7 @@
                     <ul class="rules-sublist">
                         <li>• <strong>Vitória / Avançar de fase:</strong> +15 pts | <strong>Título de Campeão:</strong> +25 pts</li>
                         <li>• <strong>Abates (Kill):</strong> +1 pt por kill | <strong>Saldo de Rounds:</strong> +2 pts por round de vantagem.</li>
-                        <li>• <strong>Meta de Honra (5k+):</strong> +5 pts (+1 pt a cada 1k extra). <strong>Recrutamento ativo:</strong> +5 pts.</li>
+                        <li>• <strong>Meta de Honra (4k+):</strong> +5 pts (+1 pt a cada 1k extra). <strong>Recrutamento ativo:</strong> +5 pts.</li>
                         <li>• <strong>Bônus Tático (MVP 10+ kills):</strong> +10 pts | <strong>Punições:</strong> -2 pts por quebra de regra.</li>
                     </ul>
                 </div>
@@ -1336,6 +1416,69 @@
         </footer>
     </div>
 
+    <!-- ================= TELA 6: LOGIN DA STAFF ================= -->
+    <div id="staff-login-screen" class="screen">
+        <header>
+            <h1>Área Restrita <span>Staff</span></h1>
+            <div class="motto">Acesso Exclusivo da Liderança</div>
+        </header>
+
+        <div class="container" style="display: flex; justify-content: center; align-items: center; flex: 1;">
+            <div class="checkout-box">
+                <h2>Identificação da Staff</h2>
+                <p>Digite a senha de acesso da liderança da IN7:</p>
+                
+                <div class="form-group" style="margin-top: 15px;">
+                    <input type="password" id="staff-password" class="form-control" placeholder="Senha da Staff">
+                </div>
+
+                <button onclick="verificarSenhaStaff()" class="action-btn" style="width: 100%; margin-top: 5px;">Entrar no Painel</button>
+                <div id="login-erro" style="color: #ff4b4b; margin-top: 10px; font-size: 0.95rem; display: none;">⚠️ Senha incorreta! Acesso negado.</div>
+
+                <a onclick="goToScreen('main-screen')" class="back-link">← Voltar para o Início</a>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 IN7 INVICTUS. Acesso restrito.</p>
+        </footer>
+    </div>
+
+    <!-- ================= TELA 7: PAINEL RESTRITO DA STAFF ================= -->
+    <div id="staff-panel-screen" class="screen">
+        <header>
+            <h1>Painel Interno <span>Staff</span></h1>
+            <div class="motto">Gestão e Operações IN7</div>
+        </header>
+
+        <div class="container">
+            <div class="card" style="border-left-color: #25d366;">
+                <h2>⚙️ Painel de Controle Liderança</h2>
+                <p>Bem-vindo à área restrita da diretoria. Aqui vocês podem coordenar as diretrizes e diretórios da guilda.</p>
+                
+                <div class="event-banner-box" style="margin-top: 20px;">
+                    <h3 style="color: #d4af37; font-family: 'Cinzel', serif; margin-bottom: 8px;">📋 Diretrizes Rápidas da Staff:</h3>
+                    <ul class="rules-sublist">
+                        <li>🔑 <strong>Senha Atual:</strong> <code>7NI</code> (Podes alterar diretamente no código fonte quando quiseres).</li>
+                        <li>👥 <strong>Recrutadores Ativos:</strong> Nosdnail e Mia.</li>
+                        <li>🛡️ <strong>Regra de Honra:</strong> Lembrem-se de cobrar os 4k semanais e os 2k mínimos para acesso às salas.</li>
+                        <li>📢 <strong>Avisos:</strong> Mantenham sempre o mural da Home atualizado com as novidades da tropa.</li>
+                    </ul>
+                </div>
+
+                <div class="section-action-container">
+                    <button onclick="goToScreen('main-screen')" class="action-btn secondary">
+                        🔒 Sair / Fechar Painel Restrito
+                    </button>
+                </div>
+            </div>
+        </div>
+
+        <footer>
+            <p>&copy; 2026 IN7 INVICTUS. Painel Restrito Seguro.</p>
+        </footer>
+    </div>
+
     <!-- SCRIPTS DE NAVEGAÇÃO, VALIDAÇÃO E DOWNLOAD DO CARD -->
     <script>
         function goToScreen(screenId) {
@@ -1344,6 +1487,22 @@
             });
             document.getElementById(screenId).classList.add('active');
             window.scrollTo(0, 0);
+        }
+
+        function verificarSenhaStaff() {
+            const senhaDigitada = document.getElementById('staff-password').value;
+            const erroDiv = document.getElementById('login-erro');
+            
+            // SENHA CONFIGURADA PARA A STAFF: 7NI
+            const senhaCorreta = "7NI";
+
+            if (senhaDigitada === senhaCorreta) {
+                erroDiv.style.display = 'none';
+                document.getElementById('staff-password').value = '';
+                goToScreen('staff-panel-screen');
+            } else {
+                erroDiv.style.display = 'block';
+            }
         }
 
         function atualizarCard() {
