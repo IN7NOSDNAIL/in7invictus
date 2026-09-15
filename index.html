@@ -1,15 +1,17 @@
 <!DOCTYPE html>
+
 <html lang="pt-BR">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>IN7 INVICTUS | Oficial</title>
     <link href="https://fonts.googleapis.com/css2?family=Cinzel:wght@700&family=Rajdhani:wght@500;700&display=swap" rel="stylesheet">
-    <!-- Configuração PWA -->
+    
+    <!-- Configuração PWA & Biblioteca de Exportação -->
     <link rel="manifest" href="manifest.json">
     <meta name="theme-color" content="#d4af37">
-    <!-- Biblioteca html2canvas para exportar o card em alta resolução -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
+    
     <style>
         * {
             margin: 0;
@@ -46,7 +48,7 @@
             z-index: -1;
         }
 
-        /* Sistema de Telas - Ocultas por padrão */
+        /* Sistema de Telas */
         .screen {
             display: none;
             position: relative;
@@ -58,14 +60,21 @@
             display: block;
         }
 
-        #payment-screen.active, #aprovacao-screen.active, #staff-panel-screen.active {
+        #payment-screen.active, 
+        #aprovacao-screen.active, 
+        #staff-panel-screen.active {
             display: flex;
             flex-direction: column;
             justify-content: space-between;
         }
 
-        /* Telas secundárias unificadas com a imagem 85760.png de fundo */
-        #recrutamento-screen, #eventos-screen, #payment-screen, #aprovacao-screen, #staff-login-screen, #staff-panel-screen {
+        #recrutamento-screen, 
+        #eventos-screen, 
+        #regulamento-screen, 
+        #payment-screen, 
+        #aprovacao-screen, 
+        #staff-login-screen, 
+        #staff-panel-screen {
             background: url('85760.png') no-repeat center center fixed;
             background-size: cover;
             min-height: 100vh;
@@ -186,7 +195,6 @@
             background: rgba(212, 175, 55, 0.1);
         }
 
-        /* Mural de Avisos da Staff */
         .staff-notice-box {
             background: linear-gradient(135deg, rgba(212, 175, 55, 0.12) 0%, rgba(15, 15, 15, 0.95) 100%);
             border: 1px solid #d4af37;
@@ -210,51 +218,6 @@
             margin-bottom: 8px;
         }
 
-        /* Estilo do AVISO GERAL OFICIAL */
-        .aviso-geral-box {
-            background: rgba(12, 12, 12, 0.95);
-            border: 2px solid #d4af37;
-            border-left: 6px solid #ff4b4b;
-            padding: 25px;
-            border-radius: 8px;
-            margin-bottom: 30px;
-            box-shadow: 0 0 30px rgba(212, 175, 55, 0.25);
-        }
-
-        .aviso-geral-box h3 {
-            font-family: 'Cinzel', serif;
-            color: #ffd700;
-            font-size: 1.3rem;
-            margin-bottom: 12px;
-            display: flex;
-            align-items: center;
-            gap: 8px;
-        }
-
-        .aviso-geral-box p, .aviso-geral-box li {
-            font-size: 1.05rem;
-            color: #ddd;
-            line-height: 1.6;
-            margin-bottom: 10px;
-        }
-
-        .aviso-geral-box ul {
-            list-style: none;
-            margin: 15px 0;
-            padding: 0;
-        }
-
-        .aviso-geral-box ul li {
-            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
-            padding: 8px 0;
-            display: block;
-        }
-
-        .aviso-geral-box strong {
-            color: #d4af37;
-        }
-
-        /* ================= PLAYER CARD COM FUNDO 100% PRETO ================= */
         .player-card-preview {
             width: 100%;
             max-width: 420px;
@@ -548,7 +511,6 @@
             object-fit: cover;
         }
 
-        /* Formulários e Inputs */
         .form-group {
             margin-bottom: 15px;
         }
@@ -606,7 +568,6 @@
             color: #fbe2e2;
         }
 
-        /* Área de Eventos & Chaveamentos */
         .event-banner-box {
             background: rgba(20, 20, 20, 0.9);
             border: 1px solid #d4af37;
@@ -617,16 +578,16 @@
 
         .rules-sublist {
             margin-top: 8px;
-            padding-left: 15px;
-            list-style: disc;
+            padding-left: 0;
+            list-style: none;
         }
 
         .rules-sublist li {
-            font-size: 1rem;
-            border-bottom: none;
-            padding: 3px 0;
-            color: #ccc;
-            display: list-item;
+            font-size: 1.05rem;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            padding: 8px 0;
+            color: #ddd;
+            display: block;
             text-align: left;
             justify-content: normal;
         }
@@ -639,7 +600,6 @@
             margin-top: 20px;
         }
 
-        /* Checkout PagBank */
         .checkout-box {
             background: rgba(15, 15, 15, 0.92);
             backdrop-filter: blur(10px);
@@ -687,7 +647,6 @@
             color: #d4af37;
         }
 
-        /* Ficha de Aprovação */
         .approval-container {
             width: 100%;
             max-width: 600px;
@@ -882,7 +841,7 @@
     </video>
     <div class="overlay"></div>
 
-    <!-- ================= TELA 1: HOME (PRINCIPAL) ================= -->
+    <!-- TELA PRINCIPAL (HOME) -->
     <div id="main-screen" class="screen active">
         <header>
             <img src="82605_2.jpg" alt="IN7 INVICTUS Logo" class="logo-img">
@@ -903,43 +862,12 @@
         </header>
 
         <div class="container">
-            <!-- 1. MURAL DE AVISOS DA STAFF -->
             <div class="staff-notice-box">
                 <span class="notice-badge">⚡ Mural da Staff</span>
                 <h3 style="color: #ffffff; font-family: 'Cinzel', serif; font-size: 1.2rem; margin-top: 5px;">Recrutamento Aberto (CS & BR)</h3>
                 <p style="font-size: 0.95rem; margin-bottom: 0; color: #ddd;">Atenção tropa: As inscrições para jogadores de CS e BR estão ativas. Verifique os requisitos e mande sua ficha direto com a staff!</p>
             </div>
 
-            <!-- AVISO GERAL - IN7 INVICTUS -->
-            <div class="aviso-geral-box">
-                <h3>🚨 AVISO GERAL - IN7 INVICTUS 🚨</h3>
-                <p>Família, para a IN7 crescer e ganhar moral lá fora, a partir de hoje a cobrança vai ser mais rigorosa. Somos parceiros, mas precisamos de compromisso.</p>
-                
-                <p style="color: #d4af37; font-weight: 700; margin-top: 15px;">‼️ Prestem atenção no que muda a partir de HOJE:</p>
-                
-                <ul>
-                    <li>📌 <strong>1. Metas de Honra:</strong><br>
-                    > • 2k de honra mínima para poder encostar nas salas.<br>
-                    > • 4k de honra semanal OBRIGATÓRIA.<br>
-                    > • Quem não justificar, não bater meta, vai levar advertência, se bater 3/3 é ban. Não tem conversa.</li>
-                    
-                    <li style="margin-top: 12px;">📌 <strong>2. Gravações, Salinhas e Eventos:</strong><br>
-                    > • Presença obrigatória em TUDO o que a guilda organizar (gravações, salinhas e eventos internos). Chega de preguiça e de "cumprir tabela". Quem veste a camisa participa e ponto final.<br>
-                    > Se não puder participar, justifique.</li>
-                    
-                    <li style="margin-top: 12px;">📌 <strong>3. GVG Obrigatória:</strong><br>
-                    > • Como o resultado da nossa enquete deixou claro, a grande maioria foca em BR, então a <strong>GVG AGORA É OBRIGATÓRIA</strong>, <em>(com o mínimo de 100 pontos)</em>.<br>
-                    > • A única exceção de isenção da GVG vai para quem joga estritamente CS (conforme o voto na enquete). O resto vai ter que colar e dar o sangue.<br>
-                    > <em>Mais tarde vai ser postado um comunicado explicando melhor a situação.</em></li>
-                    
-                    <li style="margin-top: 12px;">📌 <strong>4. Engajamento e Moral:</strong><br>
-                    > • Postou vídeo ou conteúdo da guilda? É obrigação de todo mundo ir lá curtir, comentar e dar moral. Guilda que não se apoia não cresce.</li>
-                </ul>
-
-                <p style="margin-top: 15px; font-style: italic; color: #f5f5f5;">O aviso tá dado. A gente é amigo de jogo, mas aqui dentro a cobrança é de líder para membro. Quem quiser somar e fazer a IN7 respeitada, cola com a gente. Quem não quiser, a porta está aberta. Disciplina e foco! 👊🔥</p>
-            </div>
-
-            <!-- 2. SOBRE A GUILDA -->
             <div class="card">
                 <h2>Sobre a Guilda</h2>
                 <p>A <strong>IN7 INVICTUS</strong> é uma guilda de elite focada em alta performance, organização competitiva e lealdade absoluta. Nascida para dominar o cenário, nossa tropa valoriza o trabalho em equipe, o rush inteligente e o respeito dentro e fora do mapa.</p>
@@ -955,23 +883,24 @@
                     <span>2064438275</span>
                 </div>
 
-                <div class="section-action-container">
-                    <button onclick="goToScreen('eventos-screen')" class="action-btn secondary">
+                <div class="section-action-container" style="display: flex; gap: 10px; flex-wrap: wrap;">
+                    <button onclick="goToScreen('eventos-screen')" class="action-btn secondary" style="flex: 1; min-width: 200px;">
                         🏆 Ver Eventos & Campeonatos
+                    </button>
+                    <button onclick="goToScreen('regulamento-screen')" class="action-btn" style="flex: 1; min-width: 200px;">
+                        📜 Regulamento & Diretrizes
                     </button>
                 </div>
             </div>
 
-            <!-- TOP 3 DE HONRAS -->
             <div class="card">
                 <h2>Top 3 de Honras - Ranking Semanal</h2>
                 <p>A dedicação da nossa tropa é a nossa força! Confira o pódio da semana:</p>
                 <div class="honra-single-container">
-                    <img src="97326.jpg" alt="Top 3 de Honras Semanal" style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; border: 2px solid #d4af37; box-shadow: 0 5px 25px rgba(212, 175, 55, 0.4);">
+                    <img src="131297.png" alt="Top 3 de Honras Semanal" style="width: 100%; max-width: 450px; height: auto; border-radius: 8px; border: 2px solid #d4af37; box-shadow: 0 5px 25px rgba(212, 175, 55, 0.4);">
                 </div>
             </div>
 
-            <!-- 3. NOSSA STAFF -->
             <div class="card">
                 <h2>Nossa Staff</h2>
                 <p>O comando oficial da IN7 INVICTUS:</p>
@@ -992,8 +921,8 @@
                         <span style="color: #d4af37; font-size: 0.85rem; font-weight: 700; margin-top: 4px; text-align: center;">Vice-Líder & Gestão de Eventos</span>
                     </div>
                     <div class="staff-item">
-                        <img src="82950.jpg" alt="Perfil Mia">
-                        <span class="staff-name">Mia</span>
+                        <img src="82950.jpg" alt="Perfil Bulma">
+                        <span class="staff-name">Bulma</span>
                         <span style="color: #d4af37; font-size: 0.85rem; font-weight: 700; margin-top: 4px; text-align: center;">Vice-Líder & Gestão de Eventos</span>
                     </div>
                     <div class="staff-item">
@@ -1004,7 +933,6 @@
                 </div>
             </div>
 
-            <!-- 4. GERADOR DE PLAYER CARD -->
             <div class="card">
                 <h2>Gerador de Card Oficial IN7</h2>
                 <p>Monte seu cartão de membro profissional e baixe direto na galeria:</p>
@@ -1034,7 +962,6 @@
                     </select>
                 </div>
 
-                <!-- O PLAYER CARD -->
                 <div class="player-card-preview" id="player-card-render">
                     <div class="card-top-row">
                         <span class="card-guild-title">IN7 INVICTUS</span>
@@ -1073,7 +1000,6 @@
                 </button>
             </div>
 
-            <!-- REQUISITOS OFICIAIS -->
             <div class="card">
                 <h2>Requisitos Oficiais</h2>
                 <p>Para fazer parte da nossa tropa, o candidato precisa cumprir com os padrões mínimos da guilda:</p>
@@ -1085,7 +1011,7 @@
                     <li><span>Idade Mínima</span> <span>16 Anos</span></li>
                     <li><span>Obrigatório</span> <span>Troca Nick com a Tag (IN7ㅤ)</span></li>
                     <li><span>Meta de Honra</span> <span>4.000+ Semanal (2k mín. p/ salas) 🔥</span></li>
-                    <li><span>GVG / Engajamento</span> <span>Obrigatório (Regras do Aviso Geral) ⚔️</span></li>
+                    <li><span>GVG / Engajamento</span> <span>Obrigatório (Mín. 100 pts na GVG) ⚔️</span></li>
                 </ul>
 
                 <div class="section-action-container">
@@ -1095,7 +1021,6 @@
                 </div>
             </div>
 
-            <!-- LOJA OFICIAL IN7 -->
             <div class="card">
                 <h2>Loja Oficial IN7</h2>
                 <p>Garanta seu Passe de Elite com segurança e ótimo preço:</p>
@@ -1118,7 +1043,7 @@
         </footer>
     </div>
 
-    <!-- ================= TELA 2: RECRUTAMENTO ================= -->
+    <!-- TELA DE RECRUTAMENTO -->
     <div id="recrutamento-screen" class="screen">
         <header>
             <h1>Recrutamento <span>IN7</span></h1>
@@ -1146,7 +1071,12 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="idade">Idade:</label>
+                    <label for="datanascimento">Data de Nascimento:</label>
+                    <input type="date" id="datanascimento" class="form-control">
+                </div>
+
+                <div class="form-group">
+                    <label for="idade">Idade Informada:</label>
                     <input type="number" id="idade" class="form-control" placeholder="Ex: 17">
                 </div>
 
@@ -1202,7 +1132,7 @@
         </div>
     </div>
 
-    <!-- ================= TELA 3: EVENTOS & CAMPEONATOS ================= -->
+    <!-- TELA DE EVENTOS -->
     <div id="eventos-screen" class="screen">
         <header>
             <h1>Arena de Eventos & <span>Campeonatos</span></h1>
@@ -1264,7 +1194,61 @@
         </div>
     </div>
 
-    <!-- ================= TELA 4: PAGAMENTO / PASSE ================= -->
+    <!-- TELA DE REGULAMENTO -->
+    <div id="regulamento-screen" class="screen">
+        <header>
+            <h1>Regulamento & <span>Diretrizes</span></h1>
+            <div class="motto">O que esperamos da tropa e regras oficiais</div>
+        </header>
+
+        <div class="container">
+            <div class="card">
+                <h2>O que esperamos dos membros</h2>
+                <p>Compromisso e engajamento com a nossa bandeira:</p>
+
+                <div class="event-banner-box" style="border-left-color: #25d366;">
+                    <ul class="rules-sublist">
+                        <li>✅ Ser ativo no jogo</li>
+                        <li>✅ Mínimo de 2.000 honras para jogar nas salas e 4.000 honras semanais obrigatórias</li>
+                        <li>✅ Participar de TUDO o que a guilda organizar (eventos, salinhas e gravações) com justificativa prévia em caso de ausência</li>
+                        <li>✅ Participação obrigatória na GVG (para a base de BR, com mínimo de 100 pontos; isenção apenas para quem joga estritamente CS)</li>
+                        <li>✅ Engajamento ativo nas redes sociais da guilda (curtir e comentar conteúdos postados)</li>
+                    </ul>
+                </div>
+            </div>
+
+            <div class="card" style="border-left-color: #ff4b4b;">
+                <h2 style="color: #ff4b4b;">⛔ Regras da IN7</h2>
+                <p>Infrações que não serão toleradas na nossa organização:</p>
+
+                <div class="event-banner-box" style="border-left-color: #ff4b4b;">
+                    <ul class="rules-sublist">
+                        <li>🚫 Hack, trapaça ou qualquer tipo de vantagem ilícita</li>
+                        <li>🚫 Vendas de contas, passes, diamantes etc. sem autorização da staff</li>
+                        <li>🚫 Envio de links suspeitos ou spam no chat principal</li>
+                        <li>🚫 Imagens/vídeos em visualização única (para manter a segurança e transparência do grupo)</li>
+                        <li>🚫 Alterar a fonte da TAG ou colocá-la após o nick</li>
+                        <li>🚫 Ficar mais de 2 dias off sem justificar para a liderança</li>
+                        <li>🚫 Desrespeitar membros, staff ou liderança</li>
+                        <li>🚫 Invadir o PV de outros membros sem permissão</li>
+                        <li>🚫 Discurso de ódio, racismo, homofobia ou qualquer preconceito</li>
+                        <li>🚫 Conteúdo pornográfico (fotos, vídeos, figurinhas etc.)</li>
+                        <li>🚫 Xingamentos pesados e falta de respeito excessiva (farpas leves de jogo rolam, mas sem cruzar a linha da toxicidade)</li>
+                        <li>🚫 Jogar a salinha sem atingir o mínimo de 2.000 pontos de honra</li>
+                        <li>🚫 Não bater as metas semanais (acumular 3 advertências por falta de meta ou sumiço sem justificativa resulta em banimento direto)</li>
+                    </ul>
+                </div>
+
+                <div class="section-action-container">
+                    <button onclick="goToScreen('main-screen')" class="action-btn secondary">
+                        ← Voltar para o Início
+                    </button>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <!-- TELA DE PAGAMENTO -->
     <div id="payment-screen" class="screen">
         <header>
             <h1>Passe <span>IN7</span></h1>
@@ -1296,7 +1280,7 @@
         </footer>
     </div>
 
-    <!-- ================= TELA 5: APROVAÇÃO (INTEGRADA) ================= -->
+    <!-- TELA DE APROVAÇÃO DE FICHA -->
     <div id="aprovacao-screen" class="screen">
         <header>
             <h1>IN7 <span>INVICTUS</span></h1>
@@ -1310,11 +1294,8 @@
                     <div class="status-tag">✅ Inscrição Aprovada</div>
                 </div>
 
-                <div class="ficha-box" id="ficha-detalhes">
-                    <!-- Preenchido via JavaScript -->
-                </div>
+                <div class="ficha-box" id="ficha-detalhes"></div>
 
-                <!-- MINI PLAYER CARD GERADO AUTOMATICAMENTE DO RECRUTA -->
                 <div style="margin: 20px 0; text-align: center;">
                     <p style="color: #d4af37; font-weight: 700; margin-bottom: 8px;">🎨 SEU CARD OFICIAL GERADO:</p>
                     <div class="player-card-preview" id="player-card-render-aprovacao" style="max-width: 100%; margin: 0 auto;">
@@ -1386,13 +1367,12 @@
                     </div>
                 </div>
 
-                <!-- DOIS BOTÕES DE WHATSAPP (RECRUTADOR 1 E RECRUTADOR 2) -->
                 <a id="btn-whatsapp-nosdnail" href="#" target="_blank" class="btn-whatsapp-final">
                     📲 Enviar Ficha — Recrutador 1 (NOSDNAIL)
                 </a>
 
-                <a id="btn-whatsapp-mia" href="#" target="_blank" class="btn-whatsapp-final" style="background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);">
-                    📲 Enviar Ficha — Recrutador 2 (MIA)
+                <a id="btn-whatsapp-bulma" href="#" target="_blank" class="btn-whatsapp-final" style="background: linear-gradient(135deg, #128c7e 0%, #25d366 100%);">
+                    📲 Enviar Ficha — Recrutador 2 (BULMA)
                 </a>
 
                 <div class="links-section">
@@ -1412,11 +1392,11 @@
         </div>
 
         <footer>
-            <p>&copy; 2026 IN7 INVICTUS. Todos os direitos reservados. Staff: Bea, KONG, NOSDNAIL, Mia e DAMA.</p>
+            <p>&copy; 2026 IN7 INVICTUS. Todos os direitos reservados. Staff: Bea, KONG, NOSDNAIL, Bulma e DAMA.</p>
         </footer>
     </div>
 
-    <!-- ================= TELA 6: LOGIN DA STAFF ================= -->
+    <!-- TELA DE LOGIN DA STAFF -->
     <div id="staff-login-screen" class="screen">
         <header>
             <h1>Área Restrita <span>Staff</span></h1>
@@ -1444,7 +1424,7 @@
         </footer>
     </div>
 
-    <!-- ================= TELA 7: PAINEL RESTRITO DA STAFF ================= -->
+    <!-- PAINEL INTERNO DA STAFF -->
     <div id="staff-panel-screen" class="screen">
         <header>
             <h1>Painel Interno <span>Staff</span></h1>
@@ -1459,8 +1439,8 @@
                 <div class="event-banner-box" style="margin-top: 20px;">
                     <h3 style="color: #d4af37; font-family: 'Cinzel', serif; margin-bottom: 8px;">📋 Diretrizes Rápidas da Staff:</h3>
                     <ul class="rules-sublist">
-                        <li>🔑 <strong>Senha Atual:</strong> <code>7NI</code> (Podes alterar diretamente no código fonte quando quiseres).</li>
-                        <li>👥 <strong>Recrutadores Ativos:</strong> Nosdnail e Mia.</li>
+                        <li>🔑 <strong>Senha Atual:</strong> <code>7NI</code></li>
+                        <li>👥 <strong>Recrutadores Ativos:</strong> Nosdnail e Bulma.</li>
                         <li>🛡️ <strong>Regra de Honra:</strong> Lembrem-se de cobrar os 4k semanais e os 2k mínimos para acesso às salas.</li>
                         <li>📢 <strong>Avisos:</strong> Mantenham sempre o mural da Home atualizado com as novidades da tropa.</li>
                     </ul>
@@ -1479,7 +1459,7 @@
         </footer>
     </div>
 
-    <!-- SCRIPTS DE NAVEGAÇÃO, VALIDAÇÃO E DOWNLOAD DO CARD -->
+    <!-- SCRIPTS DE NAVEGAÇÃO E FUNCIONALIDADES -->
     <script>
         function goToScreen(screenId) {
             document.querySelectorAll('.screen').forEach(screen => {
@@ -1492,8 +1472,6 @@
         function verificarSenhaStaff() {
             const senhaDigitada = document.getElementById('staff-password').value;
             const erroDiv = document.getElementById('login-erro');
-            
-            // SENHA CONFIGURADA PARA A STAFF: 7NI
             const senhaCorreta = "7NI";
 
             if (senhaDigitada === senhaCorreta) {
@@ -1566,7 +1544,8 @@
             const nome = document.getElementById('nome').value.trim();
             const email = document.getElementById('email').value.trim();
             const whatsapp = document.getElementById('whatsapp').value.trim();
-            const idade = parseInt(document.getElementById('idade').value);
+            const dataNasc = document.getElementById('datanascimento').value;
+            const idadeInformada = parseInt(document.getElementById('idade').value);
             const ffid = document.getElementById('ffid').value.trim();
             const level = parseInt(document.getElementById('level').value);
             const modopatente = document.getElementById('modopatente').value;
@@ -1576,17 +1555,30 @@
             const trocanick = document.getElementById('trocanick').value;
             const resultado = document.getElementById('resultado-recrutamento');
 
-            if (!nome || !email || !whatsapp || isNaN(idade) || !ffid || isNaN(level) || !patente || !nickatual || !nickpretendido.trim()) {
+            if (!nome || !email || !whatsapp || !dataNasc || isNaN(idadeInformada) || !ffid || isNaN(level) || !patente || !nickatual || !nickpretendido.trim()) {
                 resultado.style.display = 'block';
                 resultado.className = 'resultado-erro';
                 resultado.innerHTML = '⚠️ Por favor, preencha todos os campos do formulário!';
                 return;
             }
 
+            // Cálculo da idade real com base na data de nascimento
+            const hoje = new Date();
+            const nascimento = new Date(dataNasc);
+            let idadeCalculada = hoje.getFullYear() - nascimento.getFullYear();
+            const m = hoje.getMonth() - nascimento.getMonth();
+            if (m < 0 || (m === 0 && hoje.getDate() < nascimento.getDate())) {
+                idadeCalculada--;
+            }
+
             let erros = [];
 
-            if (idade < 16) {
-                erros.push(`• Idade mínima exigida: 16 anos (Você informou: ${idade})`);
+            if (idadeCalculada !== idadeInformada) {
+                erros.push(`• A idade informada (${idadeInformada} anos) não confere com a data de nascimento informada (Calculado: ${idadeCalculada} anos)`);
+            }
+
+            if (idadeCalculada < 16) {
+                erros.push(`• Idade mínima exigida: 16 anos (Sua idade: ${idadeCalculada})`);
             }
 
             if (level < 50) {
@@ -1594,8 +1586,6 @@
             }
 
             const patenteLower = patente.toLowerCase();
-            
-            // BLINDAGEM CONTRA PATENTES BAIXAS (Diamante, Dima, Platina, Ouro, Prata, Bronze, etc.)
             const patenteProibida = patenteLower.includes('diamante') || 
                                     patenteLower.includes('dima') || 
                                     patenteLower.includes('platina') || 
@@ -1622,7 +1612,6 @@
                         patenteValida = temEstrelasValidas;
                     }
                 } else {
-                    // Ambos
                     const éMestreHonra = patenteLower.includes('honra');
                     const éMestreSimples = patenteLower.includes('mestre');
                     const temEstrelasValidas = patenteLower.includes('2') || patenteLower.includes('dois') || 
@@ -1663,7 +1652,8 @@
             } else {
                 document.getElementById('ficha-detalhes').innerHTML = `
                     <p><strong>👤 Nome:</strong> ${nome}</p>
-                    <p><strong>🎂 Idade:</strong> ${idade} anos</p>
+                    <p><strong>📅 Data de Nascimento:</strong> ${dataNasc.split('-').reverse().join('/')}</p>
+                    <p><strong>🎂 Idade:</strong> ${idadeCalculada} anos</p>
                     <p><strong>🆔 ID Free Fire:</strong> ${ffid}</p>
                     <p><strong>📧 E-mail:</strong> ${email}</p>
                     <p><strong>📱 WhatsApp:</strong> ${whatsapp}</p>
@@ -1676,7 +1666,6 @@
                     <p><strong>📌 Status Final:</strong> <span style="color:#25d366; font-weight:700;">✅ APROVADO</span></p>
                 `;
 
-                // ATUALIZA OS DADOS NO CARD DE APROVAÇÃO AUTOMATICAMENTE
                 document.getElementById('aprov-render-nick').innerText = nickpretendido;
                 document.getElementById('aprov-render-modo').innerText = modopatente;
                 document.getElementById('aprov-render-patente').innerText = patente;
@@ -1690,7 +1679,8 @@
 
 📊 *RECRUTAMENTO IN7:*
 👤 *Nome:* ${nome}
-🎂 *Idade:* ${idade} anos
+📅 *Data de Nascimento:* ${dataNasc.split('-').reverse().join('/')}
+🎂 *Idade:* ${idadeCalculada} anos
 🆔 *ID:* ${ffid}
 📧 *E-mail:* ${email}
 📱 *WhatsApp:* ${whatsapp}
@@ -1707,9 +1697,8 @@
 🎬 *TikTok:* https://www.tiktok.com/@in7_invictus?_r=1&_t=ZS-999mudkCwhV
 📌 *Discord:* https://discord.gg/cadv2E4eKe`;
 
-                // Configura os links para o WhatsApp do NOSDNAIL e da Mia
                 document.getElementById('btn-whatsapp-nosdnail').href = `https://wa.me/5585988640850?text=${encodeURIComponent(textoWhatsApp)}`;
-                document.getElementById('btn-whatsapp-mia').href = `https://wa.me/5561992931495?text=${encodeURIComponent(textoWhatsApp)}`;
+                document.getElementById('btn-whatsapp-bulma').href = `https://wa.me/5561992931495?text=${encodeURIComponent(textoWhatsApp)}`;
                 
                 goToScreen('aprovacao-screen');
             }
@@ -1728,6 +1717,5 @@
             }
         }
     </script>
-
 </body>
 </html>
