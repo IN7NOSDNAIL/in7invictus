@@ -234,42 +234,54 @@
             font-size: 1.1rem;
             text-transform: uppercase;
         }
+        
+        /* NOVO ESTILO PARA AS LINEs GRANDES (ESTILO BANNERS) */
         .line-card-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+            display: flex;
+            flex-direction: column;
             gap: 20px;
             margin-top: 20px;
         }
         .line-item-box {
-            background: rgba(20, 20, 20, 0.9);
+            background: rgba(20, 20, 20, 0.95);
             border: 1px solid #444;
-            border-top: 3px solid #d4af37;
+            border-left: 4px solid #d4af37;
             border-radius: 8px;
-            padding: 20px;
-            text-align: center;
+            overflow: hidden;
             box-shadow: 0 5px 15px rgba(0,0,0,0.5);
+            text-align: left;
         }
         .line-logo-img {
-            width: 90px;
-            height: 90px;
-            border-radius: 50%;
-            border: 2px solid #d4af37;
+            width: 100%;
+            height: 240px;
             object-fit: cover;
-            margin: 0 auto 12px auto;
-            box-shadow: 0 0 15px rgba(212, 175, 55, 0.4);
+            display: block;
+            border-bottom: 2px solid #d4af37;
+        }
+        .line-content-box {
+            padding: 15px 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            flex-wrap: wrap;
+            gap: 10px;
         }
         .line-title {
             font-family: 'Cinzel', serif;
             color: #ffffff;
-            font-size: 1.15rem;
-            margin-bottom: 6px;
+            font-size: 1.3rem;
         }
         .line-cpt {
             color: #d4af37;
             font-weight: 700;
-            font-size: 0.95rem;
+            font-size: 1.05rem;
             text-transform: uppercase;
+            background: rgba(212, 175, 55, 0.1);
+            padding: 6px 12px;
+            border-radius: 4px;
+            border: 1px solid rgba(212, 175, 55, 0.3);
         }
+
         .shop-price {
             color: #d4af37;
             font-size: 1.4rem;
@@ -701,7 +713,7 @@
                 </div>
             </div>
 
-            <!-- Nossa Staff Atualizada (Bea, Kong, Shaka, Payasa - Sem Dama) -->
+            <!-- Nossa Staff Atualizada (Bea, Kong, Shaka, Payasa) -->
             <div class="card">
                 <h2>Nossa Staff</h2>
                 <p>O comando oficial da IN7 INVICTUS:</p>
@@ -719,7 +731,7 @@
                     <div class="staff-item">
                         <img src="266841.jpg" alt="Perfil Shaka">
                         <span class="staff-name">SHAKA</span>
-                        <span style="color: #d4af37; font-size: 0.85rem; font-weight: 700; margin-top: 4px; text-align: center;">Vice-Líder & Gestão</span>
+                        <span style="color: #d4af37; font-size: 0.85rem; font-weight: 700; margin-top: 4px; text-align: center;">Vice-Líder & Gestão de Eventos</span>
                     </div>
                     <div class="staff-item">
                         <img src="266842.jpg" alt="Perfil Payasa">
@@ -729,7 +741,7 @@
                 </div>
             </div>
 
-            <!-- Nossas LINEs Oficiais com seus Capitães -->
+            <!-- Nossas LINEs Oficiais em Formato Grande (Estilo Banner) -->
             <div class="card">
                 <h2>Nossas LINEs Oficiais</h2>
                 <p>Conheça as equipes competitivas da IN7 INVICTUS e seus respectivos capitães:</p>
@@ -737,20 +749,26 @@
                     <!-- LINE 1: Aliens7 -->
                     <div class="line-item-box">
                         <img src="266846.jpg" alt="Logo Aliens7" class="line-logo-img">
-                        <div class="line-title">ALIENS7</div>
-                        <div class="line-cpt">CPT: IN7 SANTZX</div>
+                        <div class="line-content-box">
+                            <div class="line-title">ALIENS7</div>
+                            <div class="line-cpt">CPT: IN7 SANTZX</div>
+                        </div>
                     </div>
                     <!-- LINE 2: Lumina -->
                     <div class="line-item-box">
                         <img src="257406.jpg" alt="Logo Lumina" class="line-logo-img">
-                        <div class="line-title">LUMINA</div>
-                        <div class="line-cpt">CPT: IN7 LEONA</div>
+                        <div class="line-content-box">
+                            <div class="line-title">LUMINA</div>
+                            <div class="line-cpt">CPT: IN7 LEONA</div>
+                        </div>
                     </div>
                     <!-- LINE 3: Tropa do Pix -->
                     <div class="line-item-box">
                         <img src="218138.jpg" alt="Logo Tropa do Pix" class="line-logo-img">
-                        <div class="line-title">TROPA DO PIX</div>
-                        <div class="line-cpt">CPT: IN7 SHAKA</div>
+                        <div class="line-content-box">
+                            <div class="line-title">TROPA DO PIX</div>
+                            <div class="line-cpt">CPT: IN7 SHAKA</div>
+                        </div>
                     </div>
                 </div>
             </div>
