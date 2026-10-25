@@ -235,7 +235,7 @@
             text-transform: uppercase;
         }
         
-        /* NOVO ESTILO PARA AS LINEs GRANDES (ESTILO BANNERS) */
+        /* AJUSTE PERFEITO DAS LINEs (Tamanho ideal, sem cortes) */
         .line-card-grid {
             display: flex;
             flex-direction: column;
@@ -253,8 +253,9 @@
         }
         .line-logo-img {
             width: 100%;
-            height: 240px;
-            object-fit: cover;
+            max-height: 320px;
+            object-fit: contain; /* Mostra a arte INTEIRA sem cortar nas laterais */
+            background: #000;
             display: block;
             border-bottom: 2px solid #d4af37;
         }
@@ -741,7 +742,7 @@
                 </div>
             </div>
 
-            <!-- Nossas LINEs Oficiais em Formato Grande (Estilo Banner) -->
+            <!-- Nossas LINEs Oficiais com Tamanho Perfeito (object-fit: contain) -->
             <div class="card">
                 <h2>Nossas LINEs Oficiais</h2>
                 <p>Conheça as equipes competitivas da IN7 INVICTUS e seus respectivos capitães:</p>
